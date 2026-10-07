@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mond & Rhythmus • Jenna</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#090B10">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Mond%20%26%20Rhythmus%20%E2%80%A2%20Jenna%22%2C%22short_name%22%3A%22JennaMond%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23090B10%22%2C%22theme_color%22%3A%22%23090B10%22%7D">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-cosmic: #090B10;
+    --card-bg: rgba(18, 22, 34, 0.78);
+    --card-inner: rgba(12, 15, 25, 0.68);
+    --border: rgba(212, 175, 106, 0.22);
+    --border-glow: rgba(224, 186, 120, 0.45);
+    --gold: #E5C384;
+    --gold-bright: #F7E7C4;
+    --amethyst: #9D84B7;
+    --amethyst-soft: rgba(157, 132, 183, 0.18);
+    --starlight: #F0F3FA;
+    --muted: #8E97AB;
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+  
+  body {
+    background-color: var(--bg-cosmic);
+    background-image: 
+      radial-gradient(circle at 20% 12%, rgba(157, 132, 183, 0.22), transparent 45%),
+      radial-gradient(circle at 80% 25%, rgba(229, 195, 132, 0.18), transparent 40%),
+      radial-gradient(circle at 50% 85%, rgba(35, 45, 75, 0.35), transparent 50%),
+      radial-gradient(circle at 50% 50%, #0D1019, #06070B);
+    color: var(--starlight);
+    line-height: 1.6;
+    padding-bottom: 95px;
+    min-height: 100vh;
+  }
+
+  .container { max-width: 620px; margin: 0 auto; padding: 20px 16px; }
+
+  header { text-align: center; padding: 14px 0 10px; position: relative; }
+  .moon-orb {
+    font-size: 2.3rem;
+    color: var(--gold);
+    display: inline-block;
+    filter: drop-shadow(0 0 16px rgba(229, 195, 132, 0.65));
+    animation: gentlePulse 6s ease-in-out infinite;
+  }
+  @keyframes gentlePulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(229,195,132,0.55)); }
+    50% { transform: scale(1.04); filter: drop-shadow(0 0 22px rgba(229,195,132,0.85)); }
+  }
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--gold-bright);
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .subtitle {
+    font-size: 0.74rem;
+    color: var(--amethyst);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Daily Reminder Quote Banner */
+  .daily-reminder-card {
+    background: linear-gradient(135deg, rgba(28, 22, 42, 0.85) 0%, rgba(18, 22, 34, 0.9) 100%);
+    border: 1px solid rgba(229, 195, 132, 0.35);
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .daily-reminder-tag {
+    font-size: 0.68rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .daily-reminder-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.18rem;
+    font-style: italic;
+    color: var(--gold-bright);
+    line-height: 1.45;
+  }
+
+  .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+    position: relative;
+  }
+
+  /* Phase Banner */
+  .phase-banner {
+    background: linear-gradient(145deg, rgba(30, 36, 56, 0.95) 0%, rgba(16, 20, 32, 0.98) 100%);
+    border: 1px solid var(--border-glow);
+    color: var(--gold-bright);
+    padding: 20px 18px;
+    border-radius: var(--radius);
+    margin-bottom: 18px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(229, 195, 132, 0.08);
+  }
+  .phase-banner::before {
+    content: "✧ ✦ ✧";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 8px;
+    opacity: 0.7;
+  }
+  .moon-subhead {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(229, 195, 132, 0.12);
+    border: 1px solid var(--border);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    color: var(--gold);
+    margin-top: 8px;
+    font-weight: 500;
+  }
+  .phase-tag {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    color: var(--amethyst);
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .phase-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.95rem;
+    font-weight: 700;
+    margin: 4px 0 2px;
+    color: #FFF;
+    letter-spacing: 0.5px;
+  }
+  .phase-days { font-size: 0.85rem; color: var(--starlight); opacity: 0.9; }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: var(--gold-bright);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .badge {
+    background: rgba(229, 195, 132, 0.15);
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Oracle Boxes */
+  .oracle-box {
+    background: var(--card-inner);
+    border-left: 3px solid var(--gold);
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    margin-bottom: 10px;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .oracle-box strong { color: var(--gold); display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-weight: 600; font-size: 0.88rem; }
+  .oracle-box p { color: var(--starlight); font-size: 0.84rem; line-height: 1.55; opacity: 0.95; }
+
+  /* Checklists */
+  .checklist { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .check-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    background: var(--card-inner);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.86rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .check-item:hover { border-color: var(--border-glow); background: rgba(35, 45, 65, 0.45); }
+  .check-item.life-item { border-left: 3px solid var(--amethyst); }
+  .check-item.ritual-item { border-left: 3px solid var(--gold); }
+  .check-item input[type="checkbox"] { accent-color: var(--gold); width: 18px; height: 18px; cursor: pointer; }
+
+  .add-item-row { display: flex; gap: 8px; margin-top: 10px; }
+  .add-item-row input {
+    flex: 1;
+    background: rgba(10, 13, 22, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 12px;
+    color: var(--starlight);
+    font-size: 0.86rem;
+    outline: none;
+  }
+  .add-item-row input:focus { border-color: var(--gold); }
+  .add-item-row button {
+    background: linear-gradient(135deg, rgba(65, 55, 90, 0.9), rgba(45, 35, 70, 0.95));
+    color: var(--gold-bright);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .add-item-row button:hover { border-color: var(--gold); }
+
+  .food-del { color: #A36A6A; background: none; border: none; cursor: pointer; font-size: 1.1rem; padding: 0 4px; }
+  .food-del:hover { color: #E58B8B; }
+
+  /* Pills */
+  .pill-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .pill-container {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(12, 16, 26, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 11px;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .pill-container:hover { border-color: var(--gold); }
+  .pill-container.active {
+    background: linear-gradient(135deg, var(--gold), #D4AF6A);
+    border-color: var(--gold);
+  }
+  .pill-container.active .pill-label { color: #090B10; font-weight: 600; }
+  .pill-container.active .pill-del-btn { color: #3A2A10; }
+  .pill-label { font-size: 0.78rem; color: var(--starlight); user-select: none; }
+  .pill-del-btn { background: none; border: none; color: #727C94; font-size: 0.95rem; margin-left: 6px; cursor: pointer; padding: 0 2px; line-height: 1; }
+  .pill-del-btn:hover { color: #E58B8B; }
+
+  textarea {
+    width: 100%;
+    background: rgba(10, 13, 22, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 12px;
+    color: var(--starlight);
+    font-size: 0.86rem;
+    outline: none;
+    resize: none;
+    margin-top: 6px;
+  }
+  textarea:focus { border-color: var(--gold); }
+
+  /* Tables */
+  .eval-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.84rem; }
+  .eval-table th, .eval-table td { padding: 9px 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .eval-table th { color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600; }
+  .eval-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Navigation Bar */
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 12, 18, 0.96);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    max-width: 620px;
+    margin: 0 auto;
+    z-index: 100;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    font-size: 0.72rem;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .tab-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .tab-btn.active { color: var(--gold); font-weight: 600; }
+
+  .field { margin-bottom: 12px; }
+  label { font-size: 0.8rem; color: var(--amethyst); display: block; margin-bottom: 4px; font-weight: 500; }
+  input[type="date"], input[type="number"] {
+    width: 100%;
+    background: rgba(10, 13, 22, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--starlight);
+    font-size: 0.9rem;
+    outline: none;
+  }
+  input[type="date"]:focus, input[type="number"]:focus { border-color: var(--gold); }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-glow);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(65, 55, 90, 0.95), rgba(40, 32, 60, 0.95));
+    color: var(--gold-bright);
+    margin-top: 8px;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn:hover { border-color: var(--gold); box-shadow: 0 0 15px rgba(229, 195, 132, 0.25); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--border);
+  }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+  .stat-card {
+    background: var(--card-inner);
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .stat-val { font-size: 1.5rem; font-weight: 700; color: var(--gold-bright); font-family: 'Cinzel', serif; }
+  .stat-lbl { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  .archive-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(229, 195, 132, 0.12);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--gold-bright);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .archive-badge.active {
+    background: var(--gold);
+    color: #090B10;
+    font-weight: 600;
+  }
+
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="moon-orb" id="moonIcon">☾</div>
+    <h1>Mond & Rhythmus</h1>
+    <div class="subtitle">Jennas Kosmischer Zyklus- & Lifestyle-Begleiter</div>
+  </header>
+
+  <!-- TAB: HEUTE -->
+  <div id="tab-today">
+    
+    <!-- DAILY REMINDER: Gelassenheits- & Motivations-Spruch -->
+    <div class="daily-reminder-card">
+      <div class="daily-reminder-tag">✧ Tägliche Botschaft & Gelassenheit ✧</div>
+      <div class="daily-reminder-quote" id="dailyReminderQuote">"Atme tief ein. Du bist genau dort, wo du heute sein sollst."</div>
+    </div>
+
+    <!-- Banner -->
+    <div class="phase-banner" id="phaseBanner">
+      <div class="moon-subhead">
+        <span id="astronomicalMoonGlyph">🌘</span>
+        <span id="astronomicalMoonName">Mond am Himmel wird berechnet...</span>
+      </div>
+      <div class="phase-tag" id="phaseTag">INNERE JAHRESZEIT</div>
+      <div class="phase-name" id="phaseName">Zyklusphase wird berechnet...</div>
+      <div class="phase-days" id="phaseDays">Zyklustag • Tage bis Menstruation</div>
+    </div>
+
+    <!-- Spirituelle & Hormonelle Tages-Impulse -->
+    <div class="card">
+      <h2>Kosmische & Innere Impulse <span class="badge" id="todayDateStr">Heute</span></h2>
+      
+      <div class="oracle-box">
+        <strong><span>✦</span> Hormonelle & seelische Energie:</strong>
+        <p id="hormoneDesc">Lade Impulse...</p>
+      </div>
+
+      <div class="oracle-box">
+        <strong><span>☾</span> Mondin am Himmel & Intention:</strong>
+        <p id="moonTip">Lade Mond-Impuls...</p>
+      </div>
+
+      <div class="oracle-box">
+        <strong><span>🕊️</span> Achtsamkeits- & Dehn-Impuls:</strong>
+        <p id="bodyTips">Lade Achtsamkeits-Impuls...</p>
+      </div>
+    </div>
+
+    <!-- Lifestyle & Habit Tracker -->
+    <div class="card">
+      <h2>Lifestyle & Herzens-Tracker</h2>
+      <p style="font-size:0.8rem; color:var(--muted); margin-bottom: 8px;">
+        Hake ab, was du heute erlebt und gefühlt hast:
+      </p>
+
+      <div class="checklist" id="lifestyleHabitsContainer"></div>
+
+      <div class="add-item-row">
+        <input type="text" id="newLifestyleInput" placeholder="+ Weiteren Herzens-Punkt hinzufügen..." onkeydown="if(event.key==='Enter') addCustomLifestyleHabit()">
+        <button onclick="addCustomLifestyleHabit()">+</button>
+      </div>
+    </div>
+
+    <!-- Tägliche Seelen-Rituale & Dehnen (OHNE Beine an die Wand) -->
+    <div class="card">
+      <h2>Rituale, Dehnen & Me-Time</h2>
+      <p style="font-size:0.8rem; color:var(--muted); margin-bottom: 8px;">
+        Kleine Wohltaten für deinen Körper und dein Nervensystem:
+      </p>
+
+      <div class="checklist" id="ritualsContainer"></div>
+
+      <div class="add-item-row">
+        <input type="text" id="newRitualInput" placeholder="+ Eigenes Ritual / Übung hinzufügen..." onkeydown="if(event.key==='Enter') addCustomRitual()">
+        <button onclick="addCustomRitual()">+</button>
+      </div>
+
+      <!-- Energielevel & Intuition (vollständig erweiterbar) -->
+      <div style="margin-top: 18px;">
+        <label>Innere Schwingung & Energielevel (Wähle oder füge hinzu):</label>
+        <div class="pill-group" id="energyGroup"></div>
+        <div class="add-item-row" style="margin-top: 8px;">
+          <input type="text" id="newEnergyInput" placeholder="+ Eigene Schwingung / Gefühl hinzufügen..." onkeydown="if(event.key==='Enter') addCustomEnergy()">
+          <button onclick="addCustomEnergy()">+</button>
+        </div>
+      </div>
+
+      <!-- Symptome & Körpersignale (vollständig erweiterbar) -->
+      <div style="margin-top: 18px;">
+        <label>Körpersignale & Empfindungen (Klick / + für Eigene):</label>
+        <div class="pill-group" id="symptomsGroup"></div>
+        
+        <div class="add-item-row" style="margin-top: 8px;">
+          <input type="text" id="newSymptomInput" placeholder="+ Eigenes Körpersignal hinzufügen..." onkeydown="if(event.key==='Enter') addCustomSymptom()">
+          <button onclick="addCustomSymptom()">+</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px;">
+        <label>Tagebuch der Seele & Gedanken:</label>
+        <textarea id="dailyNotes" rows="3" placeholder="Wofür bist du heute dankbar? Welche Botschaft hat dein Körper an dich?" oninput="saveTodayLog()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: AUSWERTUNG -->
+  <div id="tab-report" class="hidden">
+    <div class="card" style="padding: 14px 18px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <label style="color:var(--gold); font-weight:600; margin:0;">Zyklus wählen / Archiv:</label>
+        <button class="btn btn-outline" style="width: auto; padding: 4px 10px; font-size: 0.74rem; margin: 0;" onclick="archiveCurrentCyclePrompt()">+ Neuer Zyklus startet</button>
+      </div>
+      <div id="archiveBadgesList" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;"></div>
+    </div>
+
+    <div class="card">
+      <h2 id="reportCycleTitle">Zyklus-Auswertung</h2>
+      <p style="font-size:0.83rem; color:var(--muted); margin-bottom: 12px;">
+        Muster deines Körpers, deiner Seele und deiner Rituale im Überblick.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="statCycleDays">0</div>
+          <div class="stat-lbl">Erfasste Tage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statRitualRate">0 %</div>
+          <div class="stat-lbl">Ritual-Treue</div>
+        </div>
+      </div>
+
+      <!-- Lifestyle Häufigkeiten -->
+      <div style="margin-top: 16px;">
+        <label style="color:var(--gold); font-weight:600;">Lifestyle & Herzens-Tracker (Übersicht):</label>
+        <div style="overflow-x: auto;">
+          <table class="eval-table" id="lifestyleTable">
+            <thead>
+              <tr>
+                <th>Herzens-Moment</th>
+                <th>Tage erlebt</th>
+                <th>Quote</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Phasen-Verteilung des Wohlbefindens -->
+      <div style="margin-top: 18px;">
+        <label style="color:var(--gold); font-weight:600;">Erlebte Tage pro innerer Jahreszeit:</label>
+        <div style="overflow-x: auto;">
+          <table class="eval-table" id="phaseTable">
+            <thead>
+              <tr>
+                <th>Innere Jahreszeit</th>
+                <th>Dauer</th>
+                <th>Herzens-Quote</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Rituale Quote -->
+      <div style="margin-top: 18px;">
+        <label style="color:var(--gold); font-weight:600;">Seelen-Rituale & Dehnen Quote:</label>
+        <div id="statHabitsList" style="font-size:0.85rem; margin-top:6px;"></div>
+      </div>
+
+      <!-- Körpersignale -->
+      <div style="margin-top: 18px;">
+        <label style="color:var(--gold); font-weight:600;">Häufigste Körpersignale:</label>
+        <div id="statSymptomsList" style="margin-top:6px;"></div>
+      </div>
+
+      <button class="btn" style="margin-top:16px;" onclick="renderReport()">Auswertung aktualisieren</button>
+    </div>
+  </div>
+
+  <!-- TAB: SETUP -->
+  <div id="tab-settings" class="hidden">
+    <div class="card">
+      <h2>Zyklus-Kalibrierung</h2>
+      
+      <div class="field">
+        <label>Erster Tag der aktuellen Periode:</label>
+        <input type="date" id="lastPeriodDate" value="2026-09-20" onchange="updateSettings()">
+      </div>
+      <div class="field">
+        <label>Durchschnittliche Zykluslänge (Tage):</label>
+        <input type="number" id="cycleLength" value="28" min="20" max="45" onchange="updateSettings()">
+      </div>
+      <div class="field">
+        <label>Menstruationsdauer (Tage):</label>
+        <input type="number" id="periodLength" value="5" min="2" max="10" onchange="updateSettings()">
+      </div>
+
+      <button class="btn" onclick="saveSettingsAndRecalc()">Speichern & Harmonisieren</button>
+    </div>
+
+    <div class="card">
+      <h2>Neuen Zyklus beginnen</h2>
+      <p style="font-size:0.83rem; color:var(--muted); margin-bottom: 8px;">
+        Wenn deine Periode heute beginnt: Klicke hier, um den bisherigen Zyklus im Archiv zu verewigen und mit Tag 1 neu zu beginnen.
+      </p>
+      <button class="btn" onclick="archiveCurrentCyclePrompt()">✧ Neuen Zyklus starten & archivieren</button>
+    </div>
+
+    <div class="card">
+      <h2>Die 8 Mondphasen & Innere Jahreszeiten</h2>
+      <div style="font-size:0.85rem; line-height: 1.6; color:var(--starlight);">
+        <p>🌑 <strong>Neumond (Innerer Winter):</strong> Menstruation. Stille, Loslassen, Visionen säen.</p>
+        <p>🌒 <strong>Zunehmende Sichel:</strong> Erste zarte Impulse, Frische, Neubeginn.</p>
+        <p>🌓 <strong>Erstes Viertel (Innerer Frühling):</strong> Follikelphase. Tatkraft, Inspiration, Spiel.</p>
+        <p>🌔 <strong>Zunehmender Dreiviertelmond:</strong> Verfeinerung, Vorbereitung auf die Fülle.</p>
+        <p>🌕 <strong>Vollmond (Innerer Sommer):</strong> Eisprung. Reife, Strahlkraft, Feiern & Verbindung.</p>
+        <p>🌖 <strong>Abnehmender Dreiviertelmond:</strong> Dankbarkeit, Weisheit, Ernte teilen.</p>
+        <p>🌗 <strong>Letztes Viertel (Innerer Herbst):</strong> Lutealphase. Klärung, Grenzen setzen, Wahrheit.</p>
+        <p>🌘 <strong>Abnehmende Sichel (Balsamischer Mond):</strong> Tiefe Ruhe, Hingabe an die Regeneration.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Tägliche sanfte Erinnerung</h2>
+      <p style="font-size:0.83rem; color:var(--muted); margin-bottom: 8px;">
+        Erinnert dich morgens und abends an deine kleine Me-Time und deinen Check-In.
+      </p>
+      <button class="btn btn-outline" onclick="requestNotification()">Erinnerung aktivieren</button>
+    </div>
+
+    <!-- Web App & Desktop Installation -->
+    <div class="card">
+      <h2>App installieren & Speicher schützen</h2>
+      <p style="font-size:0.83rem; color:var(--muted); margin-bottom: 8px;">
+        Lege das Tool als vollwertige App auf deinem Desktop oder Home-Bildschirm ab. Dadurch stuft dein Browser die Daten als dauerhaft persistent ein.
+      </p>
+      <button class="btn" id="installAppBtn" onclick="installAppPrompt()">✧ Als App installieren / Auf Desktop ablegen</button>
+    </div>
+
+    <!-- Autarkie, Backup Import & Export -->
+    <div class="card">
+      <h2>Datensicherung (Import & Export)</h2>
+      <p style="font-size:0.83rem; color:var(--muted); margin-bottom: 8px;">
+        100 % privat auf deinem Gerät. Sichere deine Einträge oder stelle ein Backup wieder her:
+      </p>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-outline" style="flex:1;" onclick="exportData()">⬇ Exportieren</button>
+        <button class="btn btn-outline" style="flex:1;" onclick="triggerImport()">⬆ Wiederherstellen</button>
+      </div>
+      <input type="file" id="backupFileInput" accept=".json" style="display:none;" onchange="handleFileImport(event)">
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<nav class="tab-bar">
+  <button class="tab-btn active" id="btnTabToday" onclick="switchTab('today')">
+    <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+    Heute & Mond
+  </button>
+  <button class="tab-btn" id="btnTabReport" onclick="switchTab('report')">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    Auswertung
+  </button>
+  <button class="tab-btn" id="btnTabSettings" onclick="switchTab('settings')">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    Kalibrierung
+  </button>
+</nav>
+
+<script>
+  const KEY_SETTINGS = 'jenna_mond_settings_v2';
+  const KEY_LIFESTYLE = 'jenna_mond_lifestyle_v2';
+  const KEY_RITUALS = 'jenna_mond_rituals_v2';
+  const KEY_ENERGY = 'jenna_mond_energy_v2';
+  const KEY_SYMPTOMS = 'jenna_mond_symptoms_v2';
+  const KEY_LOGS = 'jenna_mond_logs_v2';
+  const KEY_ARCHIVE = 'jenna_mond_archive_v2';
+
+  // 31 Daily Celestial Quotes for Serenity & Motivation
+  const DAILY_QUOTES = [
+    "Atme tief ein. Du bist genau dort, wo du heute sein sollst.",
+    "Vertraue dem Fluss des Lebens. Alles entfaltet sich zur richtigen Zeit.",
+    "In der Ruhe liegt nicht nur Kraft, sondern deine tiefste Wahrheit.",
+    "Wie die Mondin darfst du dich verändern, ohne an Glanz zu verlieren.",
+    "Erlaube dir heute Sanftmut. Du musst die Welt nicht im Alleingang tragen.",
+    "Höre auf deinen Körper – er spricht in leisen, weisen Worten zu dir.",
+    "Aus dem Stillstand wachsen die schönsten neuen Wurzeln.",
+    "Sei stolz auf den leisen Mut, mit dem du jeden Tag begegnest.",
+    "Lass los, was schwer ist. Mache Raum für Licht und frische Freude.",
+    "Deine Intuition ist ein stiller Kompass. Folge seinem Schimmern.",
+    "Es liegt eine heilige Schönheit darin, einfach nur im Moment zu sein.",
+    "Nähre heute deine Seele mit den Dingen, die dir Geborgenheit schenken.",
+    "Alles in der Natur hat seine Zeit zu blühen und seine Zeit zu ruhen.",
+    "Du bist der sichere Hafen für dich selbst. Kehre heim in deine Mitte.",
+    "Ein sanfter Schritt nach vorne ist stärker als tausend erzwungene Sprünge.",
+    "Dein Wert bemisst sich nicht an Leistung, sondern an deinem puren Sein.",
+    "Halte kurz inne und spüre den Boden unter dir. Du bist getragen.",
+    "Lass die Erwartungen anderer verwehen wie Sternenstaub im Wind.",
+    "Heute darfst du wählen, was dir Leichtigkeit schenkt.",
+    "Die Weisheit des Körpers weiß genau, was du jetzt brauchst. Schenke es ihm.",
+    "Finde Frieden im Dazwischen. Jede Phase birgt ihren eigenen Zauber.",
+    "Schenke dir selbst das Lächeln und das Mitgefühl, das du anderen gibst.",
+    "Das Universum eilt nicht, und dennoch vollendet es jedes Werk.",
+    "Gehe achtsam mit deiner Energie um. Sie ist dein wertvollster Schatz.",
+    "In deinem Herzen wohnt eine unerschütterliche Gelassenheit. Spüre sie.",
+    "Erlaube deinem Geist, weit und wolkenlos wie der Nachthimmel zu werden.",
+    "Du darfst 'Nein' zur Hektik sagen, um 'Ja' zu deiner Seele zu sprechen.",
+    "Jeder Zyklus schenkt dir die Chance, dich selbst neu zu entdecken.",
+    "Deine Sanftheit ist keine Schwäche – sie ist deine größte Heilkraft.",
+    "Lass den Tag leise ausklingen und vertraue auf die Erneuerung der Nacht.",
+    "Mögest du heute Geborgenheit, Liebe und tiefen Frieden in dir finden."
+  ];
+
+  let settings = {
+    lastPeriodDate: '2026-09-20',
+    cycleLength: 28,
+    periodLength: 5
+  };
+
+  let lifestyleList = [
+    { id: 'l_liebe', text: 'Liebe & Verbundenheit' },
+    { id: 'l_schlaf', text: 'Tief & erholsam geschlafen' },
+    { id: 'l_kreativ', text: 'Kreativ & inspiriert gewirkt' },
+    { id: 'l_treffen', text: 'Herzensmenschen getroffen' }
+  ];
+
+  // Rituals WITHOUT "Beine an die Wand"
+  let ritualList = [
+    { id: 'r1', text: 'Sanfte Dehnübung / Yoga-Impuls' },
+    { id: 'r2', text: 'Achtsamer Spaziergang im Grünen / Erdung' },
+    { id: 'r3', text: 'Wärmende Me-Time / Entspannungsbad' },
+    { id: 'r4', text: 'Ausreichend Wasser & wohltuenden Kräutertee getrunken' },
+    { id: 'r5', text: '5 Minuten Stille, Atem oder Meditation' }
+  ];
+
+  let energyList = [
+    "Stille / Einkehr",
+    "Geerdet / Sanft",
+    "Im Fluss",
+    "Voller Strahlkraft"
+  ];
+
+  let symptomList = [
+    "Krämpfe",
+    "Spannungsgefühl",
+    "Kopfschmerz",
+    "Müdigkeit",
+    "Stimmungsschwankung",
+    "Sensibilität",
+    "Vollkommene Ruhe",
+    "Im Einklang"
+  ];
+
+  let logs = {};
+  let archives = [];
+  let selectedArchiveIndex = -1;
+  let currentEnergy = "";
+  let currentSymptoms = [];
+
+  function getMoonPhaseData(date) {
+    const refDate = new Date(Date.UTC(2000, 0, 6, 18, 14));
+    const synodicMonth = 29.53058867;
+    const diffDays = (date.getTime() - refDate.getTime()) / (1000 * 60 * 60 * 24);
+    const phaseValue = (diffDays % synodicMonth + synodicMonth) % synodicMonth;
+    const phaseFraction = phaseValue / synodicMonth;
+    const illumination = Math.round((1 - Math.cos(2 * Math.PI * phaseFraction)) / 2 * 100);
+
+    let name = '', glyph = '';
+    if (phaseFraction < 0.03 || phaseFraction >= 0.97) { name = 'Neumond'; glyph = '🌑'; }
+    else if (phaseFraction < 0.22) { name = 'Zunehmende Mondsichel'; glyph = '🌒'; }
+    else if (phaseFraction < 0.28) { name = 'Erstes Viertel'; glyph = '🌓'; }
+    else if (phaseFraction < 0.47) { name = 'Zunehmender Dreiviertelmond'; glyph = '🌔'; }
+    else if (phaseFraction < 0.53) { name = 'Vollmond'; glyph = '🌕'; }
+    else if (phaseFraction < 0.72) { name = 'Abnehmender Dreiviertelmond'; glyph = '🌖'; }
+    else if (phaseFraction < 0.78) { name = 'Letztes Viertel'; glyph = '🌗'; }
+    else { name = 'Abnehmende Mondsichel (Balsamischer Mond)'; glyph = '🌘'; }
+
+    return { name, glyph, illumination };
+  }
+
+  function init() {
+    const savedSet = localStorage.getItem(KEY_SETTINGS);
+    if (savedSet) { try { settings = JSON.parse(savedSet); } catch(e){} }
+    else { localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings)); }
+
+    const savedLife = localStorage.getItem(KEY_LIFESTYLE);
+    if (savedLife) { try { lifestyleList = JSON.parse(savedLife); } catch(e){} }
+    else { localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList)); }
+
+    const savedRituals = localStorage.getItem(KEY_RITUALS);
+    if (savedRituals) { try { ritualList = JSON.parse(savedRituals); } catch(e){} }
+    else { localStorage.setItem(KEY_RITUALS, JSON.stringify(ritualList)); }
+
+    const savedEnergy = localStorage.getItem(KEY_ENERGY);
+    if (savedEnergy) { try { energyList = JSON.parse(savedEnergy); } catch(e){} }
+    else { localStorage.setItem(KEY_ENERGY, JSON.stringify(energyList)); }
+
+    const savedSymp = localStorage.getItem(KEY_SYMPTOMS);
+    if (savedSymp) { try { symptomList = JSON.parse(savedSymp); } catch(e){} }
+    else { localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList)); }
+
+    const savedLogs = localStorage.getItem(KEY_LOGS);
+    if (savedLogs) { try { logs = JSON.parse(savedLogs); } catch(e){} }
+
+    const savedArch = localStorage.getItem(KEY_ARCHIVE);
+    if (savedArch) { try { archives = JSON.parse(savedArch); } catch(e){} }
+
+    document.getElementById('lastPeriodDate').value = settings.lastPeriodDate;
+    document.getElementById('cycleLength').value = settings.cycleLength;
+    document.getElementById('periodLength').value = settings.periodLength;
+
+    renderToday();
+    renderLifestyleHabits();
+    renderRituals();
+    renderEnergyPills();
+    renderSymptomsPills();
+    loadTodayLog();
+  }
+
+  function getTodayKey() {
+    const d = new Date();
+    const yr = d.getFullYear();
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const da = String(d.getDate()).padStart(2, '0');
+    return `${yr}-${mo}-${da}`;
+  }
+
+  function renderToday() {
+    const today = new Date();
+    const options = { weekday: 'short', day: 'numeric', month: 'short' };
+    document.getElementById('todayDateStr').textContent = today.toLocaleDateString('de-DE', options);
+
+    // Set Daily Reminder Quote (based on day of month)
+    const dayOfMonth = today.getDate();
+    const quoteIndex = (dayOfMonth - 1) % DAILY_QUOTES.length;
+    document.getElementById('dailyReminderQuote').textContent = `"${DAILY_QUOTES[quoteIndex]}"`;
+
+    const moon = getMoonPhaseData(today);
+    document.getElementById('astronomicalMoonGlyph').textContent = moon.glyph;
+    document.getElementById('astronomicalMoonName').textContent = `Mond am Himmel: ${moon.name} (${moon.illumination}% beleuchtet)`;
+    document.getElementById('moonIcon').textContent = moon.glyph;
+
+    const start = new Date(settings.lastPeriodDate);
+    const diffTime = today.getTime() - start.getTime();
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    const cycleLength = parseInt(settings.cycleLength) || 28;
+    const periodLength = parseInt(settings.periodLength) || 5;
+
+    let cycleDay = (diffDays % cycleLength) + 1;
+    if (cycleDay <= 0) cycleDay += cycleLength;
+
+    const daysUntilNext = cycleLength - cycleDay + 1;
+
+    let phase = '', phaseName = '', hormone = '', moonTip = '', body = '';
+
+    if (cycleDay <= periodLength) {
+      phase = 'INNERER WINTER';
+      phaseName = 'Menstruation • Neumond-Einkehr';
+      hormone = 'Hormone ruhen am tiefsten Punkt. Zeit des intuitiven Wissens, der seelischen Reinigung und der tiefen Regeneration.';
+      moonTip = 'Stille wie die Neumondin: Du musst heute nichts beweisen. Dein Körper vollbringt ein stilles Wunder der Erneuerung.';
+      body = 'Sanfte Kindeshaltung, wärmende Decken, leises Innehalten. Hör hin, was deine Seele dir zuflüstert.';
+    } else if (cycleDay <= 12) {
+      phase = 'INNERER FRÜHLING';
+      phaseName = 'Follikelphase • Zunehmendes Licht';
+      hormone = 'Östrogen steigt empor und öffnet deinen Geist für Neugier, Leichtigkeit, Optimismus und schöpferische Inspiration.';
+      moonTip = 'Knospen öffnen sich: Perfekte Tage für neue Ideen, Visionen und spielerische Entfaltung.';
+      body = 'Sanft fließendes Yoga, Tanzen, Spaziergänge im Licht – wecke deinen Körper auf.';
+    } else if (cycleDay <= 16) {
+      phase = 'INNERER SOMMER';
+      phaseName = 'Eisprung • Vollmond-Pracht';
+      hormone = 'Östrogen und Lebensenergie erreichen ihren sonnigen Höhepunkt. Du strahlst Verbundenheit, Empathie und Anziehungskraft aus.';
+      moonTip = 'Volle Pracht: Feiere deine Lebendigkeit und teile deine Wärme mit Herzensmenschen.';
+      body = 'Tiefe Dehnungen, weite Herzöffner, barfuß im Moos oder auf der Wiese erden.';
+    } else {
+      phase = 'INNERER HERBST';
+      phaseName = 'Späte Lutealphase • Die Weise Frau';
+      hormone = 'Progesteron und Östrogen ziehen sich zurück. Die Schleier lüften sich – deine Intuition wird glasklar und unbestechlich.';
+      moonTip = 'Abnehmende Mondsichel: Zeit, Grenzen zu setzen und Ballast abzuwerfen. Was dir nicht mehr dient, darf gehen.';
+      body = 'Wadendehnung an der Treppenstufe, sanfter Couch-Hüftöffner und wärmende Gemütlichkeit am Abend.';
+    }
+
+    document.getElementById('phaseTag').textContent = phase;
+    document.getElementById('phaseName').textContent = phaseName;
+    document.getElementById('phaseDays').textContent = `Zyklustag ${cycleDay} von ${cycleLength} • Noch ca. ${daysUntilNext} Tag(e) bis zur Menstruation`;
+    
+    document.getElementById('hormoneDesc').textContent = hormone;
+    document.getElementById('moonTip').textContent = moonTip;
+    document.getElementById('bodyTips').textContent = body;
+  }
+
+  function renderLifestyleHabits() {
+    const container = document.getElementById('lifestyleHabitsContainer');
+    container.innerHTML = '';
+    const todayKey = getTodayKey();
+    const todayData = logs[todayKey] || { lifestyle: {} };
+
+    lifestyleList.forEach(item => {
+      const isChecked = !!(todayData.lifestyle && todayData.lifestyle[item.id]);
+      const row = document.createElement('label');
+      row.className = 'check-item life-item';
+      row.innerHTML = `
+        <span style="flex:1; font-weight:500;">${item.text}</span>
+        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleLifestyle('${item.id}', this.checked)">
+        <button class="food-del" title="Entfernen" onclick="deleteLifestyle('${item.id}', event)">×</button>
+      `;
+      container.appendChild(row);
+    });
+  }
+
+  function toggleLifestyle(id, val) {
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+    if (!logs[todayKey].lifestyle) logs[todayKey].lifestyle = {};
+    logs[todayKey].lifestyle[id] = val;
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+  }
+
+  function addCustomLifestyleHabit() {
+    const input = document.getElementById('newLifestyleInput');
+    const text = input.value.trim();
+    if (!text) return;
+    const newId = 'l_' + Date.now();
+    lifestyleList.push({ id: newId, text });
+    localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList));
+    input.value = '';
+    renderLifestyleHabits();
+  }
+
+  function deleteLifestyle(id, ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    lifestyleList = lifestyleList.filter(l => l.id !== id);
+    localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList));
+    renderLifestyleHabits();
+  }
+
+  function renderRituals() {
+    const container = document.getElementById('ritualsContainer');
+    container.innerHTML = '';
+    const todayKey = getTodayKey();
+    const todayData = logs[todayKey] || { rituals: {} };
+
+    ritualList.forEach(item => {
+      const isChecked = !!(todayData.rituals && todayData.rituals[item.id]);
+      const row = document.createElement('label');
+      row.className = 'check-item ritual-item';
+      row.innerHTML = `
+        <span style="flex:1;">${item.text}</span>
+        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleRitual('${item.id}', this.checked)">
+        <button class="food-del" title="Entfernen" onclick="deleteRitual('${item.id}', event)">×</button>
+      `;
+      container.appendChild(row);
+    });
+  }
+
+  function toggleRitual(id, val) {
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+    if (!logs[todayKey].rituals) logs[todayKey].rituals = {};
+    logs[todayKey].rituals[id] = val;
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+  }
+
+  function addCustomRitual() {
+    const input = document.getElementById('newRitualInput');
+    const text = input.value.trim();
+    if (!text) return;
+    const newId = 'r_' + Date.now();
+    ritualList.push({ id: newId, text });
+    localStorage.setItem(KEY_RITUALS, JSON.stringify(ritualList));
+    input.value = '';
+    renderRituals();
+  }
+
+  function deleteRitual(id, ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    ritualList = ritualList.filter(r => r.id !== id);
+    localStorage.setItem(KEY_RITUALS, JSON.stringify(ritualList));
+    renderRituals();
+  }
+
+  // Energy & Feeling Pills (Now fully customizable!)
+  function renderEnergyPills() {
+    const container = document.getElementById('energyGroup');
+    container.innerHTML = '';
+
+    energyList.forEach(e => {
+      const isActive = (currentEnergy === e);
+      const pill = document.createElement('div');
+      pill.className = `pill-container ${isActive ? 'active' : ''}`;
+      pill.innerHTML = `
+        <span class="pill-label" onclick="selectEnergy('${e}')">${e}</span>
+        <button class="pill-del-btn" title="Löschen" onclick="deleteCustomEnergy('${e}', event)">×</button>
+      `;
+      container.appendChild(pill);
+    });
+  }
+
+  function selectEnergy(val) {
+    if (currentEnergy === val) currentEnergy = "";
+    else currentEnergy = val;
+    renderEnergyPills();
+    saveTodayLog();
+  }
+
+  function addCustomEnergy() {
+    const input = document.getElementById('newEnergyInput');
+    const val = input.value.trim();
+    if (!val) return;
+    if (!energyList.includes(val)) {
+      energyList.push(val);
+      localStorage.setItem(KEY_ENERGY, JSON.stringify(energyList));
+    }
+    currentEnergy = val;
+    input.value = '';
+    renderEnergyPills();
+    saveTodayLog();
+  }
+
+  function deleteCustomEnergy(item, ev) {
+    ev.stopPropagation();
+    energyList = energyList.filter(e => e !== item);
+    if (currentEnergy === item) currentEnergy = "";
+    localStorage.setItem(KEY_ENERGY, JSON.stringify(energyList));
+    renderEnergyPills();
+    saveTodayLog();
+  }
+
+  // Symptoms Pills
+  function renderSymptomsPills() {
+    const container = document.getElementById('symptomsGroup');
+    container.innerHTML = '';
+
+    symptomList.forEach(s => {
+      const isActive = currentSymptoms.includes(s);
+      const pill = document.createElement('div');
+      pill.className = `pill-container ${isActive ? 'active' : ''}`;
+      pill.innerHTML = `
+        <span class="pill-label" onclick="toggleSymptom('${s}')">${s}</span>
+        <button class="pill-del-btn" title="Löschen" onclick="deleteCustomSymptom('${s}', event)">×</button>
+      `;
+      container.appendChild(pill);
+    });
+  }
+
+  function toggleSymptom(symp) {
+    const idx = currentSymptoms.indexOf(symp);
+    if (idx > -1) currentSymptoms.splice(idx, 1);
+    else currentSymptoms.push(symp);
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function addCustomSymptom() {
+    const input = document.getElementById('newSymptomInput');
+    const val = input.value.trim();
+    if (!val) return;
+    if (!symptomList.includes(val)) {
+      symptomList.push(val);
+      localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
+    }
+    if (!currentSymptoms.includes(val)) currentSymptoms.push(val);
+    input.value = '';
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function deleteCustomSymptom(symp, ev) {
+    ev.stopPropagation();
+    symptomList = symptomList.filter(s => s !== symp);
+    currentSymptoms = currentSymptoms.filter(s => s !== symp);
+    localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function ensureLogDay(key) {
+    if (!logs[key]) {
+      logs[key] = {
+        lifestyle: {},
+        rituals: {},
+        energy: "",
+        symptoms: [],
+        notes: ''
+      };
+    }
+    if (!logs[key].lifestyle) logs[key].lifestyle = {};
+    if (!logs[key].rituals) logs[key].rituals = {};
+    if (!logs[key].symptoms) logs[key].symptoms = [];
+  }
+
+  function loadTodayLog() {
+    const todayKey = getTodayKey();
+    const entry = logs[todayKey] || {};
+
+    document.getElementById('dailyNotes').value = entry.notes || '';
+    currentEnergy = entry.energy || "";
+    renderEnergyPills();
+
+    currentSymptoms = entry.symptoms || [];
+    renderSymptomsPills();
+    renderLifestyleHabits();
+    renderRituals();
+  }
+
+  function saveTodayLog() {
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+
+    logs[todayKey].notes = document.getElementById('dailyNotes').value;
+    logs[todayKey].energy = currentEnergy;
+    logs[todayKey].symptoms = currentSymptoms;
+
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+  }
+
+  function archiveCurrentCyclePrompt() {
+    const todayStr = getTodayKey();
+    const startStr = settings.lastPeriodDate;
+    
+    const startDate = new Date(startStr);
+    const endDate = new Date(todayStr);
+    const m1 = startDate.toLocaleDateString('de-DE', { month: 'long' });
+    const m2 = endDate.toLocaleDateString('de-DE', { month: 'long' });
+    const yr = endDate.getFullYear();
+    const autoName = m1 === m2 ? `Zyklus ${m1} ${yr}` : `Zyklus ${m1}/${m2} ${yr}`;
+
+    const cycleName = prompt("Name für den abzuschließenden Zyklus:", autoName);
+    if (!cycleName) return;
+
+    const newStart = prompt("Erster Tag der NEUEN Periode (JJJJ-MM-TT):", todayStr);
+    if (!newStart) return;
+
+    const archiveEntry = {
+      name: cycleName,
+      startDate: startStr,
+      endDate: todayStr,
+      cycleLength: parseInt(settings.cycleLength) || 28,
+      periodLength: parseInt(settings.periodLength) || 5,
+      logs: JSON.parse(JSON.stringify(logs))
+    };
+
+    archives.push(archiveEntry);
+    localStorage.setItem(KEY_ARCHIVE, JSON.stringify(archives));
+
+    settings.lastPeriodDate = newStart;
+    localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings));
+    document.getElementById('lastPeriodDate').value = newStart;
+
+    alert(`Der Zyklus "${cycleName}" wurde archiviert! Ein neuer Zyklus ab ${newStart} beginnt.`);
+    renderToday();
+    switchTab('report');
+  }
+
+  function selectCycleView(idx) {
+    selectedArchiveIndex = idx;
+    renderReport();
+  }
+
+  function renderReport() {
+    renderArchiveBadges();
+
+    let activeData, startStr, cycleLen, periodLen, reportTitle;
+
+    if (selectedArchiveIndex === -1) {
+      activeData = logs;
+      startStr = settings.lastPeriodDate;
+      cycleLen = parseInt(settings.cycleLength) || 28;
+      periodLen = parseInt(settings.periodLength) || 5;
+      reportTitle = "Laufender Zyklus (ab " + new Date(startStr).toLocaleDateString('de-DE', { day:'numeric', month:'short' }) + ")";
+    } else {
+      const a = archives[selectedArchiveIndex];
+      activeData = a.logs;
+      startStr = a.startDate;
+      cycleLen = a.cycleLength;
+      periodLen = a.periodLength;
+      reportTitle = a.name;
+    }
+
+    document.getElementById('reportCycleTitle').textContent = reportTitle;
+
+    const start = new Date(startStr);
+    const keys = Object.keys(activeData).sort();
+
+    let recordedCount = 0;
+    let ritualDaysCount = 0;
+
+    let phaseMetrics = {
+      1: { name: "Innerer Winter (Menstruation)", days: 0, lifeDone: 0 },
+      2: { name: "Innerer Frühling (Follikel)", days: 0, lifeDone: 0 },
+      3: { name: "Innerer Sommer (Eisprung)", days: 0, lifeDone: 0 },
+      4: { name: "Innerer Herbst (Luteal)", days: 0, lifeDone: 0 }
+    };
+
+    let lifestyleCounts = {};
+    lifestyleList.forEach(l => lifestyleCounts[l.id] = { text: l.text, count: 0 });
+
+    let ritualCounts = {};
+    ritualList.forEach(r => ritualCounts[r.id] = { text: r.text, checked: 0 });
+
+    let symptomMap = {};
+
+    keys.forEach(k => {
+      const d = new Date(k);
+      const diffDays = Math.floor((d.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+      
+      if (diffDays >= 0 && diffDays < cycleLen) {
+        recordedCount++;
+        const e = activeData[k];
+        const cycleDay = diffDays + 1;
+
+        let pId = 4;
+        if (cycleDay <= periodLen) pId = 1;
+        else if (cycleDay <= 12) pId = 2;
+        else if (cycleDay <= 16) pId = 3;
+        else pId = 4;
+
+        phaseMetrics[pId].days++;
+
+        if (e.lifestyle) {
+          let hasLife = false;
+          Object.keys(e.lifestyle).forEach(lid => {
+            if (e.lifestyle[lid] && lifestyleCounts[lid]) {
+              lifestyleCounts[lid].count++;
+              hasLife = true;
+            }
+          });
+          if (hasLife) phaseMetrics[pId].lifeDone++;
+        }
+
+        if (e.rituals) {
+          let anyRit = false;
+          Object.keys(e.rituals).forEach(rid => {
+            if (e.rituals[rid] && ritualCounts[rid]) {
+              ritualCounts[rid].checked++;
+              anyRit = true;
+            }
+          });
+          if (anyRit) ritualDaysCount++;
+        }
+
+        if (e.symptoms && Array.isArray(e.symptoms)) {
+          e.symptoms.forEach(s => symptomMap[s] = (symptomMap[s] || 0) + 1);
+        }
+      }
+    });
+
+    document.getElementById('statCycleDays').textContent = recordedCount;
+    const ritPct = recordedCount > 0 ? Math.round((ritualDaysCount / recordedCount) * 100) : 0;
+    document.getElementById('statRitualRate').textContent = `${ritPct} %`;
+
+    // Lifestyle Table
+    const lifeTableBody = document.querySelector('#lifestyleTable tbody');
+    lifeTableBody.innerHTML = '';
+    Object.keys(lifestyleCounts).forEach(lid => {
+      const item = lifestyleCounts[lid];
+      const pct = recordedCount > 0 ? Math.round((item.count / recordedCount) * 100) : 0;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-weight:500;">${item.text}</td>
+        <td style="color:var(--gold); font-weight:600;">${item.count} Tage</td>
+        <td><span class="badge">${pct} %</span></td>
+      `;
+      lifeTableBody.appendChild(tr);
+    });
+
+    // Phase Table
+    const phaseTableBody = document.querySelector('#phaseTable tbody');
+    phaseTableBody.innerHTML = '';
+    [1, 2, 3, 4].forEach(pId => {
+      const pm = phaseMetrics[pId];
+      const pPct = pm.days > 0 ? Math.round((pm.lifeDone / pm.days) * 100) : 0;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-weight:600; color:var(--gold-bright);">${pm.name}</td>
+        <td>${pm.days} Tage</td>
+        <td><span class="badge">${pPct} %</span></td>
+      `;
+      phaseTableBody.appendChild(tr);
+    });
+
+    // Rituals List
+    const rContainer = document.getElementById('statHabitsList');
+    rContainer.innerHTML = '';
+    Object.keys(ritualCounts).forEach(rid => {
+      const r = ritualCounts[rid];
+      const rate = recordedCount > 0 ? Math.round((r.checked / recordedCount) * 100) : 0;
+      const div = document.createElement('div');
+      div.style.marginBottom = '4px';
+      div.innerHTML = `<strong>${r.text}:</strong> ${r.checked} von ${recordedCount} Tagen (${rate} %)`;
+      rContainer.appendChild(div);
+    });
+
+    // Symptoms Badges
+    const sContainer = document.getElementById('statSymptomsList');
+    sContainer.innerHTML = '';
+    const sympKeys = Object.keys(symptomMap).sort((a,b) => symptomMap[b] - symptomMap[a]);
+    if (sympKeys.length === 0) {
+      sContainer.textContent = 'Noch keine Körpersignale dokumentiert.';
+    } else {
+      sympKeys.forEach(sk => {
+        const span = document.createElement('span');
+        span.className = 'badge';
+        span.style.marginRight = '6px';
+        span.style.marginBottom = '6px';
+        span.style.display = 'inline-block';
+        span.textContent = `${sk}: ${symptomMap[sk]}x`;
+        sContainer.appendChild(span);
+      });
+    }
+  }
+
+  function renderArchiveBadges() {
+    const container = document.getElementById('archiveBadgesList');
+    container.innerHTML = '';
+
+    const btnCur = document.createElement('span');
+    btnCur.className = `archive-badge ${selectedArchiveIndex === -1 ? 'active' : ''}`;
+    btnCur.textContent = 'Aktueller Zyklus';
+    btnCur.onclick = () => selectCycleView(-1);
+    container.appendChild(btnCur);
+
+    archives.forEach((a, idx) => {
+      const b = document.createElement('span');
+      b.className = `archive-badge ${selectedArchiveIndex === idx ? 'active' : ''}`;
+      b.textContent = a.name;
+      b.onclick = () => selectCycleView(idx);
+      container.appendChild(b);
+    });
+  }
+
+  function updateSettings() {
+    settings.lastPeriodDate = document.getElementById('lastPeriodDate').value;
+    settings.cycleLength = parseInt(document.getElementById('cycleLength').value) || 28;
+    settings.periodLength = parseInt(document.getElementById('periodLength').value) || 5;
+  }
+
+  function saveSettingsAndRecalc() {
+    updateSettings();
+    localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings));
+    renderToday();
+    alert('Zyklus-Kalibrierung harmonisiert & gespeichert!');
+    switchTab('today');
+  }
+
+  function switchTab(tab) {
+    document.getElementById('tab-today').classList.add('hidden');
+    document.getElementById('tab-report').classList.add('hidden');
+    document.getElementById('tab-settings').classList.add('hidden');
+
+    document.getElementById('btnTabToday').classList.remove('active');
+    document.getElementById('btnTabReport').classList.remove('active');
+    document.getElementById('btnTabSettings').classList.remove('active');
+
+    if (tab === 'today') {
+      document.getElementById('tab-today').classList.remove('hidden');
+      document.getElementById('btnTabToday').classList.add('active');
+    } else if (tab === 'report') {
+      document.getElementById('tab-report').classList.remove('hidden');
+      document.getElementById('btnTabReport').classList.add('active');
+      renderReport();
+    } else if (tab === 'settings') {
+      document.getElementById('tab-settings').classList.remove('hidden');
+      document.getElementById('btnTabSettings').classList.add('active');
+    }
+  }
+
+  function requestNotification() {
+    if (!('Notification' in window)) {
+      alert('Dein Browser unterstützt leider keine Benachrichtigungen.');
+      return;
+    }
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        new Notification('Mond & Rhythmus • Jenna', {
+          body: 'Zeit für deine kleine Me-Time & dein Herzens-Check-In heute ☾',
+          icon: ''
+        });
+        alert('Erinnerungen sanft aktiviert!');
+      } else {
+        alert('Benachrichtigungen wurden blockiert.');
+      }
+    });
+  }
+
+
+  function exportData() {
+    const backupObj = {
+      'jenna_mond_settings_v2': settings,
+      'jenna_mond_lifestyle_v2': lifestyleList,
+      'jenna_mond_rituals_v2': ritualList,
+      'jenna_mond_energy_v2': energyList,
+      'jenna_mond_symptoms_v2': symptomList,
+      'jenna_mond_logs_v2': logs,
+      'jenna_mond_archive_v2': archives
+    };
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupObj, null, 2));
+    const dlAnchor = document.createElement('a');
+    dlAnchor.setAttribute("href", dataStr);
+    dlAnchor.setAttribute("download", "mond_rhythmus_jenna_backup.json");
+    dlAnchor.click();
+  }
+
+  // --- Storage Persistenz & Backup (Import / Export) ---
+  async function initPersistentStorage() {
+    if (navigator.storage && navigator.storage.persist) {
+      try {
+        const isPersisted = await navigator.storage.persist();
+        console.log("Storage persistence granted:", isPersisted);
+      } catch (err) {
+        console.warn("Storage persistence request failed:", err);
+      }
+    }
+  }
+
+  function triggerImport() {
+    document.getElementById('backupFileInput').click();
+  }
+
+  function handleFileImport(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        const keys = ['jenna_mond_settings_v2', 'jenna_mond_lifestyle_v2', 'jenna_mond_rituals_v2', 'jenna_mond_energy_v2', 'jenna_mond_symptoms_v2', 'jenna_mond_logs_v2', 'jenna_mond_archive_v2'];
+        let restoredCount = 0;
+        keys.forEach(k => {
+          if (data[k] !== undefined) {
+            localStorage.setItem(k, typeof data[k] === 'string' ? data[k] : JSON.stringify(data[k]));
+            restoredCount++;
+          }
+        });
+        if (restoredCount > 0) {
+          alert("Backup erfolgreich importiert (" + restoredCount + " Bereiche wiederhergestellt)!");
+          location.reload();
+        } else {
+          alert("Keine kompatiblen Daten in der Backup-Datei gefunden.");
+        }
+      } catch (err) {
+        alert("Fehler beim Einlesen der Backup-Datei: " + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // --- Web App / Desktop Installation (PWA beforeinstallprompt) ---
+  let deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.getElementById('installAppBtn');
+    if (installBtn) installBtn.style.display = 'block';
+  });
+
+  function installAppPrompt() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('App-Installation akzeptiert');
+        }
+        deferredPrompt = null;
+      });
+    } else {
+      alert("Installation:\n\n• Chrome / Edge (Desktop/Android): Klicke im Adressfeld rechts oben auf das Installations-Symbol oder wähle im Menü (⋮) 'App installieren' / 'Zum Startbildschirm hinzufügen'.\n• Safari (iOS/Mac): Klicke auf 'Teilen' -> 'Zum Home-Bildschirm' / 'Zum Dock hinzufügen'.");
+    }
+  }
+
+
+  window.addEventListener('DOMContentLoaded', () => { init(); initPersistentStorage(); });
+</script>
+</body>
+</html>

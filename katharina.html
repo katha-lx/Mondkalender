@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mond & Rhythmus • Katharina</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0D1612">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Mond%20%26%20Rhythmus%22%2C%22short_name%22%3A%22MondRhythmus%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230D1612%22%2C%22theme_color%22%3A%22%230D1612%22%7D">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0D1612;
+    --card-bg: rgba(22, 36, 30, 0.82);
+    --card-inner: rgba(14, 25, 20, 0.72);
+    --border: rgba(180, 205, 190, 0.16);
+    --border-accent: rgba(212, 175, 106, 0.42);
+    --gold: #D4AF6A;
+    --gold-soft: #F3E5C8;
+    --sage-light: #C2D6C9;
+    --sage-muted: #8FA899;
+    --text-main: #EDEDE8;
+    --text-sub: #A3B5AA;
+    --accent: #3A6351;
+    --radius: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+  
+  body {
+    background-color: var(--bg-deep);
+    background-image: 
+      radial-gradient(circle at 15% 10%, rgba(58, 99, 81, 0.4), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(212, 175, 106, 0.18), transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(13, 22, 18, 0.95), rgba(9, 15, 12, 1));
+    color: var(--text-main);
+    line-height: 1.55;
+    padding-bottom: 95px;
+    min-height: 100vh;
+  }
+
+  .container { max-width: 640px; margin: 0 auto; padding: 20px 16px; }
+
+  header { text-align: center; padding: 14px 0 12px; position: relative; }
+  .moon-glyph { font-size: 2.2rem; color: var(--gold); display: inline-block; filter: drop-shadow(0 0 14px rgba(212,175,106,0.55)); }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.15rem; color: var(--gold-soft); font-weight: 600; letter-spacing: 0.5px; }
+  .subtitle { font-size: 0.8rem; color: var(--sage-muted); letter-spacing: 1.2px; text-transform: uppercase; margin-top: 2px; }
+
+
+  /* Daily Reminder Quote Banner */
+  .daily-reminder-card {
+    background: linear-gradient(135deg, rgba(28, 22, 42, 0.85) 0%, rgba(18, 22, 34, 0.9) 100%);
+    border: 1px solid rgba(229, 195, 132, 0.35);
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .daily-reminder-tag {
+    font-size: 0.68rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .daily-reminder-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.18rem;
+    font-style: italic;
+    color: var(--gold-bright, #F7E7C4);
+    line-height: 1.45;
+  }
+
+  .phase-banner {
+    background: linear-gradient(135deg, rgba(32, 56, 46, 0.92) 0%, rgba(20, 36, 29, 0.96) 100%);
+    border: 1px solid var(--border-accent);
+    color: var(--gold-soft);
+    padding: 20px 18px;
+    border-radius: var(--radius);
+    margin-bottom: 18px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+  .phase-banner::before {
+    content: "✧ ✦ ✧";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 6px;
+    opacity: 0.6;
+  }
+  .moon-subhead {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(212, 175, 106, 0.12);
+    border: 1px solid var(--border-accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    color: var(--gold);
+    margin-top: 8px;
+    font-weight: 500;
+  }
+  .phase-tag { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 2px; color: var(--gold); font-weight: 600; margin-top: 10px; }
+  .phase-name { font-family: 'Cormorant Garamond', serif; font-size: 1.85rem; font-weight: 700; margin: 4px 0 2px; color: #FFF; }
+  .phase-days { font-size: 0.86rem; color: var(--sage-light); font-weight: 400; }
+
+  .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold-soft); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; font-weight: 600; letter-spacing: 0.5px; }
+  .badge { background: rgba(212, 175, 106, 0.15); color: var(--gold); border: 1px solid var(--border-accent); padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  .oracle-box {
+    background: var(--card-inner);
+    border-left: 3px solid var(--gold);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    margin-bottom: 10px;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .oracle-box strong { color: var(--gold); display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-weight: 600; font-size: 0.88rem; }
+  .oracle-box p { color: var(--text-main); font-size: 0.84rem; line-height: 1.52; }
+
+  .food-calc-box {
+    background: var(--card-inner);
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    margin-top: 8px;
+  }
+  .food-search-row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .food-search-row input[type="text"] {
+    flex: 1;
+    background: rgba(9, 15, 12, 0.75);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    outline: none;
+  }
+  .food-search-row input[type="text"]:focus { border-color: var(--gold); }
+  .food-search-row input[type="number"] {
+    width: 85px;
+    background: rgba(9, 15, 12, 0.75);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 8px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    outline: none;
+    text-align: center;
+  }
+  .food-search-row button {
+    background: var(--accent);
+    color: var(--gold-soft);
+    border: 1px solid var(--border-accent);
+    border-radius: 8px;
+    padding: 0 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .food-search-row button:hover { background: #477964; border-color: var(--gold); }
+
+  .search-status {
+    font-size: 0.76rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: none;
+    font-style: italic;
+  }
+
+  .suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .suggestion-tag {
+    font-size: 0.72rem;
+    background: rgba(58, 99, 81, 0.25);
+    border: 1px solid rgba(91, 140, 113, 0.3);
+    color: var(--sage-light);
+    padding: 3px 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .suggestion-tag:hover { background: var(--accent); color: #FFF; }
+
+  .food-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.83rem;
+  }
+  .food-item-row:last-child { border-bottom: none; }
+  .food-name { font-weight: 600; color: var(--gold-soft); }
+  .food-meta { font-size: 0.75rem; color: var(--sage-muted); }
+  .food-del { color: #A36A6A; background: none; border: none; cursor: pointer; font-size: 1.1rem; padding: 0 4px; }
+  .food-del:hover { color: #E58B8B; }
+
+  .macro-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 14px;
+    text-align: center;
+  }
+  .macro-card {
+    background: rgba(14, 25, 20, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 4px;
+  }
+  .macro-card.highlight { border-color: var(--border-accent); }
+  .macro-val { font-size: 1.15rem; font-weight: 700; color: var(--gold-soft); }
+  .macro-lbl { font-size: 0.7rem; color: var(--sage-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .checklist { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .check-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--card-inner);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.86rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .check-item:hover { border-color: var(--border-accent); background: rgba(30, 48, 39, 0.4); }
+  .check-item.supp-item { border-left: 3px solid var(--gold); }
+  .check-item.life-item { border-left: 3px solid #8FA899; }
+  .check-item input[type="checkbox"] { accent-color: var(--gold); width: 18px; height: 18px; cursor: pointer; }
+
+  .add-item-row { display: flex; gap: 8px; margin-top: 10px; }
+  .add-item-row input {
+    flex: 1;
+    background: rgba(9, 15, 12, 0.75);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    outline: none;
+  }
+  .add-item-row input:focus { border-color: var(--gold); }
+  .add-item-row button {
+    background: var(--accent);
+    color: var(--gold-soft);
+    border: 1px solid var(--border-accent);
+    border-radius: 8px;
+    padding: 0 14px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .pill-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .pill-container {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(9, 15, 12, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .pill-container:hover { border-color: var(--gold); }
+  .pill-container.active {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .pill-container.active .pill-label {
+    color: #0D1612;
+    font-weight: 600;
+  }
+  .pill-container.active .pill-del-btn {
+    color: #4A3B18;
+  }
+  .pill-label {
+    font-size: 0.78rem;
+    color: var(--sage-light);
+    user-select: none;
+  }
+  .pill-del-btn {
+    background: none;
+    border: none;
+    color: #7A8E82;
+    font-size: 0.95rem;
+    margin-left: 6px;
+    cursor: pointer;
+    padding: 0 2px;
+    line-height: 1;
+  }
+  .pill-del-btn:hover { color: #DC2626; }
+
+  textarea {
+    width: 100%;
+    background: rgba(9, 15, 12, 0.75);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: var(--text-main);
+    font-size: 0.86rem;
+    outline: none;
+    resize: none;
+    margin-top: 6px;
+  }
+  textarea:focus { border-color: var(--gold); }
+
+  /* Tables in Reports */
+  .eval-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 0.83rem;
+  }
+  .eval-table th, .eval-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .eval-table th {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .eval-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(13, 22, 18, 0.96);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    max-width: 640px;
+    margin: 0 auto;
+    z-index: 100;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    font-size: 0.72rem;
+    color: var(--sage-muted);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .tab-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .tab-btn.active { color: var(--gold); font-weight: 600; }
+
+  .field { margin-bottom: 12px; }
+  label { font-size: 0.8rem; color: var(--sage-muted); display: block; margin-bottom: 4px; }
+  input[type="date"], input[type="number"] {
+    width: 100%;
+    background: rgba(9, 15, 12, 0.75);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    outline: none;
+  }
+  input[type="date"]:focus, input[type="number"]:focus { border-color: var(--gold); }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-accent);
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--accent);
+    color: var(--gold-soft);
+    margin-top: 8px;
+    transition: all 0.2s;
+  }
+  .btn:hover { background: #477964; border-color: var(--gold); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--border-accent);
+  }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+  .stat-card {
+    background: var(--card-inner);
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .stat-val { font-size: 1.4rem; font-weight: 700; color: var(--gold-soft); font-family: 'Cormorant Garamond', serif; }
+  .stat-lbl { font-size: 0.74rem; color: var(--sage-muted); text-transform: uppercase; }
+
+  .archive-badge {
+    padding: 4px 10px;
+    border-radius: 16px;
+    background: rgba(212, 175, 106, 0.12);
+    border: 1px solid var(--border-accent);
+    font-size: 0.8rem;
+    color: var(--gold-soft);
+    cursor: pointer;
+  }
+  .archive-badge.active {
+    background: var(--gold);
+    color: #0D1612;
+    font-weight: 600;
+  }
+
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="moon-glyph" id="moonIcon">☾</div>
+    <h1>Mond & Rhythmus</h1>
+    <div class="subtitle">Zyklus • Mond • Lifestyle • Nährstoffe</div>
+  </header>
+
+  <!-- TAB: HEUTE -->
+  <div id="tab-today">
+    <!-- DAILY REMINDER: Gelassenheits- & Motivations-Spruch -->
+    <div class="daily-reminder-card">
+      <div class="daily-reminder-tag">✧ Tägliche Botschaft & Gelassenheit ✧</div>
+      <div class="daily-reminder-quote" id="dailyReminderQuote">"Atme tief ein. Du bist genau dort, wo du heute sein sollst."</div>
+    </div>
+    <!-- Banner -->
+    <div class="phase-banner" id="phaseBanner">
+      <div class="moon-subhead">
+        <span id="astronomicalMoonGlyph">🌘</span>
+        <span id="astronomicalMoonName">Mond am Himmel wird berechnet...</span>
+      </div>
+      <div class="phase-tag" id="phaseTag">INNERE LUTEALPHASE</div>
+      <div class="phase-name" id="phaseName">Späte Lutealphase (Herbst-Energie)</div>
+      <div class="phase-days" id="phaseDays">Zyklustag 25 von 28 • Noch ca. 3 Tage bis zur Menstruation</div>
+    </div>
+
+    <!-- Tägliche Hormon- & Essens-Impulse -->
+    <div class="card">
+      <h2>Hormone & Essens-Fokus heute</h2>
+      
+      <div class="oracle-box">
+        <strong><span>✦</span> Was deine Hormone heute tun:</strong>
+        <p id="hormoneDesc">Progesteron und Östrogen fallen rapide ab. Das Dopamin sinkt hormonell bedingt – dein Belohnungssystem fordert schnelle Energie und Trost. Aldosteron hält Natrium und Wasser fest.</p>
+      </div>
+
+      <div class="oracle-box">
+        <strong><span>🌿</span> Essens-Tipps für deine heutige Phase:</strong>
+        <p id="foodTips">Kaliumreich speisen (Spaghetti-Kürbis, Bananen, Brokkoli), um überschüssiges Wasser sanft auszuschwemmen. Setze auf komplexe Slow-Carbs (Linsen, Vollkorn) veredelt mit reichlich Zimt (stabilisiert den Blutzucker vor Heißhungerattacken). Knabber Kürbiskerne fürs Magnesium.</p>
+      </div>
+
+      <div class="oracle-box">
+        <strong><span>☾</span> Mond-Impuls des Tages:</strong>
+        <p id="moonTip">Die abnehmende Mondsichel spiegelt deine Lutealphase: Zeit des Loslassens und der inneren Einkehr. Nimm dir heute keinen Perfektionismus vor.</p>
+      </div>
+
+      <div class="oracle-box">
+        <strong><span>🧘</span> Dehn- & Alltags-Impuls (Schmerzfrei & Leicht):</strong>
+        <p id="bodyTips">Wadendehnung an der Treppenstufe (45 Sek.) beim Teekochen + Beine vor dem Schlafen 10 Min. an die Wand (Viparita Karani). Sanfte Hüftöffnung statt fordernder Workouts.</p>
+      </div>
+    </div>
+
+    <!-- Nährwerte-Rechner -->
+    <div class="card">
+      <h2>Ernährungstracker (Auto-Rechner)</h2>
+      <p style="font-size:0.8rem; color:var(--sage-muted); margin-bottom: 8px;">
+        Tippe Essen ein (Sucht in Datenbank & fragt bei Bedarf automatisch online nach).
+      </p>
+
+      <div class="food-calc-box">
+        <div class="food-search-row">
+          <input type="text" id="foodNameInput" list="foodList" placeholder="Essen oder Zutat eingeben..." onkeydown="if(event.key==='Enter') addFoodEntry()">
+          <datalist id="foodList"></datalist>
+          <input type="number" id="foodGramsInput" value="150" placeholder="g" min="5" max="2500" step="5">
+          <button onclick="addFoodEntry()">+ Hinzufügen</button>
+        </div>
+
+        <div id="searchStatus" class="search-status">✧ Suche Nährwerte online...</div>
+
+        <!-- Deine persönlichen Favoriten -->
+        <div class="suggestions">
+          <span class="suggestion-tag" onclick="quickSelect('Milchkaffee', 200)">Milchkaffee (200g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Cocktailtomaten', 100)">Cocktailtomaten (100g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Pesto Genovese', 30)">Pesto Genovese (30g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Haferflocken', 50)">Haferflocken (50g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Frischkäse', 30)">Frischkäse (30g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Spaghetti-Kürbis', 400)">Spaghetti-Kürbis (400g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Soja-Granulat (trocken)', 60)">Soja-Granulat (60g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Lachsfilet', 150)">Lachs (150g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Knoppers', 25)">Knoppers (25g)</span>
+        </div>
+
+        <div id="foodEntriesList" style="margin-top: 10px; max-height: 220px; overflow-y: auto;"></div>
+
+        <div class="macro-summary">
+          <div class="macro-card highlight">
+            <div class="macro-val" id="sumKcal">0</div>
+            <div class="macro-lbl">Kalorien</div>
+          </div>
+          <div class="macro-card highlight">
+            <div class="macro-val" id="sumProtein">0 g</div>
+            <div class="macro-lbl">Protein</div>
+          </div>
+          <div class="macro-card">
+            <div class="macro-val" id="sumCarbs">0 g</div>
+            <div class="macro-lbl">Carbs</div>
+          </div>
+          <div class="macro-card">
+            <div class="macro-val" id="sumFat">0 g</div>
+            <div class="macro-lbl">Fett</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lifestyle & Habit Tracker -->
+    <div class="card">
+      <h2>Lifestyle & Habit Tracker <span class="badge" id="todayDateStr">Heute</span></h2>
+      <p style="font-size:0.8rem; color:var(--sage-muted); margin-bottom: 8px;">
+        Deine täglichen Meilensteine zum Abhaken:
+      </p>
+
+      <div class="checklist" id="lifestyleHabitsContainer"></div>
+
+      <div class="add-item-row">
+        <input type="text" id="newLifestyleInput" placeholder="+ Weiteren Punkt hinzufügen (z.B. Yoga, Natur)..." onkeydown="if(event.key==='Enter') addCustomLifestyleHabit()">
+        <button onclick="addCustomLifestyleHabit()">+</button>
+      </div>
+    </div>
+
+    <!-- Tägliche Rituale & Supplements -->
+    <div class="card">
+      <h2>Supplements & Dehnen</h2>
+
+      <label style="color:var(--gold); font-weight:600; font-size:0.82rem;">Nahrungsergänzungsmittel (Fest):</label>
+      <div class="checklist" style="margin-bottom: 12px;">
+        <label class="check-item supp-item">
+          <span>✧ Nahrungsergänzungsmittel Morgens</span>
+          <input type="checkbox" id="chkSuppMorning" onchange="saveTodayLog()">
+        </label>
+        <label class="check-item supp-item">
+          <span>✦ Nahrungsergänzungsmittel Abends</span>
+          <input type="checkbox" id="chkSuppEvening" onchange="saveTodayLog()">
+        </label>
+      </div>
+
+      <label style="color:var(--gold); font-weight:600; font-size:0.82rem;">Dehn- & Entspannungs-Rituale:</label>
+      <div class="checklist" id="habitsContainer"></div>
+
+      <div class="add-item-row">
+        <input type="text" id="newHabitInput" placeholder="+ Eigene Dehnung hinzufügen..." onkeydown="if(event.key==='Enter') addCustomHabit()">
+        <button onclick="addCustomHabit()">+</button>
+      </div>
+
+      <!-- Energielevel -->
+      <div style="margin-top: 16px;">
+        <label>Energielevel & Intuition:</label>
+        <div class="pill-group" id="energyGroup">
+          <div class="pill-container" onclick="setEnergy(1, this)"><span class="pill-label">Introspektiv / Müde</span></div>
+          <div class="pill-container" onclick="setEnergy(2, this)"><span class="pill-label">Geerdet / Ruhig</span></div>
+          <div class="pill-container" onclick="setEnergy(3, this)"><span class="pill-label">Ausgeglichen</span></div>
+          <div class="pill-container" onclick="setEnergy(4, this)"><span class="pill-label">Voller Tatkraft</span></div>
+        </div>
+      </div>
+
+      <!-- Symptome -->
+      <div style="margin-top: 16px;">
+        <label>Symptome & Körpersignale (Klick zum Wählen / + für Eigene):</label>
+        <div class="pill-group" id="symptomsGroup"></div>
+        
+        <div class="add-item-row" style="margin-top: 8px;">
+          <input type="text" id="newSymptomInput" placeholder="+ Eigenes Symptom hinzufügen..." onkeydown="if(event.key==='Enter') addCustomSymptom()">
+          <button onclick="addCustomSymptom()">+</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <label>Reflexion & Notiz zum Tag:</label>
+        <textarea id="dailyNotes" rows="2" placeholder="Was hat dir heute gut getan? Welche Gedanken bewegen dich?" oninput="saveTodayLog()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: AUSWERTUNG -->
+  <div id="tab-report" class="hidden">
+    <!-- Zyklus-Auswahl / Archiv-Leiste -->
+    <div class="card" style="padding: 14px 18px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <label style="color:var(--gold); font-weight:600; margin:0;">Zyklus auswählen / Archiv:</label>
+        <button class="btn btn-outline" style="width: auto; padding: 4px 10px; font-size: 0.75rem; margin: 0;" onclick="archiveCurrentCyclePrompt()">+ Neuer Zyklus startet (Archivieren)</button>
+      </div>
+      <div id="archiveBadgesList" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;"></div>
+    </div>
+
+    <!-- Gesamtübersicht des Zyklus -->
+    <div class="card">
+      <h2 id="reportCycleTitle">Zyklus-Auswertung</h2>
+      <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 12px;">
+        Ganzheitlicher Rückblick über deine Nährstoffe, Lifestyle-Punkte und Körpersignale.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="statCycleDays">0</div>
+          <div class="stat-lbl">Erfasste Tage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statSuppRate">0 %</div>
+          <div class="stat-lbl">Supplements-Treue</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statAvgKcal">0</div>
+          <div class="stat-lbl">Ø Kalorien / Tag</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statAvgProtein">0 g</div>
+          <div class="stat-lbl">Ø Protein / Tag</div>
+        </div>
+      </div>
+
+      <!-- NEU: Nährwert-Schnitt pro Zyklusphase (Tabelle) -->
+      <div style="margin-top: 16px;">
+        <label style="color:var(--gold); font-weight:600;">Nährwert-Schnitt pro Zyklusphase:</label>
+        <div style="overflow-x: auto;">
+          <table class="eval-table" id="phaseMacroTable">
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Tage</th>
+                <th>Ø kcal</th>
+                <th>Ø Protein</th>
+                <th>Ø Carbs</th>
+                <th>Ø Fett</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- NEU: Lifestyle Habit Tracker Auswertung (Tabelle) -->
+      <div style="margin-top: 18px;">
+        <label style="color:var(--gold); font-weight:600;">Lifestyle-Gewohnheiten (Übersicht & Häufigkeit):</label>
+        <div style="overflow-x: auto;">
+          <table class="eval-table" id="lifestyleTable">
+            <thead>
+              <tr>
+                <th>Lifestyle Punkt</th>
+                <th>Wie oft erlebt?</th>
+                <th>Quote</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Rituale & Dehnen Quote -->
+      <div style="margin-top: 18px;">
+        <label style="color:var(--gold); font-weight:600;">Dehn- & Alltags-Rituale Quote:</label>
+        <div id="statHabitsList" style="font-size:0.85rem; margin-top:6px;"></div>
+      </div>
+
+      <!-- Symptome -->
+      <div style="margin-top: 16px;">
+        <label style="color:var(--gold); font-weight:600;">Zyklus-Symptome im Fokus:</label>
+        <div id="statSymptomsList" style="margin-top:6px;"></div>
+      </div>
+
+      <button class="btn" style="margin-top:16px;" onclick="renderReport()">Auswertung neu berechnen</button>
+    </div>
+  </div>
+
+  <!-- TAB: SETUP & MOND -->
+  <div id="tab-settings" class="hidden">
+    <div class="card">
+      <h2>Zyklus- & Mondkalibrierung</h2>
+      
+      <div class="field">
+        <label>Erster Tag der aktuellen Periode:</label>
+        <input type="date" id="lastPeriodDate" value="2026-09-13" onchange="updateSettings()">
+      </div>
+      <div class="field">
+        <label>Durchschnittliche Zykluslänge (Tage):</label>
+        <input type="number" id="cycleLength" value="28" min="20" max="45" onchange="updateSettings()">
+      </div>
+      <div class="field">
+        <label>Menstruationsdauer (Tage):</label>
+        <input type="number" id="periodLength" value="5" min="2" max="10" onchange="updateSettings()">
+      </div>
+
+      <button class="btn" onclick="saveSettingsAndRecalc()">Speichern & Aktualisieren</button>
+    </div>
+
+    <!-- Neuer Zyklus starten & Archivieren -->
+    <div class="card">
+      <h2>Neuen Zyklus starten (Periode bekommen)</h2>
+      <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
+        Wenn deine Periode heute oder an einem bestimmten Tag startet: Klicke hier. Der bisherige Zyklus wird z. B. als „Zyklus September/Oktober“ mit all seinen Daten archiviert und der Zähler startet wieder bei Tag 1!
+      </p>
+      <button class="btn" onclick="archiveCurrentCyclePrompt()">✧ Jetzt neuen Zyklus starten & bisherigen archivieren</button>
+    </div>
+
+    <div class="card">
+      <h2>Eigene Lebensmittel verwalten</h2>
+      <div class="field"><input type="text" id="customFoodName" placeholder="Name (z.B. Mein Pesto-Salat)"></div>
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 8px;">
+        <input type="number" id="customFoodKcal" placeholder="kcal/100g">
+        <input type="number" id="customFoodProt" placeholder="Protein">
+        <input type="number" id="customFoodCarb" placeholder="Carbs">
+        <input type="number" id="customFoodFat" placeholder="Fett">
+      </div>
+      <button class="btn btn-outline" onclick="saveCustomFoodToDB()">+ In Lebensmittel-Datenbank speichern</button>
+    </div>
+
+    <div class="card">
+      <h2>Die 8 Mondphasen im Überblick</h2>
+      <div style="font-size:0.85rem; line-height: 1.6; color:var(--text-main);">
+        <p>🌑 <strong>Neumond:</strong> Neubeginn, Stille, Aussaat von Intentionen.</p>
+        <p>🌒 <strong>Zunehmende Sichel:</strong> Erste Schritte, Fokus sammeln, Keimen.</p>
+        <p>🌓 <strong>Erstes Viertel:</strong> Entschlusskraft, Hindernisse überwinden.</p>
+        <p>🌔 <strong>Zunehmender Dreiviertelmond:</strong> Verfeinern, Vorbereitung auf die Fülle.</p>
+        <p>🌕 <strong>Vollmond:</strong> Höhepunkt der Energie, Feiern, Klarheit & Ernte.</p>
+        <p>🌖 <strong>Abnehmender Dreiviertelmond:</strong> Dankbarkeit, Teilen, Verarbeiten.</p>
+        <p>🌗 <strong>Letztes Viertel:</strong> Loslassen, Bereinigen, Vergeben.</p>
+        <p>🌘 <strong>Abnehmende Sichel (Balsamischer Mond):</strong> Tiefe Ruhe, Hingabe & Regeneration.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Tägliche Erinnerung</h2>
+      <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
+        Erinnert dich morgens und abends sanft an deine Supplements, deine Dehnung und dein Essen.
+      </p>
+      <button class="btn btn-outline" onclick="requestNotification()">Erinnerungen aktivieren</button>
+    </div>
+
+    <!-- Web App & Desktop Installation -->
+    <div class="card">
+      <h2>App installieren & Persistent machen</h2>
+      <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
+        Installiere das Tool direkt als eigenständige Desktop- oder Smartphone-App. Dadurch sichert der Browser den Speicher gegen automatisches Leeren ab.
+      </p>
+      <button class="btn" id="installAppBtn" onclick="installAppPrompt()">✧ Als App installieren / Auf Desktop ablegen</button>
+    </div>
+
+    <!-- Autarkie, Backup Import & Export -->
+    <div class="card">
+      <h2>Datensicherung (Import & Export)</h2>
+      <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
+        100 % lokal gesichert. Lade dein Backup herunter oder stelle einen früheren Stand auf jedem beliebigen Gerät wieder her:
+      </p>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-outline" style="flex:1;" onclick="exportData()">⬇ Exportieren</button>
+        <button class="btn btn-outline" style="flex:1;" onclick="triggerImport()">⬆ Wiederherstellen</button>
+      </div>
+      <input type="file" id="backupFileInput" accept=".json" style="display:none;" onchange="handleFileImport(event)">
+    </div>
+  </div>
+
+</div>
+
+<!-- Tab Navigation -->
+<nav class="tab-bar">
+  <button class="tab-btn active" id="btnTabToday" onclick="switchTab('today')">
+    <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+    Heute & Mond
+  </button>
+  <button class="tab-btn" id="btnTabReport" onclick="switchTab('report')">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    Auswertung
+  </button>
+  <button class="tab-btn" id="btnTabSettings" onclick="switchTab('settings')">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    Setup & Mond
+  </button>
+</nav>
+
+<script>
+  const KEY_SETTINGS = 'mond_zyklus_settings_v8';
+  const KEY_HABITS = 'mond_zyklus_habits_v8';
+  const KEY_LIFESTYLE = 'mond_zyklus_lifestyle_v8';
+  const KEY_SYMPTOMS = 'mond_zyklus_symptoms_v8';
+  const KEY_CUSTOM_FOODS = 'mond_zyklus_custom_foods_v8';
+  const KEY_LOGS = 'mond_zyklus_logs_v8';
+  const KEY_ARCHIVE = 'mond_zyklus_archive_v8';
+
+  const BASE_FOOD_DATABASE = [
+    { name: "Milchkaffee", kcal: 45, p: 3.2, c: 4.8, f: 1.5 },
+    { name: "Cocktailtomaten", kcal: 18, p: 0.9, c: 2.6, f: 0.2 },
+    { name: "Pesto Genovese", kcal: 435, p: 5.2, c: 6.5, f: 43.0 },
+    { name: "Frischkäse", kcal: 105, p: 9.0, c: 3.5, f: 6.0 },
+    { name: "Frischkäse mager", kcal: 62, p: 11.0, c: 3.9, f: 0.2 },
+    { name: "Spaghetti-Kürbis", kcal: 27, p: 0.8, c: 6.5, f: 0.1 },
+    { name: "Hokkaido-Kürbis", kcal: 63, p: 1.7, c: 12.6, f: 0.5 },
+    { name: "Butternut-Kürbis", kcal: 45, p: 1.0, c: 10.5, f: 0.1 },
+    { name: "Brokkoli", kcal: 34, p: 2.8, c: 2.7, f: 0.4 },
+    { name: "Blumenkohl", kcal: 25, p: 1.9, c: 2.3, f: 0.3 },
+    { name: "Blattspinat", kcal: 23, p: 2.9, c: 0.8, f: 0.4 },
+    { name: "Spitzkohl", kcal: 25, p: 2.0, c: 3.5, f: 0.2 },
+    { name: "Zucchini", kcal: 19, p: 1.6, c: 2.2, f: 0.4 },
+    { name: "Champignons", kcal: 22, p: 3.1, c: 0.6, f: 0.3 },
+    { name: "Möhren / Karotten", kcal: 36, p: 0.9, c: 6.8, f: 0.2 },
+    { name: "Tomaten / Kirschtomaten", kcal: 18, p: 0.9, c: 2.6, f: 0.2 },
+    { name: "Edamame (TK)", kcal: 122, p: 11.0, c: 8.0, f: 5.0 },
+    { name: "Soja-Granulat (trocken)", kcal: 295, p: 48.0, c: 15.0, f: 1.5 },
+    { name: "Lachsfilet", kcal: 206, p: 20.0, c: 0.0, f: 13.5 },
+    { name: "Kabeljau / Seelachs", kcal: 82, p: 18.0, c: 0.0, f: 0.7 },
+    { name: "Garnelen", kcal: 85, p: 18.5, c: 0.9, f: 0.8 },
+    { name: "Like Meat Chicken", kcal: 130, p: 18.0, c: 3.0, f: 3.5 },
+    { name: "Räuchertofu", kcal: 145, p: 16.0, c: 2.0, f: 8.0 },
+    { name: "Eier (1 Stück ca. 55g)", kcal: 78, p: 7.0, c: 0.4, f: 5.5 },
+    { name: "Rote Linsen (trocken)", kcal: 340, p: 25.0, c: 53.0, f: 1.5 },
+    { name: "Braune Linsen (Dose abgetropft)", kcal: 85, p: 7.0, c: 11.5, f: 0.5 },
+    { name: "Kidneybohnen (Dose abgetropft)", kcal: 105, p: 8.5, c: 14.0, f: 0.6 },
+    { name: "Kichererbsen (Dose abgetropft)", kcal: 120, p: 7.5, c: 17.0, f: 2.0 },
+    { name: "Magerquark", kcal: 68, p: 12.5, c: 4.0, f: 0.2 },
+    { name: "Skyr Natur", kcal: 63, p: 11.0, c: 4.0, f: 0.2 },
+    { name: "Feta light (9% Fett)", kcal: 175, p: 16.0, c: 1.0, f: 9.0 },
+    { name: "Mozzarella light (8.5%)", kcal: 165, p: 19.0, c: 1.5, f: 8.5 },
+    { name: "Parmesan", kcal: 390, p: 35.0, c: 0.0, f: 28.0 },
+    { name: "Milch 1.5% Fett", kcal: 48, p: 3.4, c: 4.9, f: 1.5 },
+    { name: "Vollkornnudeln (trocken)", kcal: 348, p: 13.0, c: 65.0, f: 2.5 },
+    { name: "Basmatireis (trocken)", kcal: 350, p: 8.0, c: 77.0, f: 0.6 },
+    { name: "Gnocchi (Kühlregal)", kcal: 155, p: 3.5, c: 32.0, f: 0.8 },
+    { name: "Haferflocken", kcal: 370, p: 13.5, c: 58.5, f: 7.0 },
+    { name: "Vollkornbrot / Dinkelbrot", kcal: 215, p: 8.5, c: 38.0, f: 1.8 },
+    { name: "Walnüsse", kcal: 654, p: 15.0, c: 11.0, f: 65.0 },
+    { name: "Kürbiskerne", kcal: 560, p: 30.0, c: 14.0, f: 45.0 },
+    { name: "Leinsamen geschrotet", kcal: 470, p: 20.0, c: 0.0, f: 38.0 },
+    { name: "Banane", kcal: 90, p: 1.1, c: 20.0, f: 0.3 },
+    { name: "Apfel", kcal: 52, p: 0.3, c: 12.0, f: 0.2 },
+    { name: "Beeren gemischt", kcal: 45, p: 1.0, c: 8.0, f: 0.5 },
+    { name: "Knoppers", kcal: 535, p: 9.0, c: 52.0, f: 33.0 }
+  ];
+
+
+  // 31 Daily Celestial Quotes for Serenity & Motivation
+  const DAILY_QUOTES = [
+    "Atme tief ein. Du bist genau dort, wo du heute sein sollst.",
+    "Vertraue dem Fluss des Lebens. Alles entfaltet sich zur richtigen Zeit.",
+    "In der Ruhe liegt nicht nur Kraft, sondern deine tiefste Wahrheit.",
+    "Wie die Mondin darfst du dich verändern, ohne an Glanz zu verlieren.",
+    "Erlaube dir heute Sanftmut. Du musst die Welt nicht im Alleingang tragen.",
+    "Höre auf deinen Körper – er spricht in leisen, weisen Worten zu dir.",
+    "Aus dem Stillstand wachsen die schönsten neuen Wurzeln.",
+    "Sei stolz auf den leisen Mut, mit dem du jeden Tag begegnest.",
+    "Lass los, was schwer ist. Mache Raum für Licht und frische Freude.",
+    "Deine Intuition ist ein stiller Kompass. Folge seinem Schimmern.",
+    "Es liegt eine heilige Schönheit darin, einfach nur im Moment zu sein.",
+    "Nähre heute deine Seele mit den Dingen, die dir Geborgenheit schenken.",
+    "Alles in der Natur hat seine Zeit zu blühen und seine Zeit zu ruhen.",
+    "Du bist der sichere Hafen für dich selbst. Kehre heim in deine Mitte.",
+    "Ein sanfter Schritt nach vorne ist stärker als tausend erzwungene Sprünge.",
+    "Dein Wert bemisst sich nicht an Leistung, sondern an deinem puren Sein.",
+    "Halte kurz inne und spüre den Boden unter dir. Du bist getragen.",
+    "Lass die Erwartungen anderer verwehen wie Sternenstaub im Wind.",
+    "Heute darfst du wählen, was dir Leichtigkeit schenkt.",
+    "Die Weisheit des Körpers weiß genau, was du jetzt brauchst. Schenke es ihm.",
+    "Finde Frieden im Dazwischen. Jede Phase birgt ihren eigenen Zauber.",
+    "Schenke dir selbst das Lächeln und das Mitgefühl, das du anderen gibst.",
+    "Das Universum eilt nicht, und dennoch vollendet es jedes Werk.",
+    "Gehe achtsam mit deiner Energie um. Sie ist dein wertvollster Schatz.",
+    "In deinem Herzen wohnt eine unerschütterliche Gelassenheit. Spüre sie.",
+    "Erlaube deinem Geist, weit und wolkenlos wie der Nachthimmel zu werden.",
+    "Du darfst 'Nein' zur Hektik sagen, um 'Ja' zu deiner Seele zu sprechen.",
+    "Jeder Zyklus schenkt dir die Chance, dich selbst neu zu entdecken.",
+    "Deine Sanftheit ist keine Schwäche – sie ist deine größte Heilkraft.",
+    "Lass den Tag leise ausklingen und vertraue auf die Erneuerung der Nacht.",
+    "Mögest du heute Geborgenheit, Liebe und tiefen Frieden in dir finden."
+  ];
+
+  let settings = {
+    lastPeriodDate: '2026-09-13',
+    cycleLength: 28,
+    periodLength: 5
+  };
+
+  // Vorgegebene Lifestyle-Punkte vom User: liebe, gut geschlafen, kreativ, treffen
+  let lifestyleList = [
+    { id: 'l_liebe', text: 'Liebe / Zweisamkeit' },
+    { id: 'l_schlaf', text: 'Gut geschlafen' },
+    { id: 'l_kreativ', text: 'Kreativ gewesen' },
+    { id: 'l_treffen', text: 'Freunde / Familie getroffen' }
+  ];
+
+  let habitList = [
+    { id: 'h1', text: '1 sanfte Alltags-Dehnung (Wade an Treppe / Couch-Hüfte)' },
+    { id: 'h2', text: '15–20 Min. Spaziergang im Grünen oder Yoga' },
+    { id: 'h3', text: 'Beine entspannt hochgelegt (Wand / Viparita Karani)' },
+    { id: 'h4', text: 'Mind. 1,5–2 Liter Wasser / Kräutertee getrunken' },
+    { id: 'h5', text: 'Zimt oder Slow-Carbs integriert' }
+  ];
+
+  let symptomList = [
+    "Krämpfe",
+    "Spannungsgefühl",
+    "Heißhunger",
+    "Kopfschmerz",
+    "Blähbauch",
+    "Müdigkeit",
+    "Stimmungsschwankung",
+    "Wassereinlagerung",
+    "Im Einklang"
+  ];
+
+  let customFoodList = [];
+  let logs = {};
+  let archives = []; // { name: "Zyklus September/Oktober 2026", startDate: "2026-09-13", endDate: "2026-10-10", cycleLength: 28, logs: {...} }
+  let selectedArchiveIndex = -1; // -1 = current active cycle
+  let currentEnergy = 0;
+  let currentSymptoms = [];
+
+  function getMoonPhaseData(date) {
+    const refDate = new Date(Date.UTC(2000, 0, 6, 18, 14));
+    const synodicMonth = 29.53058867;
+    const diffDays = (date.getTime() - refDate.getTime()) / (1000 * 60 * 60 * 24);
+    const phaseValue = (diffDays % synodicMonth + synodicMonth) % synodicMonth;
+    const phaseFraction = phaseValue / synodicMonth;
+    const illumination = Math.round((1 - Math.cos(2 * Math.PI * phaseFraction)) / 2 * 100);
+
+    let name = '', glyph = '';
+    if (phaseFraction < 0.03 || phaseFraction >= 0.97) { name = 'Neumond'; glyph = '🌑'; }
+    else if (phaseFraction < 0.22) { name = 'Zunehmende Mondsichel'; glyph = '🌒'; }
+    else if (phaseFraction < 0.28) { name = 'Erstes Viertel'; glyph = '🌓'; }
+    else if (phaseFraction < 0.47) { name = 'Zunehmender Dreiviertelmond'; glyph = '🌔'; }
+    else if (phaseFraction < 0.53) { name = 'Vollmond'; glyph = '🌕'; }
+    else if (phaseFraction < 0.72) { name = 'Abnehmender Dreiviertelmond'; glyph = '🌖'; }
+    else if (phaseFraction < 0.78) { name = 'Letztes Viertel'; glyph = '🌗'; }
+    else { name = 'Abnehmende Mondsichel (Balsamischer Mond)'; glyph = '🌘'; }
+
+    return { name, glyph, illumination };
+  }
+
+  function getAllFoods() {
+    return [...BASE_FOOD_DATABASE, ...customFoodList];
+  }
+
+  function init() {
+    const savedSet = localStorage.getItem(KEY_SETTINGS);
+    if (savedSet) {
+      try { settings = JSON.parse(savedSet); } catch(e){}
+    } else {
+      settings.lastPeriodDate = '2026-09-13';
+      localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings));
+    }
+
+    const savedHabits = localStorage.getItem(KEY_HABITS);
+    if (savedHabits) {
+      try { habitList = JSON.parse(savedHabits); } catch(e){}
+    }
+
+    const savedLifestyle = localStorage.getItem(KEY_LIFESTYLE);
+    if (savedLifestyle) {
+      try { lifestyleList = JSON.parse(savedLifestyle); } catch(e){}
+    } else {
+      localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList));
+    }
+
+    const savedSymptoms = localStorage.getItem(KEY_SYMPTOMS);
+    if (savedSymptoms) {
+      try { symptomList = JSON.parse(savedSymptoms); } catch(e){}
+    }
+
+    const savedCustomFoods = localStorage.getItem(KEY_CUSTOM_FOODS);
+    if (savedCustomFoods) {
+      try { customFoodList = JSON.parse(savedCustomFoods); } catch(e){}
+    }
+
+    const savedLogs = localStorage.getItem(KEY_LOGS);
+    if (savedLogs) {
+      try { logs = JSON.parse(savedLogs); } catch(e){}
+    }
+
+    const savedArchive = localStorage.getItem(KEY_ARCHIVE);
+    if (savedArchive) {
+      try { archives = JSON.parse(savedArchive); } catch(e){}
+    }
+
+    document.getElementById('lastPeriodDate').value = settings.lastPeriodDate;
+    document.getElementById('cycleLength').value = settings.cycleLength;
+    document.getElementById('periodLength').value = settings.periodLength;
+
+    populateFoodDatalist();
+    renderToday();
+    renderLifestyleHabits();
+    renderHabits();
+    renderSymptomsPills();
+    loadTodayLog();
+  }
+
+  function populateFoodDatalist() {
+    const list = document.getElementById('foodList');
+    list.innerHTML = '';
+    const all = getAllFoods();
+    all.forEach(item => {
+      const opt = document.createElement('option');
+      opt.value = item.name;
+      list.appendChild(opt);
+    });
+  }
+
+  function getTodayKey() {
+    const d = new Date();
+    const yr = d.getFullYear();
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const da = String(d.getDate()).padStart(2, '0');
+    return `${yr}-${mo}-${da}`;
+  }
+
+  function renderToday() {
+    const today = new Date();
+    const options = { weekday: 'short', day: 'numeric', month: 'short' };
+    document.getElementById('todayDateStr').textContent = today.toLocaleDateString('de-DE', options);
+    // Set Daily Reminder Quote (based on day of month)
+    const dayOfMonth = today.getDate();
+    const quoteIndex = (dayOfMonth - 1) % DAILY_QUOTES.length;
+    const quoteEl = document.getElementById('dailyReminderQuote');
+    if (quoteEl) quoteEl.textContent = `"${DAILY_QUOTES[quoteIndex]}"`;
+
+
+    const moon = getMoonPhaseData(today);
+    document.getElementById('astronomicalMoonGlyph').textContent = moon.glyph;
+    document.getElementById('astronomicalMoonName').textContent = `Mond am Himmel: ${moon.name} (${moon.illumination}% beleuchtet)`;
+    document.getElementById('moonIcon').textContent = moon.glyph;
+
+    const start = new Date(settings.lastPeriodDate);
+    const diffTime = today.getTime() - start.getTime();
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    const cycleLength = parseInt(settings.cycleLength) || 28;
+    const periodLength = parseInt(settings.periodLength) || 5;
+
+    let cycleDay = (diffDays % cycleLength) + 1;
+    if (cycleDay <= 0) cycleDay += cycleLength;
+
+    const daysUntilNext = cycleLength - cycleDay + 1;
+
+    let phase = '', phaseName = '', hormone = '', food = '', moonTip = '', body = '';
+
+    if (cycleDay <= periodLength) {
+      phase = 'INNERE MENSTRUATION';
+      phaseName = 'Menstruation • Innere Neumond-Phase';
+      hormone = 'Progesteron und Östrogen sind am Tiefpunkt. Körper regeneriert und reinigt sich.';
+      food = 'Wärmend, eisen- & blutbildend: Rote Linsen, Gemüsesuppen, Beeren, Zitrone & Zimt-Tee.';
+      moonTip = 'Neubeginn: Ziehe dich wie die dunkle Mondin zurück. Ruhe nährt deine Wurzeln.';
+      body = 'Sanfte Kindeshaltung, Beine an die Wand. Nur dehnen, was sich weich anfühlt.';
+    } else if (cycleDay <= 12) {
+      phase = 'INNERE FOLLIKELPHASE';
+      phaseName = 'Follikelphase • Zunehmende Kraft';
+      hormone = 'Östrogen steigt und hebt Dopamin & Fokus an. Optimale Verwertung von Kohlenhydraten.';
+      food = 'Frisch, knackig & proteinreich: Skyr, Tofu, weißer Fisch, gekeimte Saaten, Gemüse.';
+      moonTip = 'Wachstum & Tatkraft: Zeit für neue kreative Projekte und frischen Elan.';
+      body = 'Krieger-Posen, zügiges Gehen im Wald, Beinrückseiten dynamischer öffnen.';
+    } else if (cycleDay <= 16) {
+      phase = 'INNERE OVULATION';
+      phaseName = 'Eisprung • Innere Vollmond-Phase';
+      hormone = 'Östrogen & LH auf dem monatlichen Peak. Maximale Strahlkraft und Verbindung.';
+      food = 'Antioxidantien-Power: Blattspinat, Brokkoli, Spitzkohl, Beeren, leichte Eiweiße.';
+      moonTip = 'Volle Fülle: Feiere deine Energie, aber achte darauf, dein Nervensystem nicht zu überreizen.';
+      body = 'Couch-Stretch (Hüfte öffnen), sanfte Taube, Standhaltungen.';
+    } else {
+      phase = 'INNERE LUTEALPHASE';
+      phaseName = 'Späte Lutealphase • Herbst-Energie';
+      hormone = 'Progesteron & Östrogen sinken steil. Dopamin-Tief ruft nach Trost; Aldosteron bindet Wasser.';
+      food = 'Kalium hoch (Spaghetti-Kürbis, Banane), Magnesium (Kürbiskerne), Zimt im Porridge für stabilen Blutzucker.';
+      moonTip = 'Zeit des Klärens: Nimm dir keinen Perfektionismus vor. Sanfte Einkehr.';
+      body = 'Wadendehnung an der Treppe (45 Sek.) + Beine an die Wand vor dem Einschlafen.';
+    }
+
+    document.getElementById('phaseTag').textContent = phase;
+    document.getElementById('phaseName').textContent = phaseName;
+    document.getElementById('phaseDays').textContent = `Zyklustag ${cycleDay} von ${cycleLength} • Noch ca. ${daysUntilNext} Tag(e) bis zur Menstruation`;
+    
+    document.getElementById('hormoneDesc').textContent = hormone;
+    document.getElementById('foodTips').textContent = food;
+    document.getElementById('moonTip').textContent = moonTip;
+    document.getElementById('bodyTips').textContent = body;
+  }
+
+  // --- Lifestyle Habit Tracker Rendering ---
+  function renderLifestyleHabits() {
+    const container = document.getElementById('lifestyleHabitsContainer');
+    container.innerHTML = '';
+    const todayKey = getTodayKey();
+    const todayData = logs[todayKey] || { lifestyle: {} };
+
+    lifestyleList.forEach(item => {
+      const isChecked = !!(todayData.lifestyle && todayData.lifestyle[item.id]);
+      const row = document.createElement('label');
+      row.className = 'check-item life-item';
+      row.innerHTML = `
+        <span style="flex:1; font-weight:500;">${item.text}</span>
+        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleLifestyle('${item.id}', this.checked)">
+        <button class="food-del" title="Entfernen" onclick="deleteLifestyle('${item.id}', event)">×</button>
+      `;
+      container.appendChild(row);
+    });
+  }
+
+  function toggleLifestyle(id, val) {
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+    if (!logs[todayKey].lifestyle) logs[todayKey].lifestyle = {};
+    logs[todayKey].lifestyle[id] = val;
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+  }
+
+  function addCustomLifestyleHabit() {
+    const input = document.getElementById('newLifestyleInput');
+    const text = input.value.trim();
+    if (!text) return;
+    const newId = 'l_' + Date.now();
+    lifestyleList.push({ id: newId, text });
+    localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList));
+    input.value = '';
+    renderLifestyleHabits();
+  }
+
+  function deleteLifestyle(id, ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    lifestyleList = lifestyleList.filter(l => l.id !== id);
+    localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList));
+    renderLifestyleHabits();
+  }
+
+  // --- Food Tracking & Online API ---
+  async function searchOnlineFood(query) {
+    try {
+      const url = `https://de.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(query)}&search_simple=1&action=process&json=1&page_size=3`;
+      const res = await fetch(url, { headers: { 'User-Agent': 'MondRhythmusApp/1.0' } });
+      if (!res.ok) return null;
+      const data = await res.json();
+      if (data && data.products && data.products.length > 0) {
+        for (let p of data.products) {
+          const nut = p.nutriments;
+          if (nut) {
+            const kcal = Math.round(nut['energy-kcal_100g'] || (nut['energy_100g'] ? nut['energy_100g'] / 4.184 : 0));
+            const protein = Math.round((nut['proteins_100g'] || 0) * 10) / 10;
+            const carbs = Math.round((nut['carbohydrates_100g'] || 0) * 10) / 10;
+            const fat = Math.round((nut['fat_100g'] || 0) * 10) / 10;
+            if (kcal > 0 || protein > 0) {
+              const cleanName = p.product_name_de || p.product_name || query;
+              return { name: cleanName, kcal, p: protein, c: carbs, f: fat };
+            }
+          }
+        }
+      }
+    } catch (err) {
+      console.warn("Online food search unavailable:", err);
+    }
+    return null;
+  }
+
+  function quickSelect(name, grams) {
+    document.getElementById('foodNameInput').value = name;
+    document.getElementById('foodGramsInput').value = grams;
+    addFoodEntry();
+  }
+
+  async function addFoodEntry() {
+    const input = document.getElementById('foodNameInput');
+    const name = input.value.trim();
+    const grams = parseFloat(document.getElementById('foodGramsInput').value);
+    const statusBox = document.getElementById('searchStatus');
+
+    if (!name || isNaN(grams) || grams <= 0) {
+      alert('Bitte Lebensmittel und Grammanzahl eingeben.');
+      return;
+    }
+
+    const all = getAllFoods();
+    let found = all.find(item => item.name.toLowerCase() === name.toLowerCase()) 
+             || all.find(item => item.name.toLowerCase().includes(name.toLowerCase()));
+
+    let kcal = 0, p = 0, c = 0, f = 0;
+    let finalName = name;
+
+    if (found) {
+      finalName = found.name;
+      const factor = grams / 100;
+      kcal = Math.round(found.kcal * factor);
+      p = Math.round(found.p * factor * 10) / 10;
+      c = Math.round(found.c * factor * 10) / 10;
+      f = Math.round(found.f * factor * 10) / 10;
+    } else {
+      statusBox.style.display = 'block';
+      statusBox.textContent = `✧ Suche "${name}" online...`;
+      const onlineResult = await searchOnlineFood(name);
+      statusBox.style.display = 'none';
+
+      if (onlineResult) {
+        finalName = onlineResult.name;
+        customFoodList.push(onlineResult);
+        localStorage.setItem(KEY_CUSTOM_FOODS, JSON.stringify(customFoodList));
+        populateFoodDatalist();
+
+        const factor = grams / 100;
+        kcal = Math.round(onlineResult.kcal * factor);
+        p = Math.round(onlineResult.p * factor * 10) / 10;
+        c = Math.round(onlineResult.c * factor * 10) / 10;
+        f = Math.round(onlineResult.f * factor * 10) / 10;
+      } else {
+        const estKcal = prompt(`"${name}" wurde online nicht gefunden. Wie viele Kalorien schätzt du für diese Portion (${grams}g)?`, "150");
+        if (estKcal === null) return;
+        kcal = parseInt(estKcal) || 150;
+        p = Math.round(kcal * 0.08);
+        c = Math.round(kcal * 0.1);
+        f = Math.round(kcal * 0.03);
+      }
+    }
+
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+
+    logs[todayKey].foodItems.push({
+      name: finalName,
+      grams: grams,
+      kcal: kcal,
+      protein: p,
+      carbs: c,
+      fat: f
+    });
+
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+    input.value = '';
+    renderFoodEntries();
+  }
+
+  function deleteFoodEntry(idx) {
+    const todayKey = getTodayKey();
+    if (logs[todayKey] && logs[todayKey].foodItems) {
+      logs[todayKey].foodItems.splice(idx, 1);
+      localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+      renderFoodEntries();
+    }
+  }
+
+  function renderFoodEntries() {
+    const todayKey = getTodayKey();
+    const listContainer = document.getElementById('foodEntriesList');
+    listContainer.innerHTML = '';
+
+    const items = (logs[todayKey] && logs[todayKey].foodItems) ? logs[todayKey].foodItems : [];
+    let sumK = 0, sumP = 0, sumC = 0, sumF = 0;
+
+    items.forEach((item, idx) => {
+      sumK += item.kcal;
+      sumP += item.protein;
+      sumC += item.carbs;
+      sumF += item.fat;
+
+      const row = document.createElement('div');
+      row.className = 'food-item-row';
+      row.innerHTML = `
+        <div>
+          <span class="food-name">${item.name}</span> <span class="food-meta">(${item.grams}g)</span>
+          <div class="food-meta">${item.kcal} kcal • ${item.protein}g P • ${item.carbs}g KH • ${item.fat}g F</div>
+        </div>
+        <button class="food-del" onclick="deleteFoodEntry(${idx})">×</button>
+      `;
+      listContainer.appendChild(row);
+    });
+
+    document.getElementById('sumKcal').textContent = sumK;
+    document.getElementById('sumProtein').textContent = Math.round(sumP) + ' g';
+    document.getElementById('sumCarbs').textContent = Math.round(sumC) + ' g';
+    document.getElementById('sumFat').textContent = Math.round(sumF) + ' g';
+  }
+
+  // --- Dehn-Habits & Symptoms ---
+  function renderHabits() {
+    const container = document.getElementById('habitsContainer');
+    container.innerHTML = '';
+    const todayKey = getTodayKey();
+    const todayData = logs[todayKey] || { checked: {} };
+
+    habitList.forEach(habit => {
+      const isChecked = !!(todayData.checked && todayData.checked[habit.id]);
+      const row = document.createElement('label');
+      row.className = 'check-item';
+      row.innerHTML = `
+        <span style="flex:1;">${habit.text}</span>
+        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleHabit('${habit.id}', this.checked)">
+        <button class="food-del" title="Entfernen" onclick="deleteHabit('${habit.id}', event)">×</button>
+      `;
+      container.appendChild(row);
+    });
+  }
+
+  function toggleHabit(id, val) {
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+    logs[todayKey].checked[id] = val;
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+  }
+
+  function addCustomHabit() {
+    const input = document.getElementById('newHabitInput');
+    const text = input.value.trim();
+    if (!text) return;
+    const newId = 'h_' + Date.now();
+    habitList.push({ id: newId, text });
+    localStorage.setItem(KEY_HABITS, JSON.stringify(habitList));
+    input.value = '';
+    renderHabits();
+  }
+
+  function deleteHabit(id, ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    habitList = habitList.filter(h => h.id !== id);
+    localStorage.setItem(KEY_HABITS, JSON.stringify(habitList));
+    renderHabits();
+  }
+
+  function renderSymptomsPills() {
+    const container = document.getElementById('symptomsGroup');
+    container.innerHTML = '';
+
+    symptomList.forEach(s => {
+      const isActive = currentSymptoms.includes(s);
+      const pill = document.createElement('div');
+      pill.className = `pill-container ${isActive ? 'active' : ''}`;
+      pill.innerHTML = `
+        <span class="pill-label" onclick="toggleSymptom('${s}')">${s}</span>
+        <button class="pill-del-btn" title="Löschen" onclick="deleteCustomSymptom('${s}', event)">×</button>
+      `;
+      container.appendChild(pill);
+    });
+  }
+
+  function toggleSymptom(symp) {
+    const idx = currentSymptoms.indexOf(symp);
+    if (idx > -1) currentSymptoms.splice(idx, 1);
+    else currentSymptoms.push(symp);
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function addCustomSymptom() {
+    const input = document.getElementById('newSymptomInput');
+    const val = input.value.trim();
+    if (!val) return;
+    if (!symptomList.includes(val)) {
+      symptomList.push(val);
+      localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
+    }
+    if (!currentSymptoms.includes(val)) currentSymptoms.push(val);
+    input.value = '';
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function deleteCustomSymptom(symp, ev) {
+    ev.stopPropagation();
+    symptomList = symptomList.filter(s => s !== symp);
+    currentSymptoms = currentSymptoms.filter(s => s !== symp);
+    localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function ensureLogDay(key) {
+    if (!logs[key]) {
+      logs[key] = {
+        suppMorning: false,
+        suppEvening: false,
+        foodItems: [],
+        checked: {},
+        lifestyle: {},
+        energy: 0,
+        symptoms: [],
+        notes: ''
+      };
+    }
+    if (!logs[key].foodItems) logs[key].foodItems = [];
+    if (!logs[key].checked) logs[key].checked = {};
+    if (!logs[key].lifestyle) logs[key].lifestyle = {};
+    if (!logs[key].symptoms) logs[key].symptoms = [];
+  }
+
+  function loadTodayLog() {
+    const todayKey = getTodayKey();
+    const entry = logs[todayKey] || {};
+
+    document.getElementById('chkSuppMorning').checked = !!entry.suppMorning;
+    document.getElementById('chkSuppEvening').checked = !!entry.suppEvening;
+    document.getElementById('dailyNotes').value = entry.notes || '';
+
+    currentEnergy = entry.energy || 0;
+    setEnergyUI(currentEnergy);
+
+    currentSymptoms = entry.symptoms || [];
+    renderSymptomsPills();
+    renderFoodEntries();
+    renderLifestyleHabits();
+  }
+
+  function saveTodayLog() {
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+
+    logs[todayKey].suppMorning = document.getElementById('chkSuppMorning').checked;
+    logs[todayKey].suppEvening = document.getElementById('chkSuppEvening').checked;
+    logs[todayKey].notes = document.getElementById('dailyNotes').value;
+    logs[todayKey].energy = currentEnergy;
+    logs[todayKey].symptoms = currentSymptoms;
+
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+  }
+
+  function setEnergy(val, el) {
+    currentEnergy = val;
+    setEnergyUI(val);
+    saveTodayLog();
+  }
+
+  function setEnergyUI(val) {
+    const containers = document.querySelectorAll('#energyGroup .pill-container');
+    containers.forEach((c, idx) => {
+      if (idx + 1 === val) c.classList.add('active');
+      else c.classList.remove('active');
+    });
+  }
+
+  // --- Zyklus-Archivierung Feature ---
+  function archiveCurrentCyclePrompt() {
+    const todayStr = getTodayKey();
+    const startStr = settings.lastPeriodDate;
+    
+    // Auto name suggestion e.g. "Zyklus September/Oktober 2026"
+    const startDate = new Date(startStr);
+    const endDate = new Date(todayStr);
+    const m1 = startDate.toLocaleDateString('de-DE', { month: 'long' });
+    const m2 = endDate.toLocaleDateString('de-DE', { month: 'long' });
+    const yr = endDate.getFullYear();
+    const autoName = m1 === m2 ? `Zyklus ${m1} ${yr}` : `Zyklus ${m1}/${m2} ${yr}`;
+
+    const cycleName = prompt("Name für den abzuschließenden Zyklus:", autoName);
+    if (!cycleName) return;
+
+    const newStart = prompt("Erster Tag der NEUEN Periode (JJJJ-MM-TT):", todayStr);
+    if (!newStart) return;
+
+    // Save archive object
+    const archiveEntry = {
+      name: cycleName,
+      startDate: startStr,
+      endDate: todayStr,
+      cycleLength: parseInt(settings.cycleLength) || 28,
+      periodLength: parseInt(settings.periodLength) || 5,
+      logs: JSON.parse(JSON.stringify(logs)) // Snapshot of logs
+    };
+
+    archives.push(archiveEntry);
+    localStorage.setItem(KEY_ARCHIVE, JSON.stringify(archives));
+
+    // Update settings to new period start
+    settings.lastPeriodDate = newStart;
+    localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings));
+    document.getElementById('lastPeriodDate').value = newStart;
+
+    alert(`Der Zyklus "${cycleName}" wurde erfolgreich archiviert! Ein neuer Zyklus ab ${newStart} hat begonnen.`);
+    renderToday();
+    switchTab('report');
+  }
+
+  function selectCycleView(idx) {
+    selectedArchiveIndex = idx;
+    renderReport();
+  }
+
+  // --- Auswertung mit Phasen-Schnitt & Lifestyle-Tabelle ---
+  function renderReport() {
+    renderArchiveBadges();
+
+    let activeData, startStr, cycleLen, periodLen, reportTitle;
+
+    if (selectedArchiveIndex === -1) {
+      // Current Cycle
+      activeData = logs;
+      startStr = settings.lastPeriodDate;
+      cycleLen = parseInt(settings.cycleLength) || 28;
+      periodLen = parseInt(settings.periodLength) || 5;
+      reportTitle = "Laufender Zyklus (ab " + new Date(startStr).toLocaleDateString('de-DE', { day:'numeric', month:'short' }) + ")";
+    } else {
+      // Archived Cycle
+      const a = archives[selectedArchiveIndex];
+      activeData = a.logs;
+      startStr = a.startDate;
+      cycleLen = a.cycleLength;
+      periodLen = a.periodLength;
+      reportTitle = a.name;
+    }
+
+    document.getElementById('reportCycleTitle').textContent = reportTitle;
+
+    const start = new Date(startStr);
+    const keys = Object.keys(activeData).sort();
+
+    let recordedCount = 0;
+    let suppCount = 0;
+    let totalKcal = 0, countKcalDays = 0;
+    let totalProt = 0, totalCarb = 0, totalFat = 0;
+
+    // Phase metrics buckets
+    // Phase 1: Menstruation (1 to periodLen)
+    // Phase 2: Follikel (periodLen+1 to 12)
+    // Phase 3: Ovulation (13 to 16)
+    // Phase 4: Luteal (17 to cycleLen)
+    let phaseMetrics = {
+      1: { name: "1. Menstruation", days: 0, kcalDays: 0, k: 0, p: 0, c: 0, f: 0 },
+      2: { name: "2. Follikelphase", days: 0, kcalDays: 0, k: 0, p: 0, c: 0, f: 0 },
+      3: { name: "3. Ovulation", days: 0, kcalDays: 0, k: 0, p: 0, c: 0, f: 0 },
+      4: { name: "4. Lutealphase", days: 0, kcalDays: 0, k: 0, p: 0, c: 0, f: 0 }
+    };
+
+    let lifestyleCounts = {};
+    lifestyleList.forEach(l => lifestyleCounts[l.id] = { text: l.text, count: 0 });
+
+    let habitCounts = {};
+    habitList.forEach(h => habitCounts[h.id] = { text: h.text, checked: 0 });
+
+    let symptomMap = {};
+
+    keys.forEach(k => {
+      const d = new Date(k);
+      const diffDays = Math.floor((d.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+      
+      if (diffDays >= 0 && diffDays < cycleLen) {
+        recordedCount++;
+        const e = activeData[k];
+        const cycleDay = diffDays + 1;
+
+        // Which phase
+        let pId = 4;
+        if (cycleDay <= periodLen) pId = 1;
+        else if (cycleDay <= 12) pId = 2;
+        else if (cycleDay <= 16) pId = 3;
+        else pId = 4;
+
+        phaseMetrics[pId].days++;
+
+        if (e.suppMorning && e.suppEvening) suppCount += 1;
+        else if (e.suppMorning || e.suppEvening) suppCount += 0.5;
+
+        // Food macros
+        if (e.foodItems && e.foodItems.length > 0) {
+          countKcalDays++;
+          phaseMetrics[pId].kcalDays++;
+          let dayK = 0, dayP = 0, dayC = 0, dayF = 0;
+          e.foodItems.forEach(fi => {
+            dayK += fi.kcal;
+            dayP += fi.protein;
+            dayC += fi.carbs;
+            dayF += fi.fat;
+          });
+          totalKcal += dayK;
+          totalProt += dayP;
+          totalCarb += dayC;
+          totalFat += dayF;
+
+          phaseMetrics[pId].k += dayK;
+          phaseMetrics[pId].p += dayP;
+          phaseMetrics[pId].c += dayC;
+          phaseMetrics[pId].f += dayF;
+        }
+
+        // Lifestyle tracker counts
+        if (e.lifestyle) {
+          Object.keys(e.lifestyle).forEach(lid => {
+            if (e.lifestyle[lid] && lifestyleCounts[lid]) {
+              lifestyleCounts[lid].count++;
+            }
+          });
+        }
+
+        // Habit counts
+        if (e.checked) {
+          Object.keys(e.checked).forEach(hid => {
+            if (e.checked[hid] && habitCounts[hid]) habitCounts[hid].checked++;
+          });
+        }
+
+        // Symptoms
+        if (e.symptoms && Array.isArray(e.symptoms)) {
+          e.symptoms.forEach(s => symptomMap[s] = (symptomMap[s] || 0) + 1);
+        }
+      }
+    });
+
+    document.getElementById('statCycleDays').textContent = recordedCount;
+    const suppPct = recordedCount > 0 ? Math.round((suppCount / recordedCount) * 100) : 0;
+    document.getElementById('statSuppRate').textContent = `${suppPct} %`;
+
+    const avgK = countKcalDays > 0 ? Math.round(totalKcal / countKcalDays) : '-';
+    const avgP = countKcalDays > 0 ? Math.round(totalProt / countKcalDays) : '-';
+    document.getElementById('statAvgKcal').textContent = avgK;
+    document.getElementById('statAvgProtein').textContent = avgP !== '-' ? `${avgP} g` : '-';
+
+    // 1. Phasen-Makro-Tabelle
+    const phaseTableBody = document.querySelector('#phaseMacroTable tbody');
+    phaseTableBody.innerHTML = '';
+    [1, 2, 3, 4].forEach(pId => {
+      const pm = phaseMetrics[pId];
+      const pAvgK = pm.kcalDays > 0 ? Math.round(pm.k / pm.kcalDays) : '-';
+      const pAvgP = pm.kcalDays > 0 ? Math.round(pm.p / pm.kcalDays) + ' g' : '-';
+      const pAvgC = pm.kcalDays > 0 ? Math.round(pm.c / pm.kcalDays) + ' g' : '-';
+      const pAvgF = pm.kcalDays > 0 ? Math.round(pm.f / pm.kcalDays) + ' g' : '-';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-weight:600; color:var(--gold-soft);">${pm.name}</td>
+        <td>${pm.days} d</td>
+        <td>${pAvgK}</td>
+        <td>${pAvgP}</td>
+        <td>${pAvgC}</td>
+        <td>${pAvgF}</td>
+      `;
+      phaseTableBody.appendChild(tr);
+    });
+
+    // 2. Lifestyle-Tabelle
+    const lifeTableBody = document.querySelector('#lifestyleTable tbody');
+    lifeTableBody.innerHTML = '';
+    Object.keys(lifestyleCounts).forEach(lid => {
+      const item = lifestyleCounts[lid];
+      const pct = recordedCount > 0 ? Math.round((item.count / recordedCount) * 100) : 0;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-weight:500;">${item.text}</td>
+        <td style="color:var(--gold); font-weight:600;">${item.count} Tage</td>
+        <td><span class="badge">${pct} %</span></td>
+      `;
+      lifeTableBody.appendChild(tr);
+    });
+
+    // 3. Dehn-Rituale List
+    const hContainer = document.getElementById('statHabitsList');
+    hContainer.innerHTML = '';
+    Object.keys(habitCounts).forEach(hid => {
+      const h = habitCounts[hid];
+      const rate = recordedCount > 0 ? Math.round((h.checked / recordedCount) * 100) : 0;
+      const div = document.createElement('div');
+      div.style.marginBottom = '4px';
+      div.style.color = 'var(--text-main)';
+      div.innerHTML = `<strong>${h.text}:</strong> ${h.checked} von ${recordedCount} Tagen (${rate} %)`;
+      hContainer.appendChild(div);
+    });
+
+    // 4. Symptoms Badges
+    const sContainer = document.getElementById('statSymptomsList');
+    sContainer.innerHTML = '';
+    const sympKeys = Object.keys(symptomMap).sort((a,b) => symptomMap[b] - symptomMap[a]);
+    if (sympKeys.length === 0) {
+      sContainer.textContent = 'Noch keine Körpersignale in diesem Zyklus dokumentiert.';
+    } else {
+      sympKeys.forEach(sk => {
+        const span = document.createElement('span');
+        span.className = 'badge';
+        span.style.marginRight = '6px';
+        span.style.marginBottom = '6px';
+        span.style.display = 'inline-block';
+        span.textContent = `${sk}: ${symptomMap[sk]}x`;
+        sContainer.appendChild(span);
+      });
+    }
+  }
+
+  function renderArchiveBadges() {
+    const container = document.getElementById('archiveBadgesList');
+    container.innerHTML = '';
+
+    // Active Cycle Badge
+    const btnCur = document.createElement('span');
+    btnCur.className = `archive-badge ${selectedArchiveIndex === -1 ? 'active' : ''}`;
+    btnCur.textContent = 'Aktueller Zyklus';
+    btnCur.onclick = () => selectCycleView(-1);
+    container.appendChild(btnCur);
+
+    // Archived Cycles
+    archives.forEach((a, idx) => {
+      const b = document.createElement('span');
+      b.className = `archive-badge ${selectedArchiveIndex === idx ? 'active' : ''}`;
+      b.textContent = a.name;
+      b.onclick = () => selectCycleView(idx);
+      container.appendChild(b);
+    });
+  }
+
+  function saveCustomFoodToDB() {
+    const name = document.getElementById('customFoodName').value.trim();
+    const kcal = parseFloat(document.getElementById('customFoodKcal').value);
+    const p = parseFloat(document.getElementById('customFoodProt').value) || 0;
+    const c = parseFloat(document.getElementById('customFoodCarb').value) || 0;
+    const f = parseFloat(document.getElementById('customFoodFat').value) || 0;
+
+    if (!name || isNaN(kcal)) {
+      alert('Bitte mindestens Name und kcal/100g eingeben.');
+      return;
+    }
+
+    customFoodList.push({ name, kcal, p, c, f });
+    localStorage.setItem(KEY_CUSTOM_FOODS, JSON.stringify(customFoodList));
+    populateFoodDatalist();
+
+    document.getElementById('customFoodName').value = '';
+    document.getElementById('customFoodKcal').value = '';
+    document.getElementById('customFoodProt').value = '';
+    document.getElementById('customFoodCarb').value = '';
+    document.getElementById('customFoodFat').value = '';
+
+    alert(`"${name}" wurde dauerhaft in deiner Lebensmittel-Datenbank gespeichert!`);
+  }
+
+  function updateSettings() {
+    settings.lastPeriodDate = document.getElementById('lastPeriodDate').value;
+    settings.cycleLength = parseInt(document.getElementById('cycleLength').value) || 28;
+    settings.periodLength = parseInt(document.getElementById('periodLength').value) || 5;
+  }
+
+  function saveSettingsAndRecalc() {
+    updateSettings();
+    localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings));
+    renderToday();
+    alert('Zyklus- & Mondkalibrierung erfolgreich gespeichert!');
+    switchTab('today');
+  }
+
+  function switchTab(tab) {
+    document.getElementById('tab-today').classList.add('hidden');
+    document.getElementById('tab-report').classList.add('hidden');
+    document.getElementById('tab-settings').classList.add('hidden');
+
+    document.getElementById('btnTabToday').classList.remove('active');
+    document.getElementById('btnTabReport').classList.remove('active');
+    document.getElementById('btnTabSettings').classList.remove('active');
+
+    if (tab === 'today') {
+      document.getElementById('tab-today').classList.remove('hidden');
+      document.getElementById('btnTabToday').classList.add('active');
+    } else if (tab === 'report') {
+      document.getElementById('tab-report').classList.remove('hidden');
+      document.getElementById('btnTabReport').classList.add('active');
+      renderReport();
+    } else if (tab === 'settings') {
+      document.getElementById('tab-settings').classList.remove('hidden');
+      document.getElementById('btnTabSettings').classList.add('active');
+    }
+  }
+
+  function requestNotification() {
+    if (!('Notification' in window)) {
+      alert('Dein Browser unterstützt keine Push-Benachrichtigungen.');
+      return;
+    }
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        new Notification('Mond & Rhythmus', {
+          body: 'Denk an deine Supplements & deinen kurzen Tages-Check!',
+          icon: ''
+        });
+        alert('Erinnerungen erfolgreich aktiviert!');
+      } else {
+        alert('Benachrichtigungen wurden blockiert.');
+      }
+    });
+  }
+
+
+  function exportData() {
+    const backupObj = {
+      'mond_zyklus_settings_v8': settings,
+      'mond_zyklus_habits_v8': habitList,
+      'mond_zyklus_lifestyle_v8': lifestyleList,
+      'mond_zyklus_symptoms_v8': symptomList,
+      'mond_zyklus_custom_foods_v8': customFoodList,
+      'mond_zyklus_logs_v8': logs,
+      'mond_zyklus_archive_v8': archives
+    };
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupObj, null, 2));
+    const dlAnchor = document.createElement('a');
+    dlAnchor.setAttribute("href", dataStr);
+    dlAnchor.setAttribute("download", "mond_rhythmus_katharina_backup.json");
+    dlAnchor.click();
+  }
+
+  // --- Storage Persistenz & Backup (Import / Export) ---
+  async function initPersistentStorage() {
+    if (navigator.storage && navigator.storage.persist) {
+      try {
+        const isPersisted = await navigator.storage.persist();
+        console.log("Storage persistence granted:", isPersisted);
+      } catch (err) {
+        console.warn("Storage persistence request failed:", err);
+      }
+    }
+  }
+
+  function triggerImport() {
+    document.getElementById('backupFileInput').click();
+  }
+
+  function handleFileImport(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        const keys = ['mond_zyklus_settings_v8', 'mond_zyklus_habits_v8', 'mond_zyklus_lifestyle_v8', 'mond_zyklus_symptoms_v8', 'mond_zyklus_custom_foods_v8', 'mond_zyklus_logs_v8', 'mond_zyklus_archive_v8'];
+        let restoredCount = 0;
+        keys.forEach(k => {
+          if (data[k] !== undefined) {
+            localStorage.setItem(k, typeof data[k] === 'string' ? data[k] : JSON.stringify(data[k]));
+            restoredCount++;
+          }
+        });
+        if (restoredCount > 0) {
+          alert("Backup erfolgreich importiert (" + restoredCount + " Bereiche wiederhergestellt)!");
+          location.reload();
+        } else {
+          alert("Keine kompatiblen Daten in der Backup-Datei gefunden.");
+        }
+      } catch (err) {
+        alert("Fehler beim Einlesen der Backup-Datei: " + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // --- Web App / Desktop Installation (PWA beforeinstallprompt) ---
+  let deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.getElementById('installAppBtn');
+    if (installBtn) installBtn.style.display = 'block';
+  });
+
+  function installAppPrompt() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('App-Installation akzeptiert');
+        }
+        deferredPrompt = null;
+      });
+    } else {
+      alert("Installation:\n\n• Chrome / Edge (Desktop/Android): Klicke im Adressfeld rechts oben auf das Installations-Symbol oder wähle im Menü (⋮) 'App installieren' / 'Zum Startbildschirm hinzufügen'.\n• Safari (iOS/Mac): Klicke auf 'Teilen' -> 'Zum Home-Bildschirm' / 'Zum Dock hinzufügen'.");
+    }
+  }
+
+
+  window.addEventListener('DOMContentLoaded', () => { init(); initPersistentStorage(); });
+</script>
+</body>
+</html>
