@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mond & Rhythmus • Mara</title>
+  <title>Mond & Rhythmus • Katharina</title>
 
   <!-- PWA & Mobile Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#0D1418">
+  <meta name="theme-color" content="#0D1612">
 
   <!-- Standard PWA Web App Manifest -->
   <link rel="manifest" href="manifest.json">
@@ -18,18 +18,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-deep: #0D1418;
-    --card-bg: rgba(18, 28, 34, 0.82);
-    --card-inner: rgba(12, 20, 26, 0.72);
-    --border: rgba(175, 195, 205, 0.18);
-    --border-accent: rgba(220, 185, 125, 0.45);
-    --gold: #DEBE88;
-    --gold-bright: #F7EAD0;
-    --teal-glow: #5C8D89;
-    --sage-muted: #8EAAA5;
-    --text-main: #EDF2F4;
-    --text-sub: #A0B2B7;
-    --accent: #2E5250;
+    --bg-deep: #0D1612;
+    --card-bg: rgba(22, 36, 30, 0.82);
+    --card-inner: rgba(14, 25, 20, 0.72);
+    --border: rgba(180, 205, 190, 0.16);
+    --border-accent: rgba(212, 175, 106, 0.42);
+    --gold: #D4AF6A;
+    --gold-soft: #F3E5C8;
+    --sage-light: #C2D6C9;
+    --sage-muted: #8FA899;
+    --text-main: #EDEDE8;
+    --text-sub: #A3B5AA;
+    --accent: #3A6351;
     --radius: 18px;
   }
 
@@ -38,10 +38,9 @@
   body {
     background-color: var(--bg-deep);
     background-image: 
-      radial-gradient(circle at 18% 12%, rgba(92, 141, 137, 0.35), transparent 45%),
-      radial-gradient(circle at 82% 22%, rgba(222, 190, 136, 0.2), transparent 40%),
-      radial-gradient(circle at 50% 85%, rgba(25, 42, 50, 0.4), transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(13, 20, 24, 0.96), rgba(8, 12, 15, 1));
+      radial-gradient(circle at 15% 10%, rgba(58, 99, 81, 0.4), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(212, 175, 106, 0.18), transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(13, 22, 18, 0.95), rgba(9, 15, 12, 1));
     color: var(--text-main);
     line-height: 1.55;
     padding-bottom: 95px;
@@ -51,20 +50,21 @@
   .container { max-width: 640px; margin: 0 auto; padding: 20px 16px; }
 
   header { text-align: center; padding: 14px 0 12px; position: relative; }
-  .moon-glyph { font-size: 2.3rem; color: var(--gold); display: inline-block; filter: drop-shadow(0 0 15px rgba(222, 190, 136, 0.6)); }
-  h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.15rem; color: var(--gold-bright); font-weight: 600; letter-spacing: 0.5px; }
-  .subtitle { font-size: 0.8rem; color: var(--sage-muted); letter-spacing: 1.4px; text-transform: uppercase; margin-top: 2px; }
+  .moon-glyph { font-size: 2.2rem; color: var(--gold); display: inline-block; filter: drop-shadow(0 0 14px rgba(212,175,106,0.55)); }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.15rem; color: var(--gold-soft); font-weight: 600; letter-spacing: 0.5px; }
+  .subtitle { font-size: 0.8rem; color: var(--sage-muted); letter-spacing: 1.2px; text-transform: uppercase; margin-top: 2px; }
+
 
   /* Daily Reminder Quote Banner */
   .daily-reminder-card {
-    background: linear-gradient(135deg, rgba(22, 34, 38, 0.88) 0%, rgba(15, 24, 30, 0.92) 100%);
-    border: 1px solid var(--border-accent);
+    background: linear-gradient(135deg, rgba(28, 22, 42, 0.85) 0%, rgba(18, 22, 34, 0.9) 100%);
+    border: 1px solid rgba(229, 195, 132, 0.35);
     border-radius: 16px;
     padding: 14px 18px;
     margin-bottom: 16px;
     text-align: center;
     position: relative;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
   .daily-reminder-tag {
     font-size: 0.68rem;
@@ -80,16 +80,16 @@
   }
   .daily-reminder-quote {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
+    font-size: 1.18rem;
     font-style: italic;
-    color: var(--gold-bright);
+    color: var(--gold-bright, #F7E7C4);
     line-height: 1.45;
   }
 
   .phase-banner {
-    background: linear-gradient(135deg, rgba(26, 44, 48, 0.92) 0%, rgba(16, 26, 32, 0.96) 100%);
+    background: linear-gradient(135deg, rgba(32, 56, 46, 0.92) 0%, rgba(20, 36, 29, 0.96) 100%);
     border: 1px solid var(--border-accent);
-    color: var(--gold-bright);
+    color: var(--gold-soft);
     padding: 20px 18px;
     border-radius: var(--radius);
     margin-bottom: 18px;
@@ -106,13 +106,13 @@
     font-size: 0.65rem;
     color: var(--gold);
     letter-spacing: 6px;
-    opacity: 0.7;
+    opacity: 0.6;
   }
   .moon-subhead {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(222, 190, 136, 0.12);
+    background: rgba(212, 175, 106, 0.12);
     border: 1px solid var(--border-accent);
     padding: 4px 12px;
     border-radius: 20px;
@@ -123,7 +123,7 @@
   }
   .phase-tag { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 2px; color: var(--gold); font-weight: 600; margin-top: 10px; }
   .phase-name { font-family: 'Cormorant Garamond', serif; font-size: 1.85rem; font-weight: 700; margin: 4px 0 2px; color: #FFF; }
-  .phase-days { font-size: 0.86rem; color: var(--text-main); opacity: 0.9; }
+  .phase-days { font-size: 0.86rem; color: var(--sage-light); font-weight: 400; }
 
   .card {
     background: var(--card-bg);
@@ -136,8 +136,8 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   }
 
-  h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold-bright); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; font-weight: 600; letter-spacing: 0.5px; }
-  .badge { background: rgba(222, 190, 136, 0.15); color: var(--gold); border: 1px solid var(--border-accent); padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold-soft); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; font-weight: 600; letter-spacing: 0.5px; }
+  .badge { background: rgba(212, 175, 106, 0.15); color: var(--gold); border: 1px solid var(--border-accent); padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
 
   .oracle-box {
     background: var(--card-inner);
@@ -163,7 +163,7 @@
   .food-search-row { display: flex; gap: 8px; margin-bottom: 8px; }
   .food-search-row input[type="text"] {
     flex: 1;
-    background: rgba(9, 15, 18, 0.8);
+    background: rgba(9, 15, 12, 0.75);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 10px 12px;
@@ -174,7 +174,7 @@
   .food-search-row input[type="text"]:focus { border-color: var(--gold); }
   .food-search-row input[type="number"] {
     width: 85px;
-    background: rgba(9, 15, 18, 0.8);
+    background: rgba(9, 15, 12, 0.75);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 10px 8px;
@@ -185,7 +185,7 @@
   }
   .food-search-row button {
     background: var(--accent);
-    color: var(--gold-bright);
+    color: var(--gold-soft);
     border: 1px solid var(--border-accent);
     border-radius: 8px;
     padding: 0 16px;
@@ -194,16 +194,22 @@
     transition: all 0.2s;
     white-space: nowrap;
   }
-  .food-search-row button:hover { background: #3b6664; border-color: var(--gold); }
+  .food-search-row button:hover { background: #477964; border-color: var(--gold); }
 
-  .search-status { font-size: 0.76rem; color: var(--gold); margin-bottom: 8px; display: none; font-style: italic; }
+  .search-status {
+    font-size: 0.76rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: none;
+    font-style: italic;
+  }
 
   .suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
   .suggestion-tag {
     font-size: 0.72rem;
-    background: rgba(46, 82, 80, 0.3);
-    border: 1px solid rgba(92, 141, 137, 0.4);
-    color: var(--text-main);
+    background: rgba(58, 99, 81, 0.25);
+    border: 1px solid rgba(91, 140, 113, 0.3);
+    color: var(--sage-light);
     padding: 3px 8px;
     border-radius: 12px;
     cursor: pointer;
@@ -220,7 +226,7 @@
     font-size: 0.83rem;
   }
   .food-item-row:last-child { border-bottom: none; }
-  .food-name { font-weight: 600; color: var(--gold-bright); }
+  .food-name { font-weight: 600; color: var(--gold-soft); }
   .food-meta { font-size: 0.75rem; color: var(--sage-muted); }
   .food-del { color: #A36A6A; background: none; border: none; cursor: pointer; font-size: 1.1rem; padding: 0 4px; }
   .food-del:hover { color: #E58B8B; }
@@ -233,13 +239,13 @@
     text-align: center;
   }
   .macro-card {
-    background: rgba(12, 20, 26, 0.9);
+    background: rgba(14, 25, 20, 0.9);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 8px 4px;
   }
   .macro-card.highlight { border-color: var(--border-accent); }
-  .macro-val { font-size: 1.15rem; font-weight: 700; color: var(--gold-bright); }
+  .macro-val { font-size: 1.15rem; font-weight: 700; color: var(--gold-soft); }
   .macro-lbl { font-size: 0.7rem; color: var(--sage-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
   .checklist { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
@@ -255,15 +261,15 @@
     border: 1px solid var(--border);
     transition: all 0.2s;
   }
-  .check-item:hover { border-color: var(--border-accent); background: rgba(30, 45, 55, 0.4); }
-  .check-item.life-item { border-left: 3px solid var(--teal-glow); }
-  .check-item.ritual-item { border-left: 3px solid var(--gold); }
+  .check-item:hover { border-color: var(--border-accent); background: rgba(30, 48, 39, 0.4); }
+  .check-item.supp-item { border-left: 3px solid var(--gold); }
+  .check-item.life-item { border-left: 3px solid #8FA899; }
   .check-item input[type="checkbox"] { accent-color: var(--gold); width: 18px; height: 18px; cursor: pointer; }
 
   .add-item-row { display: flex; gap: 8px; margin-top: 10px; }
   .add-item-row input {
     flex: 1;
-    background: rgba(9, 15, 18, 0.8);
+    background: rgba(9, 15, 12, 0.75);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 8px 12px;
@@ -274,7 +280,7 @@
   .add-item-row input:focus { border-color: var(--gold); }
   .add-item-row button {
     background: var(--accent);
-    color: var(--gold-bright);
+    color: var(--gold-soft);
     border: 1px solid var(--border-accent);
     border-radius: 8px;
     padding: 0 14px;
@@ -286,7 +292,7 @@
   .pill-container {
     display: inline-flex;
     align-items: center;
-    background: rgba(9, 15, 18, 0.65);
+    background: rgba(9, 15, 12, 0.6);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 3px 10px;
@@ -298,15 +304,33 @@
     background: var(--gold);
     border-color: var(--gold);
   }
-  .pill-container.active .pill-label { color: #0D1418; font-weight: 600; }
-  .pill-container.active .pill-del-btn { color: #4A3A1B; }
-  .pill-label { font-size: 0.78rem; color: var(--text-main); user-select: none; }
-  .pill-del-btn { background: none; border: none; color: #7A8E8A; font-size: 0.95rem; margin-left: 6px; cursor: pointer; padding: 0 2px; line-height: 1; }
+  .pill-container.active .pill-label {
+    color: #0D1612;
+    font-weight: 600;
+  }
+  .pill-container.active .pill-del-btn {
+    color: #4A3B18;
+  }
+  .pill-label {
+    font-size: 0.78rem;
+    color: var(--sage-light);
+    user-select: none;
+  }
+  .pill-del-btn {
+    background: none;
+    border: none;
+    color: #7A8E82;
+    font-size: 0.95rem;
+    margin-left: 6px;
+    cursor: pointer;
+    padding: 0 2px;
+    line-height: 1;
+  }
   .pill-del-btn:hover { color: #DC2626; }
 
   textarea {
     width: 100%;
-    background: rgba(9, 15, 18, 0.8);
+    background: rgba(9, 15, 12, 0.75);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 10px 12px;
@@ -318,17 +342,34 @@
   }
   textarea:focus { border-color: var(--gold); }
 
-  .eval-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.83rem; }
-  .eval-table th, .eval-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .eval-table th { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; }
-  .eval-table tr:hover td { background: rgba(255,255,255,0.02); }
+  /* Tables in Reports */
+  .eval-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 0.83rem;
+  }
+  .eval-table th, .eval-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .eval-table th {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .eval-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+  }
 
   .tab-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(13, 20, 24, 0.96);
+    background: rgba(13, 22, 18, 0.96);
     backdrop-filter: blur(14px);
     border-top: 1px solid var(--border);
     display: flex;
@@ -359,7 +400,7 @@
   label { font-size: 0.8rem; color: var(--sage-muted); display: block; margin-bottom: 4px; }
   input[type="date"], input[type="number"] {
     width: 100%;
-    background: rgba(9, 15, 18, 0.8);
+    background: rgba(9, 15, 12, 0.75);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 10px 12px;
@@ -378,12 +419,16 @@
     font-weight: 600;
     cursor: pointer;
     background: var(--accent);
-    color: var(--gold-bright);
+    color: var(--gold-soft);
     margin-top: 8px;
     transition: all 0.2s;
   }
-  .btn:hover { background: #3b6664; border-color: var(--gold); }
-  .btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--border-accent); }
+  .btn:hover { background: #477964; border-color: var(--gold); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--border-accent);
+  }
 
   .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
   .stat-card {
@@ -393,19 +438,24 @@
     text-align: center;
     border: 1px solid var(--border);
   }
-  .stat-val { font-size: 1.4rem; font-weight: 700; color: var(--gold-bright); font-family: 'Cormorant Garamond', serif; }
+  .stat-val { font-size: 1.4rem; font-weight: 700; color: var(--gold-soft); font-family: 'Cormorant Garamond', serif; }
   .stat-lbl { font-size: 0.74rem; color: var(--sage-muted); text-transform: uppercase; }
 
   .archive-badge {
     padding: 4px 10px;
     border-radius: 16px;
-    background: rgba(222, 190, 136, 0.12);
+    background: rgba(212, 175, 106, 0.12);
     border: 1px solid var(--border-accent);
     font-size: 0.8rem;
-    color: var(--gold-bright);
+    color: var(--gold-soft);
     cursor: pointer;
   }
-  .archive-badge.active { background: var(--gold); color: #0D1418; font-weight: 600; }
+  .archive-badge.active {
+    background: var(--gold);
+    color: #0D1612;
+    font-weight: 600;
+  }
+
   .hidden { display: none; }
 </style>
 </head>
@@ -415,7 +465,7 @@
   <header>
     <div class="moon-glyph" id="moonIcon">☾</div>
     <h1>Mond & Rhythmus</h1>
-    <div class="subtitle">Maras Zyklus • Mond • Lifestyle • Wohlbefinden</div>
+    <div class="subtitle">Zyklus • Mond • Lifestyle • Nährstoffe</div>
   </header>
 
   <!-- TAB: HEUTE -->
@@ -425,44 +475,43 @@
       <div class="daily-reminder-tag">✧ Tägliche Botschaft & Gelassenheit ✧</div>
       <div class="daily-reminder-quote" id="dailyReminderQuote">"Atme tief ein. Du bist genau dort, wo du heute sein sollst."</div>
     </div>
-
     <!-- Banner -->
     <div class="phase-banner" id="phaseBanner">
       <div class="moon-subhead">
         <span id="astronomicalMoonGlyph">🌘</span>
         <span id="astronomicalMoonName">Mond am Himmel wird berechnet...</span>
       </div>
-      <div class="phase-tag" id="phaseTag">INNERE JAHRESZEIT</div>
-      <div class="phase-name" id="phaseName">Zyklusphase wird berechnet...</div>
-      <div class="phase-days" id="phaseDays">Zyklustag • Tage bis Menstruation</div>
+      <div class="phase-tag" id="phaseTag">INNERE LUTEALPHASE</div>
+      <div class="phase-name" id="phaseName">Späte Lutealphase (Herbst-Energie)</div>
+      <div class="phase-days" id="phaseDays">Zyklustag 25 von 28 • Noch ca. 3 Tage bis zur Menstruation</div>
     </div>
 
-    <!-- Tägliche Hormon- & Wohlfühl-Impulse -->
+    <!-- Tägliche Hormon- & Essens-Impulse -->
     <div class="card">
-      <h2>Hormone & Seelen-Fokus heute</h2>
+      <h2>Hormone & Essens-Fokus heute</h2>
       
       <div class="oracle-box">
         <strong><span>✦</span> Was deine Hormone heute tun:</strong>
-        <p id="hormoneDesc">Lade Impulse...</p>
+        <p id="hormoneDesc">Progesteron und Östrogen fallen rapide ab. Das Dopamin sinkt hormonell bedingt – dein Belohnungssystem fordert schnelle Energie und Trost. Aldosteron hält Natrium und Wasser fest.</p>
       </div>
 
       <div class="oracle-box">
-        <strong><span>🌿</span> Wohlfühl- & Essens-Impuls:</strong>
-        <p id="foodTips">Lade Ernährungstipps...</p>
+        <strong><span>🌿</span> Essens-Tipps für deine heutige Phase:</strong>
+        <p id="foodTips">Kaliumreich speisen (Spaghetti-Kürbis, Bananen, Brokkoli), um überschüssiges Wasser sanft auszuschwemmen. Setze auf komplexe Slow-Carbs (Linsen, Vollkorn) veredelt mit reichlich Zimt (stabilisiert den Blutzucker vor Heißhungerattacken). Knabber Kürbiskerne fürs Magnesium.</p>
       </div>
 
       <div class="oracle-box">
         <strong><span>☾</span> Mond-Impuls des Tages:</strong>
-        <p id="moonTip">Lade Mond-Impuls...</p>
+        <p id="moonTip">Die abnehmende Mondsichel spiegelt deine Lutealphase: Zeit des Loslassens und der inneren Einkehr. Nimm dir heute keinen Perfektionismus vor.</p>
       </div>
 
       <div class="oracle-box">
-        <strong><span>🧘</span> Sanfter Dehn- & Achtsamkeits-Impuls:</strong>
-        <p id="bodyTips">Lade Achtsamkeits-Impuls...</p>
+        <strong><span>🧘</span> Dehn- & Alltags-Impuls (Schmerzfrei & Leicht):</strong>
+        <p id="bodyTips">Wadendehnung an der Treppenstufe (45 Sek.) beim Teekochen + Beine vor dem Schlafen 10 Min. an die Wand (Viparita Karani). Sanfte Hüftöffnung statt fordernder Workouts.</p>
       </div>
     </div>
 
-    <!-- Nährwerte-Rechner (Optional nutzbar) -->
+    <!-- Nährwerte-Rechner -->
     <div class="card">
       <h2>Ernährungstracker (Auto-Rechner)</h2>
       <p style="font-size:0.8rem; color:var(--sage-muted); margin-bottom: 8px;">
@@ -479,14 +528,17 @@
 
         <div id="searchStatus" class="search-status">✧ Suche Nährwerte online...</div>
 
-        <!-- Beliebte Favoriten -->
+        <!-- Deine persönlichen Favoriten -->
         <div class="suggestions">
+          <span class="suggestion-tag" onclick="quickSelect('Milchkaffee', 200)">Milchkaffee (200g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Cocktailtomaten', 100)">Cocktailtomaten (100g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Pesto Genovese', 30)">Pesto Genovese (30g)</span>
           <span class="suggestion-tag" onclick="quickSelect('Haferflocken', 50)">Haferflocken (50g)</span>
-          <span class="suggestion-tag" onclick="quickSelect('Banane', 120)">Banane (1 Stk)</span>
-          <span class="suggestion-tag" onclick="quickSelect('Apfel', 150)">Apfel (1 Stk)</span>
-          <span class="suggestion-tag" onclick="quickSelect('Beeren gemischt', 100)">Beeren (100g)</span>
-          <span class="suggestion-tag" onclick="quickSelect('Vollkornbrot', 60)">Vollkornbrot (60g)</span>
-          <span class="suggestion-tag" onclick="quickSelect('Walnüsse', 20)">Walnüsse (20g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Frischkäse', 30)">Frischkäse (30g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Spaghetti-Kürbis', 400)">Spaghetti-Kürbis (400g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Soja-Granulat (trocken)', 60)">Soja-Granulat (60g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Lachsfilet', 150)">Lachs (150g)</span>
+          <span class="suggestion-tag" onclick="quickSelect('Knoppers', 25)">Knoppers (25g)</span>
         </div>
 
         <div id="foodEntriesList" style="margin-top: 10px; max-height: 220px; overflow-y: auto;"></div>
@@ -514,50 +566,61 @@
 
     <!-- Lifestyle & Habit Tracker -->
     <div class="card">
-      <h2>Lifestyle & Herzens-Tracker <span class="badge" id="todayDateStr">Heute</span></h2>
+      <h2>Lifestyle & Habit Tracker <span class="badge" id="todayDateStr">Heute</span></h2>
       <p style="font-size:0.8rem; color:var(--sage-muted); margin-bottom: 8px;">
-        Deine täglichen Momente zum Abhaken:
+        Deine täglichen Meilensteine zum Abhaken:
       </p>
 
       <div class="checklist" id="lifestyleHabitsContainer"></div>
 
       <div class="add-item-row">
-        <input type="text" id="newLifestyleInput" placeholder="+ Weiteren Herzens-Punkt hinzufügen..." onkeydown="if(event.key==='Enter') addCustomLifestyleHabit()">
+        <input type="text" id="newLifestyleInput" placeholder="+ Weiteren Punkt hinzufügen (z.B. Yoga, Natur)..." onkeydown="if(event.key==='Enter') addCustomLifestyleHabit()">
         <button onclick="addCustomLifestyleHabit()">+</button>
       </div>
     </div>
 
-    <!-- Tägliche Rituale & Dehnen (Vollständig erweiterbar) -->
+    <!-- Tägliche Rituale & Supplements -->
     <div class="card">
-      <h2>Rituale, Dehnen & Me-Time</h2>
-      <p style="font-size:0.8rem; color:var(--sage-muted); margin-bottom: 8px;">
-        Wohltuende Rituale für Körper und Nervensystem:
-      </p>
+      <h2>Supplements & Dehnen</h2>
 
+      <label style="color:var(--gold); font-weight:600; font-size:0.82rem;">Nahrungsergänzungsmittel (Fest):</label>
+      <div class="checklist" style="margin-bottom: 12px;">
+        <label class="check-item supp-item">
+          <span>✧ Nahrungsergänzungsmittel Morgens</span>
+          <input type="checkbox" id="chkSuppMorning" onchange="saveTodayLog()">
+        </label>
+        <label class="check-item supp-item">
+          <span>✦ Nahrungsergänzungsmittel Abends</span>
+          <input type="checkbox" id="chkSuppEvening" onchange="saveTodayLog()">
+        </label>
+      </div>
+
+      <label style="color:var(--gold); font-weight:600; font-size:0.82rem;">Dehn- & Entspannungs-Rituale:</label>
       <div class="checklist" id="habitsContainer"></div>
 
       <div class="add-item-row">
-        <input type="text" id="newHabitInput" placeholder="+ Eigenes Ritual / Dehnübung hinzufügen..." onkeydown="if(event.key==='Enter') addCustomHabit()">
+        <input type="text" id="newHabitInput" placeholder="+ Eigene Dehnung hinzufügen..." onkeydown="if(event.key==='Enter') addCustomHabit()">
         <button onclick="addCustomHabit()">+</button>
       </div>
 
-      <!-- Energielevel (Vollständig erweiterbar) -->
+      <!-- Energielevel -->
       <div style="margin-top: 16px;">
-        <label>Innere Schwingung & Energielevel (Klick / + für Eigene):</label>
-        <div class="pill-group" id="energyGroup"></div>
-        <div class="add-item-row" style="margin-top: 8px;">
-          <input type="text" id="newEnergyInput" placeholder="+ Eigene Schwingung / Gefühl hinzufügen..." onkeydown="if(event.key==='Enter') addCustomEnergy()">
-          <button onclick="addCustomEnergy()">+</button>
+        <label>Energielevel & Intuition:</label>
+        <div class="pill-group" id="energyGroup">
+          <div class="pill-container" onclick="setEnergy(1, this)"><span class="pill-label">Introspektiv / Müde</span></div>
+          <div class="pill-container" onclick="setEnergy(2, this)"><span class="pill-label">Geerdet / Ruhig</span></div>
+          <div class="pill-container" onclick="setEnergy(3, this)"><span class="pill-label">Ausgeglichen</span></div>
+          <div class="pill-container" onclick="setEnergy(4, this)"><span class="pill-label">Voller Tatkraft</span></div>
         </div>
       </div>
 
-      <!-- Symptome (Vollständig erweiterbar) -->
+      <!-- Symptome -->
       <div style="margin-top: 16px;">
-        <label>Symptome & Körpersignale (Klick / + für Eigene):</label>
+        <label>Symptome & Körpersignale (Klick zum Wählen / + für Eigene):</label>
         <div class="pill-group" id="symptomsGroup"></div>
         
         <div class="add-item-row" style="margin-top: 8px;">
-          <input type="text" id="newSymptomInput" placeholder="+ Eigenes Körpersignal hinzufügen..." onkeydown="if(event.key==='Enter') addCustomSymptom()">
+          <input type="text" id="newSymptomInput" placeholder="+ Eigenes Symptom hinzufügen..." onkeydown="if(event.key==='Enter') addCustomSymptom()">
           <button onclick="addCustomSymptom()">+</button>
         </div>
       </div>
@@ -571,14 +634,16 @@
 
   <!-- TAB: AUSWERTUNG -->
   <div id="tab-report" class="hidden">
+    <!-- Zyklus-Auswahl / Archiv-Leiste -->
     <div class="card" style="padding: 14px 18px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
         <label style="color:var(--gold); font-weight:600; margin:0;">Zyklus auswählen / Archiv:</label>
-        <button class="btn btn-outline" style="width: auto; padding: 4px 10px; font-size: 0.75rem; margin: 0;" onclick="archiveCurrentCyclePrompt()">+ Neuer Zyklus startet</button>
+        <button class="btn btn-outline" style="width: auto; padding: 4px 10px; font-size: 0.75rem; margin: 0;" onclick="archiveCurrentCyclePrompt()">+ Neuer Zyklus startet (Archivieren)</button>
       </div>
       <div id="archiveBadgesList" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;"></div>
     </div>
 
+    <!-- Gesamtübersicht des Zyklus -->
     <div class="card">
       <h2 id="reportCycleTitle">Zyklus-Auswertung</h2>
       <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 12px;">
@@ -591,12 +656,20 @@
           <div class="stat-lbl">Erfasste Tage</div>
         </div>
         <div class="stat-card">
+          <div class="stat-val" id="statSuppRate">0 %</div>
+          <div class="stat-lbl">Supplements-Treue</div>
+        </div>
+        <div class="stat-card">
           <div class="stat-val" id="statAvgKcal">0</div>
           <div class="stat-lbl">Ø Kalorien / Tag</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statAvgProtein">0 g</div>
+          <div class="stat-lbl">Ø Protein / Tag</div>
+        </div>
       </div>
 
-      <!-- Nährwert-Schnitt pro Zyklusphase -->
+      <!-- NEU: Nährwert-Schnitt pro Zyklusphase (Tabelle) -->
       <div style="margin-top: 16px;">
         <label style="color:var(--gold); font-weight:600;">Nährwert-Schnitt pro Zyklusphase:</label>
         <div style="overflow-x: auto;">
@@ -616,7 +689,7 @@
         </div>
       </div>
 
-      <!-- Lifestyle Habit Tracker Auswertung -->
+      <!-- NEU: Lifestyle Habit Tracker Auswertung (Tabelle) -->
       <div style="margin-top: 18px;">
         <label style="color:var(--gold); font-weight:600;">Lifestyle-Gewohnheiten (Übersicht & Häufigkeit):</label>
         <div style="overflow-x: auto;">
@@ -633,9 +706,9 @@
         </div>
       </div>
 
-      <!-- Rituale Quote -->
+      <!-- Rituale & Dehnen Quote -->
       <div style="margin-top: 18px;">
-        <label style="color:var(--gold); font-weight:600;">Dehn- & Ritual-Quote:</label>
+        <label style="color:var(--gold); font-weight:600;">Dehn- & Alltags-Rituale Quote:</label>
         <div id="statHabitsList" style="font-size:0.85rem; margin-top:6px;"></div>
       </div>
 
@@ -656,7 +729,7 @@
       
       <div class="field">
         <label>Erster Tag der aktuellen Periode:</label>
-        <input type="date" id="lastPeriodDate" value="2026-09-20" onchange="updateSettings()">
+        <input type="date" id="lastPeriodDate" value="2026-09-13" onchange="updateSettings()">
       </div>
       <div class="field">
         <label>Durchschnittliche Zykluslänge (Tage):</label>
@@ -670,12 +743,25 @@
       <button class="btn" onclick="saveSettingsAndRecalc()">Speichern & Aktualisieren</button>
     </div>
 
+    <!-- Neuer Zyklus starten & Archivieren -->
     <div class="card">
       <h2>Neuen Zyklus starten (Periode bekommen)</h2>
       <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
-        Klicke hier, wenn deine Periode beginnt: Der bisherige Zyklus wird archiviert und der Zähler startet wieder bei Tag 1.
+        Wenn deine Periode heute oder an einem bestimmten Tag startet: Klicke hier. Der bisherige Zyklus wird z. B. als „Zyklus September/Oktober“ mit all seinen Daten archiviert und der Zähler startet wieder bei Tag 1!
       </p>
-      <button class="btn" onclick="archiveCurrentCyclePrompt()">✧ Jetzt neuen Zyklus starten & archivieren</button>
+      <button class="btn" onclick="archiveCurrentCyclePrompt()">✧ Jetzt neuen Zyklus starten & bisherigen archivieren</button>
+    </div>
+
+    <div class="card">
+      <h2>Eigene Lebensmittel verwalten</h2>
+      <div class="field"><input type="text" id="customFoodName" placeholder="Name (z.B. Mein Pesto-Salat)"></div>
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 8px;">
+        <input type="number" id="customFoodKcal" placeholder="kcal/100g">
+        <input type="number" id="customFoodProt" placeholder="Protein">
+        <input type="number" id="customFoodCarb" placeholder="Carbs">
+        <input type="number" id="customFoodFat" placeholder="Fett">
+      </div>
+      <button class="btn btn-outline" onclick="saveCustomFoodToDB()">+ In Lebensmittel-Datenbank speichern</button>
     </div>
 
     <div class="card">
@@ -688,14 +774,14 @@
         <p>🌕 <strong>Vollmond:</strong> Höhepunkt der Energie, Feiern, Klarheit & Ernte.</p>
         <p>🌖 <strong>Abnehmender Dreiviertelmond:</strong> Dankbarkeit, Teilen, Verarbeiten.</p>
         <p>🌗 <strong>Letztes Viertel:</strong> Loslassen, Bereinigen, Vergeben.</p>
-        <p>🌘 <strong>Abnehmende Sichel:</strong> Tiefe Ruhe, Hingabe & Regeneration.</p>
+        <p>🌘 <strong>Abnehmende Sichel (Balsamischer Mond):</strong> Tiefe Ruhe, Hingabe & Regeneration.</p>
       </div>
     </div>
 
     <div class="card">
       <h2>Tägliche Erinnerung</h2>
       <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
-        Erinnert dich morgens und abends sanft an deine kleine Me-Time und deinen Tages-Check.
+        Erinnert dich morgens und abends sanft an deine Supplements, deine Dehnung und dein Essen.
       </p>
       <button class="btn btn-outline" onclick="requestNotification()">Erinnerungen aktivieren</button>
     </div>
@@ -704,7 +790,7 @@
     <div class="card">
       <h2>App installieren & Persistent machen</h2>
       <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
-        Lege das Tool als vollwertige App auf deinem Desktop oder Home-Bildschirm ab. Dadurch sichert der Browser den Speicher dauerhaft ab.
+        Installiere das Tool direkt als eigenständige Desktop- oder Smartphone-App. Dadurch sichert der Browser den Speicher gegen automatisches Leeren ab.
       </p>
       <button class="btn" id="installAppBtn" onclick="installAppPrompt()">✧ Als App installieren / Auf Desktop ablegen</button>
     </div>
@@ -713,7 +799,7 @@
     <div class="card">
       <h2>Datensicherung (Import & Export)</h2>
       <p style="font-size:0.83rem; color:var(--sage-muted); margin-bottom: 8px;">
-        100 % lokal gesichert. Lade dein Backup herunter oder stelle einen früheren Stand wieder her:
+        100 % lokal gesichert. Lade dein Backup herunter oder stelle einen früheren Stand auf jedem beliebigen Gerät wieder her:
       </p>
       <div style="display:flex; gap:10px;">
         <button class="btn btn-outline" style="flex:1;" onclick="exportData()">⬇ Exportieren</button>
@@ -725,7 +811,7 @@
 
 </div>
 
-<!-- Navigation -->
+<!-- Tab Navigation -->
 <nav class="tab-bar">
   <button class="tab-btn active" id="btnTabToday" onclick="switchTab('today')">
     <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
@@ -736,21 +822,71 @@
     Auswertung
   </button>
   <button class="tab-btn" id="btnTabSettings" onclick="switchTab('settings')">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
     Setup & Mond
   </button>
 </nav>
 
 <script>
-  const KEY_SETTINGS = 'mara_mond_settings_v1';
-  const KEY_HABITS = 'mara_mond_habits_v1';
-  const KEY_LIFESTYLE = 'mara_mond_lifestyle_v1';
-  const KEY_ENERGY = 'mara_mond_energy_v1';
-  const KEY_SYMPTOMS = 'mara_mond_symptoms_v1';
-  const KEY_CUSTOM_FOODS = 'mara_mond_custom_foods_v1';
-  const KEY_LOGS = 'mara_mond_logs_v1';
-  const KEY_ARCHIVE = 'mara_mond_archive_v1';
+  const KEY_SETTINGS = 'mond_zyklus_settings_v8';
+  const KEY_HABITS = 'mond_zyklus_habits_v8';
+  const KEY_LIFESTYLE = 'mond_zyklus_lifestyle_v8';
+  const KEY_SYMPTOMS = 'mond_zyklus_symptoms_v8';
+  const KEY_CUSTOM_FOODS = 'mond_zyklus_custom_foods_v8';
+  const KEY_LOGS = 'mond_zyklus_logs_v8';
+  const KEY_ARCHIVE = 'mond_zyklus_archive_v8';
 
+  const BASE_FOOD_DATABASE = [
+    { name: "Milchkaffee", kcal: 45, p: 3.2, c: 4.8, f: 1.5 },
+    { name: "Cocktailtomaten", kcal: 18, p: 0.9, c: 2.6, f: 0.2 },
+    { name: "Pesto Genovese", kcal: 435, p: 5.2, c: 6.5, f: 43.0 },
+    { name: "Frischkäse", kcal: 105, p: 9.0, c: 3.5, f: 6.0 },
+    { name: "Frischkäse mager", kcal: 62, p: 11.0, c: 3.9, f: 0.2 },
+    { name: "Spaghetti-Kürbis", kcal: 27, p: 0.8, c: 6.5, f: 0.1 },
+    { name: "Hokkaido-Kürbis", kcal: 63, p: 1.7, c: 12.6, f: 0.5 },
+    { name: "Butternut-Kürbis", kcal: 45, p: 1.0, c: 10.5, f: 0.1 },
+    { name: "Brokkoli", kcal: 34, p: 2.8, c: 2.7, f: 0.4 },
+    { name: "Blumenkohl", kcal: 25, p: 1.9, c: 2.3, f: 0.3 },
+    { name: "Blattspinat", kcal: 23, p: 2.9, c: 0.8, f: 0.4 },
+    { name: "Spitzkohl", kcal: 25, p: 2.0, c: 3.5, f: 0.2 },
+    { name: "Zucchini", kcal: 19, p: 1.6, c: 2.2, f: 0.4 },
+    { name: "Champignons", kcal: 22, p: 3.1, c: 0.6, f: 0.3 },
+    { name: "Möhren / Karotten", kcal: 36, p: 0.9, c: 6.8, f: 0.2 },
+    { name: "Tomaten / Kirschtomaten", kcal: 18, p: 0.9, c: 2.6, f: 0.2 },
+    { name: "Edamame (TK)", kcal: 122, p: 11.0, c: 8.0, f: 5.0 },
+    { name: "Soja-Granulat (trocken)", kcal: 295, p: 48.0, c: 15.0, f: 1.5 },
+    { name: "Lachsfilet", kcal: 206, p: 20.0, c: 0.0, f: 13.5 },
+    { name: "Kabeljau / Seelachs", kcal: 82, p: 18.0, c: 0.0, f: 0.7 },
+    { name: "Garnelen", kcal: 85, p: 18.5, c: 0.9, f: 0.8 },
+    { name: "Like Meat Chicken", kcal: 130, p: 18.0, c: 3.0, f: 3.5 },
+    { name: "Räuchertofu", kcal: 145, p: 16.0, c: 2.0, f: 8.0 },
+    { name: "Eier (1 Stück ca. 55g)", kcal: 78, p: 7.0, c: 0.4, f: 5.5 },
+    { name: "Rote Linsen (trocken)", kcal: 340, p: 25.0, c: 53.0, f: 1.5 },
+    { name: "Braune Linsen (Dose abgetropft)", kcal: 85, p: 7.0, c: 11.5, f: 0.5 },
+    { name: "Kidneybohnen (Dose abgetropft)", kcal: 105, p: 8.5, c: 14.0, f: 0.6 },
+    { name: "Kichererbsen (Dose abgetropft)", kcal: 120, p: 7.5, c: 17.0, f: 2.0 },
+    { name: "Magerquark", kcal: 68, p: 12.5, c: 4.0, f: 0.2 },
+    { name: "Skyr Natur", kcal: 63, p: 11.0, c: 4.0, f: 0.2 },
+    { name: "Feta light (9% Fett)", kcal: 175, p: 16.0, c: 1.0, f: 9.0 },
+    { name: "Mozzarella light (8.5%)", kcal: 165, p: 19.0, c: 1.5, f: 8.5 },
+    { name: "Parmesan", kcal: 390, p: 35.0, c: 0.0, f: 28.0 },
+    { name: "Milch 1.5% Fett", kcal: 48, p: 3.4, c: 4.9, f: 1.5 },
+    { name: "Vollkornnudeln (trocken)", kcal: 348, p: 13.0, c: 65.0, f: 2.5 },
+    { name: "Basmatireis (trocken)", kcal: 350, p: 8.0, c: 77.0, f: 0.6 },
+    { name: "Gnocchi (Kühlregal)", kcal: 155, p: 3.5, c: 32.0, f: 0.8 },
+    { name: "Haferflocken", kcal: 370, p: 13.5, c: 58.5, f: 7.0 },
+    { name: "Vollkornbrot / Dinkelbrot", kcal: 215, p: 8.5, c: 38.0, f: 1.8 },
+    { name: "Walnüsse", kcal: 654, p: 15.0, c: 11.0, f: 65.0 },
+    { name: "Kürbiskerne", kcal: 560, p: 30.0, c: 14.0, f: 45.0 },
+    { name: "Leinsamen geschrotet", kcal: 470, p: 20.0, c: 0.0, f: 38.0 },
+    { name: "Banane", kcal: 90, p: 1.1, c: 20.0, f: 0.3 },
+    { name: "Apfel", kcal: 52, p: 0.3, c: 12.0, f: 0.2 },
+    { name: "Beeren gemischt", kcal: 45, p: 1.0, c: 8.0, f: 0.5 },
+    { name: "Knoppers", kcal: 535, p: 9.0, c: 52.0, f: 33.0 }
+  ];
+
+
+  // 31 Daily Celestial Quotes for Serenity & Motivation
   const DAILY_QUOTES = [
     "Atme tief ein. Du bist genau dort, wo du heute sein sollst.",
     "Vertraue dem Fluss des Lebens. Alles entfaltet sich zur richtigen Zeit.",
@@ -785,67 +921,45 @@
     "Mögest du heute Geborgenheit, Liebe und tiefen Frieden in dir finden."
   ];
 
-  const BASE_FOOD_DATABASE = [
-    { name: "Haferflocken", kcal: 370, p: 13.5, c: 58.5, f: 7.0 },
-    { name: "Banane", kcal: 90, p: 1.1, c: 20.0, f: 0.3 },
-    { name: "Apfel", kcal: 52, p: 0.3, c: 12.0, f: 0.2 },
-    { name: "Beeren gemischt", kcal: 45, p: 1.0, c: 8.0, f: 0.5 },
-    { name: "Vollkornbrot", kcal: 215, p: 8.5, c: 38.0, f: 1.8 },
-    { name: "Walnüsse", kcal: 654, p: 15.0, c: 11.0, f: 65.0 },
-    { name: "Kürbiskerne", kcal: 560, p: 30.0, c: 14.0, f: 45.0 },
-    { name: "Brokkoli", kcal: 34, p: 2.8, c: 2.7, f: 0.4 },
-    { name: "Karotten", kcal: 36, p: 0.9, c: 6.8, f: 0.2 },
-    { name: "Gurke", kcal: 14, p: 0.6, c: 2.0, f: 0.1 },
-    { name: "Tomaten", kcal: 18, p: 0.9, c: 2.6, f: 0.2 },
-    { name: "Linsen gekocht", kcal: 116, p: 9.0, c: 20.0, f: 0.4 },
-    { name: "Reis gekocht", kcal: 130, p: 2.7, c: 28.5, f: 0.3 },
-    { name: "Nudeln gekocht", kcal: 145, p: 5.0, c: 29.0, f: 0.6 }
-  ];
-
   let settings = {
-    lastPeriodDate: '2026-09-20',
+    lastPeriodDate: '2026-09-13',
     cycleLength: 28,
     periodLength: 5
   };
 
+  // Vorgegebene Lifestyle-Punkte vom User: liebe, gut geschlafen, kreativ, treffen
   let lifestyleList = [
-    { id: 'l_liebe', text: 'Liebe & Zweisamkeit' },
-    { id: 'l_schlaf', text: 'Gut & erholsam geschlafen' },
-    { id: 'l_kreativ', text: 'Kreativ gewirkt / Freude gehabt' },
-    { id: 'l_treffen', text: 'Liebe Menschen getroffen' }
+    { id: 'l_liebe', text: 'Liebe / Zweisamkeit' },
+    { id: 'l_schlaf', text: 'Gut geschlafen' },
+    { id: 'l_kreativ', text: 'Kreativ gewesen' },
+    { id: 'l_treffen', text: 'Freunde / Familie getroffen' }
   ];
 
-  // Rituals WITHOUT "Beine an die Wand"
   let habitList = [
-    { id: 'h1', text: 'Sanfte Dehnübung / Yoga-Impuls' },
-    { id: 'h2', text: 'Achtsamer Spaziergang an der frischen Luft' },
-    { id: 'h3', text: 'Wärmende Me-Time / Entspannung' },
+    { id: 'h1', text: '1 sanfte Alltags-Dehnung (Wade an Treppe / Couch-Hüfte)' },
+    { id: 'h2', text: '15–20 Min. Spaziergang im Grünen oder Yoga' },
+    { id: 'h3', text: 'Beine entspannt hochgelegt (Wand / Viparita Karani)' },
     { id: 'h4', text: 'Mind. 1,5–2 Liter Wasser / Kräutertee getrunken' },
-    { id: 'h5', text: '5 Minuten Stille, Atmen oder Musik' }
-  ];
-
-  let energyList = [
-    "Introspektiv / Müde",
-    "Geerdet / Ruhig",
-    "Ausgeglichen",
-    "Voller Tatkraft"
+    { id: 'h5', text: 'Zimt oder Slow-Carbs integriert' }
   ];
 
   let symptomList = [
     "Krämpfe",
     "Spannungsgefühl",
+    "Heißhunger",
     "Kopfschmerz",
+    "Blähbauch",
     "Müdigkeit",
     "Stimmungsschwankung",
-    "Heißhunger",
+    "Wassereinlagerung",
     "Im Einklang"
   ];
 
   let customFoodList = [];
   let logs = {};
-  let archives = [];
-  let selectedArchiveIndex = -1;
-  let currentEnergy = "";
+  let archives = []; // { name: "Zyklus September/Oktober 2026", startDate: "2026-09-13", endDate: "2026-10-10", cycleLength: 28, logs: {...} }
+  let selectedArchiveIndex = -1; // -1 = current active cycle
+  let currentEnergy = 0;
   let currentSymptoms = [];
 
   function getMoonPhaseData(date) {
@@ -875,33 +989,44 @@
 
   function init() {
     const savedSet = localStorage.getItem(KEY_SETTINGS);
-    if (savedSet) { try { settings = JSON.parse(savedSet); } catch(e){} }
-    else { localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings)); }
-
-    const savedLife = localStorage.getItem(KEY_LIFESTYLE);
-    if (savedLife) { try { lifestyleList = JSON.parse(savedLife); } catch(e){} }
-    else { localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList)); }
+    if (savedSet) {
+      try { settings = JSON.parse(savedSet); } catch(e){}
+    } else {
+      settings.lastPeriodDate = '2026-09-13';
+      localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings));
+    }
 
     const savedHabits = localStorage.getItem(KEY_HABITS);
-    if (savedHabits) { try { habitList = JSON.parse(savedHabits); } catch(e){} }
-    else { localStorage.setItem(KEY_HABITS, JSON.stringify(habitList)); }
+    if (savedHabits) {
+      try { habitList = JSON.parse(savedHabits); } catch(e){}
+    }
 
-    const savedEnergy = localStorage.getItem(KEY_ENERGY);
-    if (savedEnergy) { try { energyList = JSON.parse(savedEnergy); } catch(e){} }
-    else { localStorage.setItem(KEY_ENERGY, JSON.stringify(energyList)); }
+    const savedLifestyle = localStorage.getItem(KEY_LIFESTYLE);
+    if (savedLifestyle) {
+      try { lifestyleList = JSON.parse(savedLifestyle); } catch(e){}
+    } else {
+      localStorage.setItem(KEY_LIFESTYLE, JSON.stringify(lifestyleList));
+    }
 
-    const savedSymp = localStorage.getItem(KEY_SYMPTOMS);
-    if (savedSymp) { try { symptomList = JSON.parse(savedSymp); } catch(e){} }
-    else { localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList)); }
+    const savedSymptoms = localStorage.getItem(KEY_SYMPTOMS);
+    if (savedSymptoms) {
+      try { symptomList = JSON.parse(savedSymptoms); } catch(e){}
+    }
 
     const savedCustomFoods = localStorage.getItem(KEY_CUSTOM_FOODS);
-    if (savedCustomFoods) { try { customFoodList = JSON.parse(savedCustomFoods); } catch(e){} }
+    if (savedCustomFoods) {
+      try { customFoodList = JSON.parse(savedCustomFoods); } catch(e){}
+    }
 
     const savedLogs = localStorage.getItem(KEY_LOGS);
-    if (savedLogs) { try { logs = JSON.parse(savedLogs); } catch(e){} }
+    if (savedLogs) {
+      try { logs = JSON.parse(savedLogs); } catch(e){}
+    }
 
-    const savedArch = localStorage.getItem(KEY_ARCHIVE);
-    if (savedArch) { try { archives = JSON.parse(savedArch); } catch(e){} }
+    const savedArchive = localStorage.getItem(KEY_ARCHIVE);
+    if (savedArchive) {
+      try { archives = JSON.parse(savedArchive); } catch(e){}
+    }
 
     document.getElementById('lastPeriodDate').value = settings.lastPeriodDate;
     document.getElementById('cycleLength').value = settings.cycleLength;
@@ -911,7 +1036,6 @@
     renderToday();
     renderLifestyleHabits();
     renderHabits();
-    renderEnergyPills();
     renderSymptomsPills();
     loadTodayLog();
   }
@@ -939,10 +1063,12 @@
     const today = new Date();
     const options = { weekday: 'short', day: 'numeric', month: 'short' };
     document.getElementById('todayDateStr').textContent = today.toLocaleDateString('de-DE', options);
-
+    // Set Daily Reminder Quote (based on day of month)
     const dayOfMonth = today.getDate();
     const quoteIndex = (dayOfMonth - 1) % DAILY_QUOTES.length;
-    document.getElementById('dailyReminderQuote').textContent = `"${DAILY_QUOTES[quoteIndex]}"`;
+    const quoteEl = document.getElementById('dailyReminderQuote');
+    if (quoteEl) quoteEl.textContent = `"${DAILY_QUOTES[quoteIndex]}"`;
+
 
     const moon = getMoonPhaseData(today);
     document.getElementById('astronomicalMoonGlyph').textContent = moon.glyph;
@@ -965,32 +1091,32 @@
 
     if (cycleDay <= periodLength) {
       phase = 'INNERE MENSTRUATION';
-      phaseName = 'Menstruation • Innere Neumond-Einkehr';
-      hormone = 'Hormone ruhen am tiefsten Punkt. Zeit der Regeneration, Reinigung und des Innehaltens.';
-      food = 'Wärmende Suppen, Beeren, beruhigende Kräutertees und leicht verdauliche Kost.';
-      moonTip = 'Stille wie die Neumondin: Schenke dir Ruhe und Vertrauen in deinen natürlichen Rhythmus.';
-      body = 'Sanfte Kindeshaltung, wärmende Decken und achtsames Durchatmen ohne Druck.';
+      phaseName = 'Menstruation • Innere Neumond-Phase';
+      hormone = 'Progesteron und Östrogen sind am Tiefpunkt. Körper regeneriert und reinigt sich.';
+      food = 'Wärmend, eisen- & blutbildend: Rote Linsen, Gemüsesuppen, Beeren, Zitrone & Zimt-Tee.';
+      moonTip = 'Neubeginn: Ziehe dich wie die dunkle Mondin zurück. Ruhe nährt deine Wurzeln.';
+      body = 'Sanfte Kindeshaltung, Beine an die Wand. Nur dehnen, was sich weich anfühlt.';
     } else if (cycleDay <= 12) {
       phase = 'INNERE FOLLIKELPHASE';
       phaseName = 'Follikelphase • Zunehmende Kraft';
-      hormone = 'Östrogen steigt empor und schenkt neue Frische, Inspiration und geistige Klarheit.';
-      food = 'Frische, knackige Kost, bunte Salate, gesunde Fette und nährstoffreiche Proteine.';
-      moonTip = 'Knospen öffnen sich: Schöne Zeit für kreative Ideen, Pläne und neue Impulse.';
-      body = 'Fließendes Yoga, zügiges Gehen in der Natur, Gelenke sanft mobilisieren.';
+      hormone = 'Östrogen steigt und hebt Dopamin & Fokus an. Optimale Verwertung von Kohlenhydraten.';
+      food = 'Frisch, knackig & proteinreich: Skyr, Tofu, weißer Fisch, gekeimte Saaten, Gemüse.';
+      moonTip = 'Wachstum & Tatkraft: Zeit für neue kreative Projekte und frischen Elan.';
+      body = 'Krieger-Posen, zügiges Gehen im Wald, Beinrückseiten dynamischer öffnen.';
     } else if (cycleDay <= 16) {
       phase = 'INNERE OVULATION';
-      phaseName = 'Eisprung • Vollmond-Energie';
-      hormone = 'Östrogen & Lebensenergie auf dem Höhepunkt. Maximale Verbundenheit und Empathie.';
-      food = 'Antioxidantienreiches Gemüse, Beeren, viel Wasser und leichte, bunte Gerichte.';
-      moonTip = 'Volle Pracht: Feiere deine Lebendigkeit und teile schöne Momente mit lieben Menschen.';
-      body = 'Tiefe Ausfallschritte, sanfte Taube, weite Herzöffner und Erdung.';
+      phaseName = 'Eisprung • Innere Vollmond-Phase';
+      hormone = 'Östrogen & LH auf dem monatlichen Peak. Maximale Strahlkraft und Verbindung.';
+      food = 'Antioxidantien-Power: Blattspinat, Brokkoli, Spitzkohl, Beeren, leichte Eiweiße.';
+      moonTip = 'Volle Fülle: Feiere deine Energie, aber achte darauf, dein Nervensystem nicht zu überreizen.';
+      body = 'Couch-Stretch (Hüfte öffnen), sanfte Taube, Standhaltungen.';
     } else {
       phase = 'INNERE LUTEALPHASE';
       phaseName = 'Späte Lutealphase • Herbst-Energie';
-      hormone = 'Progesteron & Östrogen sinken sanft ab. Der Körper ruft nach Gemütlichkeit und Schutz.';
-      food = 'Wurzelgemüse, wärmende Gewürze wie Zimt, komplexe Kohlenhydrate und Magnesium.';
-      moonTip = 'Abnehmender Mond: Zeit des Klärens und Loslassens. Schütze deine Energie.';
-      body = 'Wadendehnung an der Treppenstufe, sanfte Hüftöffnung und abends wohlige Entspannung.';
+      hormone = 'Progesteron & Östrogen sinken steil. Dopamin-Tief ruft nach Trost; Aldosteron bindet Wasser.';
+      food = 'Kalium hoch (Spaghetti-Kürbis, Banane), Magnesium (Kürbiskerne), Zimt im Porridge für stabilen Blutzucker.';
+      moonTip = 'Zeit des Klärens: Nimm dir keinen Perfektionismus vor. Sanfte Einkehr.';
+      body = 'Wadendehnung an der Treppe (45 Sek.) + Beine an die Wand vor dem Einschlafen.';
     }
 
     document.getElementById('phaseTag').textContent = phase;
@@ -1003,7 +1129,7 @@
     document.getElementById('bodyTips').textContent = body;
   }
 
-  // --- Lifestyle Habit Tracker ---
+  // --- Lifestyle Habit Tracker Rendering ---
   function renderLifestyleHabits() {
     const container = document.getElementById('lifestyleHabitsContainer');
     container.innerHTML = '';
@@ -1050,152 +1176,11 @@
     renderLifestyleHabits();
   }
 
-  // --- Rituale & Dehnen ---
-  function renderHabits() {
-    const container = document.getElementById('habitsContainer');
-    container.innerHTML = '';
-    const todayKey = getTodayKey();
-    const todayData = logs[todayKey] || { checked: {} };
-
-    habitList.forEach(habit => {
-      const isChecked = !!(todayData.checked && todayData.checked[habit.id]);
-      const row = document.createElement('label');
-      row.className = 'check-item ritual-item';
-      row.innerHTML = `
-        <span style="flex:1;">${habit.text}</span>
-        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleHabit('${habit.id}', this.checked)">
-        <button class="food-del" title="Entfernen" onclick="deleteHabit('${habit.id}', event)">×</button>
-      `;
-      container.appendChild(row);
-    });
-  }
-
-  function toggleHabit(id, val) {
-    const todayKey = getTodayKey();
-    ensureLogDay(todayKey);
-    logs[todayKey].checked[id] = val;
-    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
-  }
-
-  function addCustomHabit() {
-    const input = document.getElementById('newHabitInput');
-    const text = input.value.trim();
-    if (!text) return;
-    const newId = 'h_' + Date.now();
-    habitList.push({ id: newId, text });
-    localStorage.setItem(KEY_HABITS, JSON.stringify(habitList));
-    input.value = '';
-    renderHabits();
-  }
-
-  function deleteHabit(id, ev) {
-    ev.preventDefault();
-    ev.stopPropagation();
-    habitList = habitList.filter(h => h.id !== id);
-    localStorage.setItem(KEY_HABITS, JSON.stringify(habitList));
-    renderHabits();
-  }
-
-  // --- Energy Pills (Vollständig erweiterbar) ---
-  function renderEnergyPills() {
-    const container = document.getElementById('energyGroup');
-    container.innerHTML = '';
-
-    energyList.forEach(e => {
-      const isActive = (currentEnergy === e);
-      const pill = document.createElement('div');
-      pill.className = `pill-container ${isActive ? 'active' : ''}`;
-      pill.innerHTML = `
-        <span class="pill-label" onclick="selectEnergy('${e}')">${e}</span>
-        <button class="pill-del-btn" title="Löschen" onclick="deleteCustomEnergy('${e}', event)">×</button>
-      `;
-      container.appendChild(pill);
-    });
-  }
-
-  function selectEnergy(val) {
-    if (currentEnergy === val) currentEnergy = "";
-    else currentEnergy = val;
-    renderEnergyPills();
-    saveTodayLog();
-  }
-
-  function addCustomEnergy() {
-    const input = document.getElementById('newEnergyInput');
-    const val = input.value.trim();
-    if (!val) return;
-    if (!energyList.includes(val)) {
-      energyList.push(val);
-      localStorage.setItem(KEY_ENERGY, JSON.stringify(energyList));
-    }
-    currentEnergy = val;
-    input.value = '';
-    renderEnergyPills();
-    saveTodayLog();
-  }
-
-  function deleteCustomEnergy(item, ev) {
-    ev.stopPropagation();
-    energyList = energyList.filter(e => e !== item);
-    if (currentEnergy === item) currentEnergy = "";
-    localStorage.setItem(KEY_ENERGY, JSON.stringify(energyList));
-    renderEnergyPills();
-    saveTodayLog();
-  }
-
-  // --- Symptoms Pills (Vollständig erweiterbar) ---
-  function renderSymptomsPills() {
-    const container = document.getElementById('symptomsGroup');
-    container.innerHTML = '';
-
-    symptomList.forEach(s => {
-      const isActive = currentSymptoms.includes(s);
-      const pill = document.createElement('div');
-      pill.className = `pill-container ${isActive ? 'active' : ''}`;
-      pill.innerHTML = `
-        <span class="pill-label" onclick="toggleSymptom('${s}')">${s}</span>
-        <button class="pill-del-btn" title="Löschen" onclick="deleteCustomSymptom('${s}', event)">×</button>
-      `;
-      container.appendChild(pill);
-    });
-  }
-
-  function toggleSymptom(symp) {
-    const idx = currentSymptoms.indexOf(symp);
-    if (idx > -1) currentSymptoms.splice(idx, 1);
-    else currentSymptoms.push(symp);
-    renderSymptomsPills();
-    saveTodayLog();
-  }
-
-  function addCustomSymptom() {
-    const input = document.getElementById('newSymptomInput');
-    const val = input.value.trim();
-    if (!val) return;
-    if (!symptomList.includes(val)) {
-      symptomList.push(val);
-      localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
-    }
-    if (!currentSymptoms.includes(val)) currentSymptoms.push(val);
-    input.value = '';
-    renderSymptomsPills();
-    saveTodayLog();
-  }
-
-  function deleteCustomSymptom(symp, ev) {
-    ev.stopPropagation();
-    symptomList = symptomList.filter(s => s !== symp);
-    currentSymptoms = currentSymptoms.filter(s => s !== symp);
-    localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
-    renderSymptomsPills();
-    saveTodayLog();
-  }
-
-  // --- Online Food Tracking ---
+  // --- Food Tracking & Online API ---
   async function searchOnlineFood(query) {
     try {
       const url = `https://de.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(query)}&search_simple=1&action=process&json=1&page_size=3`;
-      const res = await fetch(url, { headers: { 'User-Agent': 'MaraMondApp/1.0' } });
+      const res = await fetch(url, { headers: { 'User-Agent': 'MondRhythmusApp/1.0' } });
       if (!res.ok) return null;
       const data = await res.json();
       if (data && data.products && data.products.length > 0) {
@@ -1213,7 +1198,9 @@
           }
         }
       }
-    } catch (err) {}
+    } catch (err) {
+      console.warn("Online food search unavailable:", err);
+    }
     return null;
   }
 
@@ -1230,7 +1217,7 @@
     const statusBox = document.getElementById('searchStatus');
 
     if (!name || isNaN(grams) || grams <= 0) {
-      alert('Bitte Lebensmittel und Gramm eingeben.');
+      alert('Bitte Lebensmittel und Grammanzahl eingeben.');
       return;
     }
 
@@ -1266,7 +1253,7 @@
         c = Math.round(onlineResult.c * factor * 10) / 10;
         f = Math.round(onlineResult.f * factor * 10) / 10;
       } else {
-        const estKcal = prompt(`"${name}" wurde online nicht gefunden. Geschätzte Kalorien für ${grams}g?`, "150");
+        const estKcal = prompt(`"${name}" wurde online nicht gefunden. Wie viele Kalorien schätzt du für diese Portion (${grams}g)?`, "150");
         if (estKcal === null) return;
         kcal = parseInt(estKcal) || 150;
         p = Math.round(kcal * 0.08);
@@ -1333,13 +1320,108 @@
     document.getElementById('sumFat').textContent = Math.round(sumF) + ' g';
   }
 
+  // --- Dehn-Habits & Symptoms ---
+  function renderHabits() {
+    const container = document.getElementById('habitsContainer');
+    container.innerHTML = '';
+    const todayKey = getTodayKey();
+    const todayData = logs[todayKey] || { checked: {} };
+
+    habitList.forEach(habit => {
+      const isChecked = !!(todayData.checked && todayData.checked[habit.id]);
+      const row = document.createElement('label');
+      row.className = 'check-item';
+      row.innerHTML = `
+        <span style="flex:1;">${habit.text}</span>
+        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleHabit('${habit.id}', this.checked)">
+        <button class="food-del" title="Entfernen" onclick="deleteHabit('${habit.id}', event)">×</button>
+      `;
+      container.appendChild(row);
+    });
+  }
+
+  function toggleHabit(id, val) {
+    const todayKey = getTodayKey();
+    ensureLogDay(todayKey);
+    logs[todayKey].checked[id] = val;
+    localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
+  }
+
+  function addCustomHabit() {
+    const input = document.getElementById('newHabitInput');
+    const text = input.value.trim();
+    if (!text) return;
+    const newId = 'h_' + Date.now();
+    habitList.push({ id: newId, text });
+    localStorage.setItem(KEY_HABITS, JSON.stringify(habitList));
+    input.value = '';
+    renderHabits();
+  }
+
+  function deleteHabit(id, ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    habitList = habitList.filter(h => h.id !== id);
+    localStorage.setItem(KEY_HABITS, JSON.stringify(habitList));
+    renderHabits();
+  }
+
+  function renderSymptomsPills() {
+    const container = document.getElementById('symptomsGroup');
+    container.innerHTML = '';
+
+    symptomList.forEach(s => {
+      const isActive = currentSymptoms.includes(s);
+      const pill = document.createElement('div');
+      pill.className = `pill-container ${isActive ? 'active' : ''}`;
+      pill.innerHTML = `
+        <span class="pill-label" onclick="toggleSymptom('${s}')">${s}</span>
+        <button class="pill-del-btn" title="Löschen" onclick="deleteCustomSymptom('${s}', event)">×</button>
+      `;
+      container.appendChild(pill);
+    });
+  }
+
+  function toggleSymptom(symp) {
+    const idx = currentSymptoms.indexOf(symp);
+    if (idx > -1) currentSymptoms.splice(idx, 1);
+    else currentSymptoms.push(symp);
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function addCustomSymptom() {
+    const input = document.getElementById('newSymptomInput');
+    const val = input.value.trim();
+    if (!val) return;
+    if (!symptomList.includes(val)) {
+      symptomList.push(val);
+      localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
+    }
+    if (!currentSymptoms.includes(val)) currentSymptoms.push(val);
+    input.value = '';
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
+  function deleteCustomSymptom(symp, ev) {
+    ev.stopPropagation();
+    symptomList = symptomList.filter(s => s !== symp);
+    currentSymptoms = currentSymptoms.filter(s => s !== symp);
+    localStorage.setItem(KEY_SYMPTOMS, JSON.stringify(symptomList));
+    renderSymptomsPills();
+    saveTodayLog();
+  }
+
   function ensureLogDay(key) {
     if (!logs[key]) {
       logs[key] = {
+        suppMorning: false,
+        suppEvening: false,
         foodItems: [],
         checked: {},
         lifestyle: {},
-        energy: "",
+        energy: 0,
         symptoms: [],
         notes: ''
       };
@@ -1354,21 +1436,25 @@
     const todayKey = getTodayKey();
     const entry = logs[todayKey] || {};
 
+    document.getElementById('chkSuppMorning').checked = !!entry.suppMorning;
+    document.getElementById('chkSuppEvening').checked = !!entry.suppEvening;
     document.getElementById('dailyNotes').value = entry.notes || '';
-    currentEnergy = entry.energy || "";
-    renderEnergyPills();
+
+    currentEnergy = entry.energy || 0;
+    setEnergyUI(currentEnergy);
 
     currentSymptoms = entry.symptoms || [];
     renderSymptomsPills();
     renderFoodEntries();
     renderLifestyleHabits();
-    renderHabits();
   }
 
   function saveTodayLog() {
     const todayKey = getTodayKey();
     ensureLogDay(todayKey);
 
+    logs[todayKey].suppMorning = document.getElementById('chkSuppMorning').checked;
+    logs[todayKey].suppEvening = document.getElementById('chkSuppEvening').checked;
     logs[todayKey].notes = document.getElementById('dailyNotes').value;
     logs[todayKey].energy = currentEnergy;
     logs[todayKey].symptoms = currentSymptoms;
@@ -1376,10 +1462,26 @@
     localStorage.setItem(KEY_LOGS, JSON.stringify(logs));
   }
 
+  function setEnergy(val, el) {
+    currentEnergy = val;
+    setEnergyUI(val);
+    saveTodayLog();
+  }
+
+  function setEnergyUI(val) {
+    const containers = document.querySelectorAll('#energyGroup .pill-container');
+    containers.forEach((c, idx) => {
+      if (idx + 1 === val) c.classList.add('active');
+      else c.classList.remove('active');
+    });
+  }
+
+  // --- Zyklus-Archivierung Feature ---
   function archiveCurrentCyclePrompt() {
     const todayStr = getTodayKey();
     const startStr = settings.lastPeriodDate;
     
+    // Auto name suggestion e.g. "Zyklus September/Oktober 2026"
     const startDate = new Date(startStr);
     const endDate = new Date(todayStr);
     const m1 = startDate.toLocaleDateString('de-DE', { month: 'long' });
@@ -1393,23 +1495,25 @@
     const newStart = prompt("Erster Tag der NEUEN Periode (JJJJ-MM-TT):", todayStr);
     if (!newStart) return;
 
+    // Save archive object
     const archiveEntry = {
       name: cycleName,
       startDate: startStr,
       endDate: todayStr,
       cycleLength: parseInt(settings.cycleLength) || 28,
       periodLength: parseInt(settings.periodLength) || 5,
-      logs: JSON.parse(JSON.stringify(logs))
+      logs: JSON.parse(JSON.stringify(logs)) // Snapshot of logs
     };
 
     archives.push(archiveEntry);
     localStorage.setItem(KEY_ARCHIVE, JSON.stringify(archives));
 
+    // Update settings to new period start
     settings.lastPeriodDate = newStart;
     localStorage.setItem(KEY_SETTINGS, JSON.stringify(settings));
     document.getElementById('lastPeriodDate').value = newStart;
 
-    alert(`Der Zyklus "${cycleName}" wurde archiviert! Ein neuer Zyklus ab ${newStart} beginnt.`);
+    alert(`Der Zyklus "${cycleName}" wurde erfolgreich archiviert! Ein neuer Zyklus ab ${newStart} hat begonnen.`);
     renderToday();
     switchTab('report');
   }
@@ -1419,18 +1523,21 @@
     renderReport();
   }
 
+  // --- Auswertung mit Phasen-Schnitt & Lifestyle-Tabelle ---
   function renderReport() {
     renderArchiveBadges();
 
     let activeData, startStr, cycleLen, periodLen, reportTitle;
 
     if (selectedArchiveIndex === -1) {
+      // Current Cycle
       activeData = logs;
       startStr = settings.lastPeriodDate;
       cycleLen = parseInt(settings.cycleLength) || 28;
       periodLen = parseInt(settings.periodLength) || 5;
       reportTitle = "Laufender Zyklus (ab " + new Date(startStr).toLocaleDateString('de-DE', { day:'numeric', month:'short' }) + ")";
     } else {
+      // Archived Cycle
       const a = archives[selectedArchiveIndex];
       activeData = a.logs;
       startStr = a.startDate;
@@ -1445,8 +1552,15 @@
     const keys = Object.keys(activeData).sort();
 
     let recordedCount = 0;
+    let suppCount = 0;
     let totalKcal = 0, countKcalDays = 0;
+    let totalProt = 0, totalCarb = 0, totalFat = 0;
 
+    // Phase metrics buckets
+    // Phase 1: Menstruation (1 to periodLen)
+    // Phase 2: Follikel (periodLen+1 to 12)
+    // Phase 3: Ovulation (13 to 16)
+    // Phase 4: Luteal (17 to cycleLen)
     let phaseMetrics = {
       1: { name: "1. Menstruation", days: 0, kcalDays: 0, k: 0, p: 0, c: 0, f: 0 },
       2: { name: "2. Follikelphase", days: 0, kcalDays: 0, k: 0, p: 0, c: 0, f: 0 },
@@ -1471,6 +1585,7 @@
         const e = activeData[k];
         const cycleDay = diffDays + 1;
 
+        // Which phase
         let pId = 4;
         if (cycleDay <= periodLen) pId = 1;
         else if (cycleDay <= 12) pId = 2;
@@ -1479,6 +1594,10 @@
 
         phaseMetrics[pId].days++;
 
+        if (e.suppMorning && e.suppEvening) suppCount += 1;
+        else if (e.suppMorning || e.suppEvening) suppCount += 0.5;
+
+        // Food macros
         if (e.foodItems && e.foodItems.length > 0) {
           countKcalDays++;
           phaseMetrics[pId].kcalDays++;
@@ -1490,24 +1609,33 @@
             dayF += fi.fat;
           });
           totalKcal += dayK;
+          totalProt += dayP;
+          totalCarb += dayC;
+          totalFat += dayF;
+
           phaseMetrics[pId].k += dayK;
           phaseMetrics[pId].p += dayP;
           phaseMetrics[pId].c += dayC;
           phaseMetrics[pId].f += dayF;
         }
 
+        // Lifestyle tracker counts
         if (e.lifestyle) {
           Object.keys(e.lifestyle).forEach(lid => {
-            if (e.lifestyle[lid] && lifestyleCounts[lid]) lifestyleCounts[lid].count++;
+            if (e.lifestyle[lid] && lifestyleCounts[lid]) {
+              lifestyleCounts[lid].count++;
+            }
           });
         }
 
+        // Habit counts
         if (e.checked) {
           Object.keys(e.checked).forEach(hid => {
             if (e.checked[hid] && habitCounts[hid]) habitCounts[hid].checked++;
           });
         }
 
+        // Symptoms
         if (e.symptoms && Array.isArray(e.symptoms)) {
           e.symptoms.forEach(s => symptomMap[s] = (symptomMap[s] || 0) + 1);
         }
@@ -1515,10 +1643,15 @@
     });
 
     document.getElementById('statCycleDays').textContent = recordedCount;
-    const avgK = countKcalDays > 0 ? Math.round(totalKcal / countKcalDays) : '-';
-    document.getElementById('statAvgKcal').textContent = avgK;
+    const suppPct = recordedCount > 0 ? Math.round((suppCount / recordedCount) * 100) : 0;
+    document.getElementById('statSuppRate').textContent = `${suppPct} %`;
 
-    // Phase Macro Table
+    const avgK = countKcalDays > 0 ? Math.round(totalKcal / countKcalDays) : '-';
+    const avgP = countKcalDays > 0 ? Math.round(totalProt / countKcalDays) : '-';
+    document.getElementById('statAvgKcal').textContent = avgK;
+    document.getElementById('statAvgProtein').textContent = avgP !== '-' ? `${avgP} g` : '-';
+
+    // 1. Phasen-Makro-Tabelle
     const phaseTableBody = document.querySelector('#phaseMacroTable tbody');
     phaseTableBody.innerHTML = '';
     [1, 2, 3, 4].forEach(pId => {
@@ -1530,7 +1663,7 @@
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td style="font-weight:600; color:var(--gold-bright);">${pm.name}</td>
+        <td style="font-weight:600; color:var(--gold-soft);">${pm.name}</td>
         <td>${pm.days} d</td>
         <td>${pAvgK}</td>
         <td>${pAvgP}</td>
@@ -1540,7 +1673,7 @@
       phaseTableBody.appendChild(tr);
     });
 
-    // Lifestyle Table
+    // 2. Lifestyle-Tabelle
     const lifeTableBody = document.querySelector('#lifestyleTable tbody');
     lifeTableBody.innerHTML = '';
     Object.keys(lifestyleCounts).forEach(lid => {
@@ -1555,7 +1688,7 @@
       lifeTableBody.appendChild(tr);
     });
 
-    // Habits List
+    // 3. Dehn-Rituale List
     const hContainer = document.getElementById('statHabitsList');
     hContainer.innerHTML = '';
     Object.keys(habitCounts).forEach(hid => {
@@ -1563,16 +1696,17 @@
       const rate = recordedCount > 0 ? Math.round((h.checked / recordedCount) * 100) : 0;
       const div = document.createElement('div');
       div.style.marginBottom = '4px';
+      div.style.color = 'var(--text-main)';
       div.innerHTML = `<strong>${h.text}:</strong> ${h.checked} von ${recordedCount} Tagen (${rate} %)`;
       hContainer.appendChild(div);
     });
 
-    // Symptoms Badges
+    // 4. Symptoms Badges
     const sContainer = document.getElementById('statSymptomsList');
     sContainer.innerHTML = '';
     const sympKeys = Object.keys(symptomMap).sort((a,b) => symptomMap[b] - symptomMap[a]);
     if (sympKeys.length === 0) {
-      sContainer.textContent = 'Noch keine Körpersignale dokumentiert.';
+      sContainer.textContent = 'Noch keine Körpersignale in diesem Zyklus dokumentiert.';
     } else {
       sympKeys.forEach(sk => {
         const span = document.createElement('span');
@@ -1590,12 +1724,14 @@
     const container = document.getElementById('archiveBadgesList');
     container.innerHTML = '';
 
+    // Active Cycle Badge
     const btnCur = document.createElement('span');
     btnCur.className = `archive-badge ${selectedArchiveIndex === -1 ? 'active' : ''}`;
     btnCur.textContent = 'Aktueller Zyklus';
     btnCur.onclick = () => selectCycleView(-1);
     container.appendChild(btnCur);
 
+    // Archived Cycles
     archives.forEach((a, idx) => {
       const b = document.createElement('span');
       b.className = `archive-badge ${selectedArchiveIndex === idx ? 'active' : ''}`;
@@ -1603,6 +1739,31 @@
       b.onclick = () => selectCycleView(idx);
       container.appendChild(b);
     });
+  }
+
+  function saveCustomFoodToDB() {
+    const name = document.getElementById('customFoodName').value.trim();
+    const kcal = parseFloat(document.getElementById('customFoodKcal').value);
+    const p = parseFloat(document.getElementById('customFoodProt').value) || 0;
+    const c = parseFloat(document.getElementById('customFoodCarb').value) || 0;
+    const f = parseFloat(document.getElementById('customFoodFat').value) || 0;
+
+    if (!name || isNaN(kcal)) {
+      alert('Bitte mindestens Name und kcal/100g eingeben.');
+      return;
+    }
+
+    customFoodList.push({ name, kcal, p, c, f });
+    localStorage.setItem(KEY_CUSTOM_FOODS, JSON.stringify(customFoodList));
+    populateFoodDatalist();
+
+    document.getElementById('customFoodName').value = '';
+    document.getElementById('customFoodKcal').value = '';
+    document.getElementById('customFoodProt').value = '';
+    document.getElementById('customFoodCarb').value = '';
+    document.getElementById('customFoodFat').value = '';
+
+    alert(`"${name}" wurde dauerhaft in deiner Lebensmittel-Datenbank gespeichert!`);
   }
 
   function updateSettings() {
@@ -1648,8 +1809,8 @@
     }
     Notification.requestPermission().then(permission => {
       if (permission === 'granted') {
-        new Notification('Mond & Rhythmus • Mara', {
-          body: 'Zeit für deinen achtsamen Tages-Check & deine Me-Time ☾',
+        new Notification('Mond & Rhythmus', {
+          body: 'Denk an deine Supplements & deinen kurzen Tages-Check!',
           icon: ''
         });
         alert('Erinnerungen erfolgreich aktiviert!');
@@ -1662,19 +1823,18 @@
 
   function exportData() {
     const backupObj = {
-      'mara_mond_settings_v1': settings,
-      'mara_mond_habits_v1': habitList,
-      'mara_mond_lifestyle_v1': lifestyleList,
-      'mara_mond_energy_v1': energyList,
-      'mara_mond_symptoms_v1': symptomList,
-      'mara_mond_custom_foods_v1': customFoodList,
-      'mara_mond_logs_v1': logs,
-      'mara_mond_archive_v1': archives
+      'mond_zyklus_settings_v8': settings,
+      'mond_zyklus_habits_v8': habitList,
+      'mond_zyklus_lifestyle_v8': lifestyleList,
+      'mond_zyklus_symptoms_v8': symptomList,
+      'mond_zyklus_custom_foods_v8': customFoodList,
+      'mond_zyklus_logs_v8': logs,
+      'mond_zyklus_archive_v8': archives
     };
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupObj, null, 2));
     const dlAnchor = document.createElement('a');
     dlAnchor.setAttribute("href", dataStr);
-    dlAnchor.setAttribute("download", "mond_rhythmus_mara_backup.json");
+    dlAnchor.setAttribute("download", "mond_rhythmus_katharina_backup.json");
     dlAnchor.click();
   }
 
@@ -1701,7 +1861,7 @@
     reader.onload = function(e) {
       try {
         const data = JSON.parse(e.target.result);
-        const keys = ['mara_mond_settings_v1', 'mara_mond_habits_v1', 'mara_mond_lifestyle_v1', 'mara_mond_energy_v1', 'mara_mond_symptoms_v1', 'mara_mond_custom_foods_v1', 'mara_mond_logs_v1', 'mara_mond_archive_v1'];
+        const keys = ['mond_zyklus_settings_v8', 'mond_zyklus_habits_v8', 'mond_zyklus_lifestyle_v8', 'mond_zyklus_symptoms_v8', 'mond_zyklus_custom_foods_v8', 'mond_zyklus_logs_v8', 'mond_zyklus_archive_v8'];
         let restoredCount = 0;
         keys.forEach(k => {
           if (data[k] !== undefined) {
