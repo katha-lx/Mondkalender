@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0D1612">
-
-<!-- PWA Manifest mit SVG-Vektor-Icon (192px & 512px) -->
-<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Mond%20%26%20Rhythmus%22%2C%22short_name%22%3A%22MondRhythmus%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230D1612%22%2C%22theme_color%22%3A%22%230D1612%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20512%20512'%3E%3Crect%20width%3D'512'%20height%3D'512'%20rx%3D'100'%20fill%3D'%230D1612'%2F%3E%3Cpath%20d%3D'M256%2064C150%2064%2064%20150%2064%20256s86%20192%20192%20192c73%200%20137-41%20169-102-18%204-37%206-57%206-127%200-230-103-230-230%200-20%202-39%206-57-61%2032-102%2096-102%20169z'%20fill%3D'%23D4AF6A'%2F%3E%3C%2Fsvg%3E%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D">
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mond & Rhythmus • Katharina</title>
@@ -1910,22 +1903,6 @@
 
 
   window.addEventListener('DOMContentLoaded', () => { init(); initPersistentStorage(); });
-  // Registriert den Service Worker inline via Blob, damit Chrome die PWA-Installierbarkeit freischaltet
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const swCode = `
-      self.addEventListener('install', e => self.skipWaiting());
-      self.addEventListener('activate', e => e.waitUntil(clients.claim()));
-      self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));
-    `;
-    const blob = new Blob([swCode], { type: 'text/javascript' });
-    const swUrl = URL.createObjectURL(blob);
-    navigator.serviceWorker.register(swUrl)
-      .then(() => console.log('PWA ServiceWorker aktiv'))
-      .catch(err => console.warn('SW Registrierung:', err));
-  });
-}
-  
 </script>
 </body>
 </html>
